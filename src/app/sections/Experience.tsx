@@ -20,11 +20,6 @@ export default function Experience() {
       className="scroll-mt-28 mb-28 max-w-[50rem] text-center leading-8 sm:mb-40 mx-auto"
     >
       <SectionHeading>Experience</SectionHeading>
-      
-      <p className="text-center text-gray-700 dark:text-gray-300 mb-12 max-w-[42rem] mx-auto">
-        My professional journey as a developer and the experiences that have shaped my career path.
-      </p>
-      
       <div className="relative">
         {/* Timeline bar */}
         <motion.div

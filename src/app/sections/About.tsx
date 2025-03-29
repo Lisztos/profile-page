@@ -24,25 +24,21 @@ export default function About() {
       
       <div className="mb-12 text-left">
         <p className="mb-6 text-gray-700 dark:text-gray-300">
-          I'm a passionate <span className="font-medium">Full-Stack Developer</span> with a focus on creating elegant, 
-          performant, and user-friendly web applications. With <span className="font-medium">8+ years</span> of 
-          experience, I specialize in building responsive web applications using modern technologies.
+          I'm a <span className="font-medium">Senior Backend Engineer</span> with a specialty in Ruby on Rails and 
+          full stack development. With <span className="font-medium">5+ years</span> of experience in startup environments, 
+          I focus on building scalable, reliable web applications and leading engineering teams.
         </p>
         
         <p className="mb-6 text-gray-700 dark:text-gray-300">
-          My journey in web development started with a degree in <span className="font-medium">Computer Science</span>, 
-          followed by years of hands-on experience working with various technologies and frameworks. I've had the 
-          opportunity to work on a diverse range of projects, from e-commerce platforms to complex web applications.
+          Currently based in <span className="font-medium">Berlin, Germany</span>, I've worked with companies like 
+          Innovandio GmbH, Demodesk, and Setting.io, where I've led teams, managed projects, and implemented 
+          key technical solutions.
         </p>
         
         <p className="mb-6 text-gray-700 dark:text-gray-300">
-          My core technical skills include <span className="font-medium">React.js, Next.js, TypeScript, Node.js, 
-          and MongoDB</span>. I'm passionate about writing clean, efficient code and creating intuitive user experiences.
-        </p>
-        
-        <p className="text-gray-700 dark:text-gray-300">
-          When I'm not coding, I enjoy photography, exploring new hiking trails, reading tech blogs, and contributing 
-          to open-source projects. I'm constantly learning and staying updated with the latest trends in web development.
+          My core technical skills include <span className="font-medium">Ruby on Rails, Back-End Web Development, 
+          Microsoft Power BI, and Heroku</span>. I'm passionate about solving complex problems and creating 
+          efficient systems that drive business success.
         </p>
       </div>
       
@@ -50,17 +46,19 @@ export default function About() {
         <div className="bg-white p-6 rounded-lg shadow-md max-w-xs dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
           <h3 className="font-bold text-xl mb-3">Education</h3>
           <p className="text-gray-700 dark:text-gray-300 text-sm">
-            Bachelor of Science in Computer Science<br />
-            University of Technology<br />
-            2011 - 2015
+            BSc in Wirtschaftsinformatik<br />
+            Technische Universität Berlin<br />
+            2018 - 2022
           </p>
         </div>
         
         <div className="bg-white p-6 rounded-lg shadow-md max-w-xs dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
-          <h3 className="font-bold text-xl mb-3">Work Philosophy</h3>
+          <h3 className="font-bold text-xl mb-3">Languages</h3>
           <p className="text-gray-700 dark:text-gray-300 text-sm">
-            I believe in writing clean, maintainable code and creating intuitive, accessible user experiences.
-            Continuous learning and adapting to new technologies are core principles of my work ethic.
+            Spanish - Native<br />
+            German - Full Professional<br />
+            English - Full Professional<br />
+            French - Elementary
           </p>
         </div>
       </div>

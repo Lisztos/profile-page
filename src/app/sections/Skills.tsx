@@ -6,25 +6,26 @@ import { useActiveSectionContext } from "@/app/context/active-section-context";
 import { skillsData } from "@/lib/data";
 import SectionHeading from "@/app/components/SectionHeading";
 import { 
-  FaReact, 
-  FaNodeJs, 
-  FaHtml5, 
-  FaCss3Alt, 
+  FaGem, 
+  FaAws, 
+  FaDocker, 
   FaJs, 
-  FaDatabase 
+  FaGit,
+  FaDatabase,
+  FaChartBar
 } from "react-icons/fa";
 import { 
-  SiTypescript, 
-  SiNextdotjs, 
-  SiTailwindcss, 
-  SiMongodb, 
-  SiExpress, 
-  SiRedux,
-  SiGraphql,
-  SiPostgresql,
-  SiPython,
-  SiDjango
+  SiRubyonrails, 
+  SiPostgresql, 
+  SiElasticsearch, 
+  SiHeroku, 
+  SiSalesforce,
+  SiHtml5,
+  SiCss3
 } from "react-icons/si";
+import { GoProjectRoadmap } from "react-icons/go";
+import { GrUserManager } from "react-icons/gr";
+import { TbApi } from "react-icons/tb";
 
 const fadeInAnimationVariants = {
   initial: {
@@ -43,28 +44,25 @@ const fadeInAnimationVariants = {
 // Skill categories
 const skillCategories = [
   {
-    title: "Frontend",
+    title: "Backend Development",
     skills: [
-      { name: "React", icon: <FaReact /> },
-      { name: "Next.js", icon: <SiNextdotjs /> },
-      { name: "TypeScript", icon: <SiTypescript /> },
-      { name: "JavaScript", icon: <FaJs /> },
-      { name: "HTML", icon: <FaHtml5 /> },
-      { name: "CSS", icon: <FaCss3Alt /> },
-      { name: "Tailwind", icon: <SiTailwindcss /> },
-      { name: "Redux", icon: <SiRedux /> },
+      { name: "Ruby", icon: <FaGem /> },
+      { name: "Ruby on Rails", icon: <SiRubyonrails /> },
+      { name: "PostgreSQL", icon: <SiPostgresql /> },
+      { name: "RESTful APIs", icon: <TbApi /> },
+      { name: "AWS", icon: <FaAws /> },
+      { name: "Docker", icon: <FaDocker /> },
     ],
   },
   {
-    title: "Backend",
+    title: "Frontend & Tools",
     skills: [
-      { name: "Node.js", icon: <FaNodeJs /> },
-      { name: "Express", icon: <SiExpress /> },
-      { name: "MongoDB", icon: <SiMongodb /> },
-      { name: "PostgreSQL", icon: <SiPostgresql /> },
-      { name: "GraphQL", icon: <SiGraphql /> },
-      { name: "Python", icon: <SiPython /> },
-      { name: "Django", icon: <SiDjango /> },
+      { name: "JavaScript", icon: <FaJs /> },
+      { name: "HTML", icon: <SiHtml5 /> },
+      { name: "CSS", icon: <SiCss3 /> },
+      { name: "Power BI", icon: <FaChartBar /> },
+      { name: "Salesforce", icon: <SiSalesforce /> },
+      { name: "Git", icon: <FaGit /> },
     ],
   },
 ];
@@ -82,12 +80,6 @@ export default function Skills() {
       className="mb-28 max-w-[53rem] scroll-mt-28 text-center sm:mb-40"
     >
       <SectionHeading>Skills</SectionHeading>
-      
-      <p className="text-center text-gray-700 dark:text-gray-300 mb-12 max-w-[42rem] mx-auto">
-        I specialize in full-stack development with a focus on modern JavaScript frameworks.
-        Here are the technologies I work with regularly.
-      </p>
-      
       <div className="space-y-12">
         {skillCategories.map((category, categoryIndex) => (
           <div key={categoryIndex} className="space-y-4">

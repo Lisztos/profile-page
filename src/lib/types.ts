@@ -1,1 +1,1 @@
-export type SectionName = "Home" | "About" | "Projects" | "Skills" | "Experience" | "Contact"; 
+export type SectionName = "Home" | "Projects" | "Skills" | "Experience"; 

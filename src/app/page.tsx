@@ -1,5 +1,3 @@
-import About from "./sections/About";
-import Contact from "./sections/Contact";
 import Experience from "./sections/Experience";
 import Intro from "./sections/Intro";
 import Projects from "./sections/Projects";
@@ -8,22 +6,20 @@ import Skills from "./sections/Skills";
 
 export default function Home() {
   return (
-    <main style={{
-      display: 'flex', 
-      flexDirection: 'column',
-      alignItems: 'center',
-      padding: '0 1rem',
-      maxWidth: '1200px',
-      margin: '0 auto',
-      backgroundColor: 'white',
-    }} className="flex flex-col items-center px-4">
+    <main 
+      className="flex flex-col items-center px-8 py-12 bg-white text-gray-900 dark:bg-gray-900 dark:text-white rounded-lg shadow-lg mx-auto max-w-5xl my-8"
+      style={{
+        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)',
+        border: '1px solid rgba(0, 0, 0, 0.1)',
+      }}
+    >
       <Intro />
       <SectionDivider />
-      <About />
-      <Projects />
       <Skills />
+      <SectionDivider />
       <Experience />
-      <Contact />
+      <SectionDivider />
+      <Projects />
     </main>
   );
 }

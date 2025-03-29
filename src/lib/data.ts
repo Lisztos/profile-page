@@ -6,10 +6,6 @@ export const links = [
     hash: "#home",
   },
   {
-    name: "About" as SectionName,
-    hash: "#about",
-  },
-  {
     name: "Projects" as SectionName,
     hash: "#projects",
   },
@@ -21,99 +17,113 @@ export const links = [
     name: "Experience" as SectionName,
     hash: "#experience",
   },
-  {
-    name: "Contact" as SectionName,
-    hash: "#contact",
-  },
 ] as const;
 
 export const experienceData = [
   {
-    title: "Senior Software Engineer",
-    company: "Tech Innovations Inc.",
-    location: "San Francisco, CA",
+    title: "Senior Software Engineer | Project Manager",
+    company: "Innovandio GmbH",
+    location: "Berlin, Germany",
     description:
-      "Led a team of 5 developers in building a scalable e-commerce platform. Implemented microservices architecture using Node.js and React, improving system performance by 40%. Mentored junior developers and established code review practices.",
+      "Leading development teams and managing projects in a fast-paced startup environment. Applying Ruby on Rails expertise and full stack development skills to deliver high-quality software solutions.",
     icon: "briefcase",
-    date: "2020 - Present",
+    date: "October 2023 - Present",
   },
   {
-    title: "Software Developer",
-    company: "Digital Solutions Co.",
-    location: "Boston, MA",
+    title: "Full Stack Software Engineer | Team Lead",
+    company: "Demodesk",
+    location: "Berlin, Germany",
     description:
-      "Developed and maintained web applications using React.js, Next.js, and Node.js. Collaborated with design and product teams to implement user-centric features. Reduced page load time by 35% through optimization techniques.",
+      "Led a team of engineers launching features and maintaining platform stability. Managed daily stand-ups and cross-department coordination. Co-developed a product idea assessment process and reported progress directly to the CEO.",
     icon: "briefcase",
-    date: "2017 - 2020",
+    date: "November 2022 - September 2023",
   },
   {
-    title: "Frontend Developer",
-    company: "Creative Web Agency",
-    location: "Chicago, IL",
+    title: "Software Engineer Intern",
+    company: "Demodesk",
+    location: "Munich, Germany",
     description:
-      "Created responsive web interfaces for various clients using HTML, CSS, and JavaScript. Implemented pixel-perfect designs and ensured cross-browser compatibility. Worked closely with UX designers to enhance user experiences.",
+      "Contributed to platform development and learned professional software engineering practices in a collaborative environment.",
     icon: "briefcase",
-    date: "2015 - 2017",
+    date: "February 2022 - November 2022",
   },
   {
-    title: "Computer Science Degree",
-    company: "University of Technology",
-    location: "Cambridge, MA",
+    title: "Working Student – Full Stack Developer",
+    company: "Setting.io",
+    location: "Berlin, Germany",
     description:
-      "Bachelor of Science in Computer Science with a focus on web technologies and software engineering. Participated in various hackathons and coding competitions.",
+      "Acted as technical support to the CTO. Optimized Office-Search load time by 45%. Designed a self-service onboarding system, developed a digital handover tool, and led company website relaunch.",
+    icon: "briefcase",
+    date: "October 2020 - February 2022",
+  },
+  {
+    title: "Working Student – Software Engineer",
+    company: "Almondia GmbH",
+    location: "Berlin, Germany",
+    description:
+      "Worked with Salesforce, Ruby on Rails, AWS, Docker, Elasticsearch & PostgreSQL to support the company's technical infrastructure and development needs.",
+    icon: "briefcase",
+    date: "February 2020 - October 2020",
+  },
+  {
+    title: "Bachelor of Science – Wirtschaftsinformatik",
+    company: "Technische Universität Berlin",
+    location: "Berlin, Germany",
+    description:
+      "Studied Business Informatics, combining computer science with business administration knowledge. Gained a solid foundation in software development, databases, and IT management.",
     icon: "graduation",
-    date: "2011 - 2015",
+    date: "2018 - 2022",
   },
 ] as const;
 
 export const projectsData = [
   {
-    title: "E-commerce Platform",
+    title: "Self-Service Onboarding System",
     description:
-      "A full-featured e-commerce platform with product management, cart functionality, user authentication, and payment processing. Built with Next.js, React, Node.js, and MongoDB.",
-    tags: ["React", "Next.js", "Node.js", "MongoDB", "Stripe"],
+      "Designed and implemented a self-service onboarding system at Setting.io that streamlined the customer acquisition process and reduced manual intervention.",
+    tags: ["Ruby on Rails", "PostgreSQL", "Heroku", "JavaScript", "HTML/CSS"],
     imageUrl: "/images/projects/project1.png",
   },
   {
-    title: "Task Management App",
+    title: "Office-Search Optimization",
     description:
-      "A productivity tool for teams to manage tasks, track progress, and collaborate on projects. Features include drag-and-drop interfaces, real-time updates, and performance analytics.",
-    tags: ["React", "TypeScript", "Firebase", "Tailwind CSS", "Redux"],
+      "Improved the load time of the Office-Search feature by 45% through performance optimization, caching strategies, and database query improvements.",
+    tags: ["Ruby on Rails", "Elasticsearch", "PostgreSQL", "Performance Optimization"],
     imageUrl: "/images/projects/project2.png",
   },
   {
-    title: "Finance Dashboard",
+    title: "Digital Handover Tool",
     description:
-      "An interactive dashboard for financial data visualization with customizable charts, filters, and report generation. Real-time data processing with optimized performance.",
-    tags: ["React", "D3.js", "Node.js", "Express", "PostgreSQL"],
+      "Developed a digital handover tool that facilitated smooth transitions between team members and improved project continuity and knowledge transfer.",
+    tags: ["Ruby", "JavaScript", "RESTful APIs", "UX/UI Design"],
     imageUrl: "/images/projects/project1.png",
   },
   {
-    title: "Social Media Platform",
+    title: "Platform Migration Project",
     description:
-      "A social networking application with features like user profiles, posts, comments, friend requests, and real-time messaging. Built with a focus on performance and scalability.",
-    tags: ["Next.js", "React", "Socket.io", "MongoDB", "Redis"],
+      "Led the migration of a legacy platform to a modern system, ensuring data integrity and minimal disruption to users while implementing new features.",
+    tags: ["Ruby on Rails", "AWS", "Docker", "Database Migration", "CI/CD"],
     imageUrl: "/images/projects/project2.png",
   },
 ] as const;
 
 export const skillsData = [
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Node.js",
-  "Git",
-  "Tailwind",
-  "MongoDB",
-  "Redux",
-  "GraphQL",
-  "Apollo",
-  "Express",
+  "Ruby on Rails",
+  "Back-End Development",
+  "Microsoft Power BI",
+  "Heroku",
+  "AWS",
+  "Docker",
   "PostgreSQL",
-  "Python",
-  "Django",
-  "Framer Motion",
+  "Elasticsearch",
+  "JavaScript",
+  "HTML/CSS",
+  "Git",
+  "Salesforce",
+  "Project Management",
+  "Team Leadership",
+  "RESTful APIs",
+  "CI/CD",
+  "Agile Methodologies",
+  "Problem Solving",
 ] as const; 

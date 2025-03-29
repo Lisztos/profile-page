@@ -2,12 +2,11 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
-import { BsArrowRight, BsLinkedin, BsGithub } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
-import { FaTwitter } from "react-icons/fa";
+import { FaMapMarkerAlt } from "react-icons/fa";
 import { useActiveSectionContext } from "@/app/context/active-section-context";
 import { useInView } from "react-intersection-observer";
+import LetsConnect from "../components/LetsConnect";
 
 export default function Intro() {
   const { ref, inView } = useInView({
@@ -19,7 +18,7 @@ export default function Intro() {
     <section
       ref={ref}
       id="home"
-      className="mb-28 max-w-[50rem] text-center leading-8 sm:mb-40 scroll-mt-[100rem]"
+      className="mb-16 max-w-[50rem] text-center leading-8 scroll-mt-[100rem] pt-4"
     >
       <div className="flex items-center justify-center">
         <div className="relative">
@@ -32,7 +31,7 @@ export default function Intro() {
             }}
           >
             <Image
-              src="/images/profile.jpg"
+              src="/images/profile-photo.png"
               alt="Adrian Sanchez"
               width="192"
               height="192"
@@ -59,7 +58,7 @@ export default function Intro() {
       </div>
 
       <motion.h1
-        className="mb-5 mt-6 px-4 text-3xl font-bold !leading-[1.5] sm:text-5xl"
+        className="mb-4 mt-8 px-4 text-4xl font-bold !leading-[1.3] sm:text-5xl text-gray-900 dark:text-white"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
@@ -67,83 +66,53 @@ export default function Intro() {
       </motion.h1>
       
       <motion.h2
-        className="mb-10 px-4 text-xl text-gray-700 dark:text-gray-300 font-medium"
+        className="mb-3 px-4 text-xl text-gray-800 dark:text-gray-200 font-medium"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
       >
-        Full-Stack Developer & Software Engineer
+        Full-Stack Engineer
       </motion.h2>
 
-      <motion.p
-        className="mb-12 px-4 text-lg !leading-[1.8] text-gray-700 dark:text-gray-300 max-w-2xl mx-auto"
+      <motion.div
+        className="flex items-center justify-center gap-1 mb-8 text-gray-700 dark:text-gray-300"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1 }}
+        transition={{ delay: 0.15 }}
       >
-        I build exceptional and accessible digital experiences for the web.
-        Specialized in <span className="font-medium">React</span> and <span className="font-medium">Next.js</span> with
-        <span className="font-medium"> 8 years</span> of experience in web development.
+        <FaMapMarkerAlt className="text-gray-500" />
+        <span>Berlin, Germany</span>
+      </motion.div>
+
+      <motion.p
+        className="mb-10 px-4 text-lg !leading-[1.8] text-gray-800 dark:text-gray-200 max-w-2xl mx-auto"
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+      >
+        I build exceptional digital experiences with <span className="font-semibold text-gray-900 dark:text-white">5+ years</span> of 
+        experience in startup environments. Specialized in <span className="font-semibold text-gray-900 dark:text-white">Ruby on Rails</span> and 
+        full stack development.
       </motion.p>
 
       <motion.div
-        className="flex flex-col sm:flex-row items-center justify-center gap-3 px-4 text-lg font-medium"
+        className="flex justify-center mb-8"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{
-          delay: 0.2,
-        }}
+        transition={{ delay: 0.25 }}
       >
-        <Link
-          href="#contact"
-          className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 transition"
-          onClick={() => {
-            setActiveSection("Contact");
-            setTimeOfLastClick(Date.now());
-          }}
-        >
-          Contact me{" "}
-          <BsArrowRight className="opacity-70 group-hover:translate-x-1 transition" />
-        </Link>
-
         <a
-          className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10"
+          className="group bg-white text-gray-800 px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer border border-gray-300 hover:border-gray-400 dark:bg-white/10 dark:text-white justify-center"
           href="/CV.pdf"
           download
         >
           Download CV{" "}
           <HiDownload className="opacity-60 group-hover:translate-y-1 transition" />
         </a>
-
-        <div className="flex gap-3">
-          <a
-            className="bg-white p-4 text-gray-700 hover:text-gray-950 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
-            href="https://linkedin.com"
-            target="_blank"
-            aria-label="LinkedIn profile"
-          >
-            <BsLinkedin />
-          </a>
-          
-          <a
-            className="bg-white p-4 text-gray-700 hover:text-gray-950 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
-            href="https://github.com"
-            target="_blank"
-            aria-label="GitHub profile"
-          >
-            <BsGithub />
-          </a>
-          
-          <a
-            className="bg-white p-4 text-gray-700 hover:text-gray-950 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
-            href="https://twitter.com"
-            target="_blank"
-            aria-label="Twitter profile"
-          >
-            <FaTwitter />
-          </a>
-        </div>
       </motion.div>
+      
+      {/* Let's Connect Section */}
+      <LetsConnect />
     </section>
   );
 } 
