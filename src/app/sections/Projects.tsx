@@ -19,11 +19,11 @@ export default function Projects() {
     <section
       ref={ref}
       id="projects"
-      className="scroll-mt-28 mb-28 max-w-[50rem] mx-auto"
+      className="scroll-mt-28 max-w-[50rem] mx-auto"
     >
       <SectionHeading>Projects</SectionHeading>
       
-      <p className="text-center text-gray-700 dark:text-gray-300 mb-10 max-w-[42rem] mx-auto">
+      <p className="text-center text-gray-700 dark:text-gray-300 mb-8 max-w-[42rem] mx-auto">
         I've worked on various projects ranging from web applications to mobile apps. 
         Here are some of my recent projects that showcase my skills and expertise.
       </p>

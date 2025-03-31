@@ -3,10 +3,9 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { HiDownload } from "react-icons/hi";
-import { FaMapMarkerAlt } from "react-icons/fa";
+import { FaMapMarkerAlt, FaLinkedin, FaGithub, FaGitlab, FaEnvelope } from "react-icons/fa";
 import { useActiveSectionContext } from "@/app/context/active-section-context";
 import { useInView } from "react-intersection-observer";
-import LetsConnect from "../components/LetsConnect";
 
 export default function Intro() {
   const { ref, inView } = useInView({
@@ -18,7 +17,7 @@ export default function Intro() {
     <section
       ref={ref}
       id="home"
-      className="mb-16 max-w-[50rem] text-center leading-8 scroll-mt-[100rem] pt-4"
+      className="max-w-[50rem] text-center leading-8 scroll-mt-[100rem] pt-4 mx-auto"
     >
       <div className="flex items-center justify-center">
         <div className="relative">
@@ -96,23 +95,59 @@ export default function Intro() {
       </motion.p>
 
       <motion.div
-        className="flex justify-center mb-8"
+        className="flex flex-col items-center gap-6"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.25 }}
       >
+        {/* Download CV Button */}
         <a
-          className="group bg-white text-gray-800 px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer border border-gray-300 hover:border-gray-400 dark:bg-white/10 dark:text-white justify-center"
+          className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-black active:scale-105 transition cursor-pointer border border-transparent justify-center w-auto"
           href="/CV.pdf"
           download
         >
           Download CV{" "}
-          <HiDownload className="opacity-60 group-hover:translate-y-1 transition" />
+          <HiDownload className="opacity-70 group-hover:translate-y-1 transition" />
         </a>
+
+        {/* Social Links */}
+        <div className="flex gap-5 items-center justify-center">
+          <a
+            href="https://www.linkedin.com/in/adrian-isaias-sanchez/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white p-3 text-gray-700 rounded-full hover:text-blue-600 hover:scale-110 transition-all border border-gray-200 shadow-sm dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700"
+            aria-label="LinkedIn profile"
+          >
+            <FaLinkedin size={20} />
+          </a>
+          <a
+            href="https://github.com/Lisztos"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white p-3 text-gray-700 rounded-full hover:text-gray-900 hover:scale-110 transition-all border border-gray-200 shadow-sm dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700"
+            aria-label="GitHub profile"
+          >
+            <FaGithub size={20} />
+          </a>
+          <a
+            href="https://gitlab.com/Lisztos"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white p-3 text-gray-700 rounded-full hover:text-orange-600 hover:scale-110 transition-all border border-gray-200 shadow-sm dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700"
+            aria-label="GitLab profile"
+          >
+            <FaGitlab size={20} />
+          </a>
+          <a
+            href="mailto:isaias.liszt@gmail.com"
+            className="bg-white p-3 text-gray-700 rounded-full hover:text-red-500 hover:scale-110 transition-all border border-gray-200 shadow-sm dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700"
+            aria-label="Email contact"
+          >
+            <FaEnvelope size={20} />
+          </a>
+        </div>
       </motion.div>
-      
-      {/* Let's Connect Section */}
-      <LetsConnect />
     </section>
   );
 } 

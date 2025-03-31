@@ -17,7 +17,7 @@ export default function Experience() {
     <section
       ref={ref}
       id="experience"
-      className="scroll-mt-28 mb-28 max-w-[50rem] text-center leading-8 sm:mb-40 mx-auto"
+      className="scroll-mt-28 max-w-[50rem] text-center leading-8 mx-auto"
     >
       <SectionHeading>Experience</SectionHeading>
       <div className="relative">
@@ -30,7 +30,7 @@ export default function Experience() {
         />
         
         {/* Timeline items */}
-        <div className="space-y-12">
+        <div className="space-y-8">
           {experienceData.map((experience, index) => (
             <motion.div
               key={index}
@@ -78,7 +78,7 @@ export default function Experience() {
         </div>
       </div>
       
-      <div className="mt-16 flex justify-center">
+      <div className="mt-12 flex justify-center">
         <a 
           href="/CV.pdf" 
           download 

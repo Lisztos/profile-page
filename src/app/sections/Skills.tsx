@@ -77,10 +77,10 @@ export default function Skills() {
     <section
       ref={ref}
       id="skills"
-      className="mb-28 max-w-[53rem] scroll-mt-28 text-center sm:mb-40"
+      className="max-w-[53rem] scroll-mt-28 text-center mx-auto"
     >
       <SectionHeading>Skills</SectionHeading>
-      <div className="space-y-12">
+      <div className="space-y-8">
         {skillCategories.map((category, categoryIndex) => (
           <div key={categoryIndex} className="space-y-4">
             <h3 className="text-xl font-bold">{category.title}</h3>
