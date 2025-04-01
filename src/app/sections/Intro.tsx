@@ -13,6 +13,17 @@ export default function Intro() {
   });
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
 
+  const waveAnimation = {
+    initial: { rotate: 0 },
+    hover: {
+      rotate: [0, 14, -8, 14, -4, 10, 0],
+      transition: {
+        duration: 1.5,
+        ease: "easeInOut",
+      },
+    },
+  };
+
   return (
     <section
       ref={ref}
@@ -41,9 +52,12 @@ export default function Intro() {
           </motion.div>
 
           <motion.span
-            className="absolute bottom-0 right-0 text-4xl"
+            className="absolute bottom-0 right-0 text-4xl cursor-pointer"
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
+            whileHover="hover"
+            variants={waveAnimation}
+            style={{ originX: 0.7, originY: 0.7 }}
             transition={{
               type: "spring",
               stiffness: 125,
@@ -65,7 +79,7 @@ export default function Intro() {
       </motion.h1>
       
       <motion.h2
-        className="mb-3 px-4 text-xl text-gray-800 dark:text-gray-200 font-medium"
+        className="mb-1 px-4 text-xl text-gray-800 dark:text-gray-200 font-medium"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
@@ -89,8 +103,8 @@ export default function Intro() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
       >
-        I build exceptional digital experiences with <span className="font-semibold text-gray-900 dark:text-white">5+ years</span> of 
-        experience in startup environments. Specialized in <span className="font-semibold text-gray-900 dark:text-white">Ruby on Rails</span> and 
+        I build exceptional digital experiences with <span className="text-blue-500">5+ years</span> of 
+        experience in startup environments. Specialized in <span className="text-blue-500">Ruby on Rails</span> and 
         full stack development.
       </motion.p>
 

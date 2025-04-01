@@ -10,33 +10,39 @@ export default function Home() {
   };
   
   return (
-    <main className="flex flex-col items-center gap-8 px-4 py-8 mx-auto max-w-5xl">
+    <main className="flex flex-col items-center">
       <div 
-        className="w-full rounded-lg bg-white text-gray-900 dark:bg-gray-900 dark:text-white p-8 shadow-lg"
-        style={sectionStyle}
+        className="min-h-[calc(100vh-4rem)] w-full flex items-center justify-center px-4 py-8 relative"
       >
-        <Intro />
+        <div 
+          className="w-full max-w-5xl rounded-lg bg-white text-gray-900 dark:bg-gray-900 dark:text-white p-8 shadow-lg"
+          style={sectionStyle}
+        >
+          <Intro />
+        </div>
       </div>
-      
-      <div 
-        className="w-full rounded-lg bg-white text-gray-900 dark:bg-gray-900 dark:text-white p-8 shadow-lg"
-        style={sectionStyle}
-      >
-        <Skills />
-      </div>
-      
-      <div 
-        className="w-full rounded-lg bg-white text-gray-900 dark:bg-gray-900 dark:text-white p-8 shadow-lg"
-        style={sectionStyle}
-      >
-        <Experience />
-      </div>
-      
-      <div 
-        className="w-full rounded-lg bg-white text-gray-900 dark:bg-gray-900 dark:text-white p-8 shadow-lg"
-        style={sectionStyle}
-      >
-        <Projects />
+
+      <div className="w-full max-w-5xl px-4 flex flex-col gap-8 py-16">
+        <div 
+          className="w-full rounded-lg bg-white text-gray-900 dark:bg-gray-900 dark:text-white p-8 shadow-lg"
+          style={sectionStyle}
+        >
+          <Skills />
+        </div>
+        
+        <div 
+          className="w-full rounded-lg bg-white text-gray-900 dark:bg-gray-900 dark:text-white p-8 shadow-lg"
+          style={sectionStyle}
+        >
+          <Experience />
+        </div>
+        
+        <div 
+          className="w-full rounded-lg bg-white text-gray-900 dark:bg-gray-900 dark:text-white p-8 shadow-lg"
+          style={sectionStyle}
+        >
+          <Projects />
+        </div>
       </div>
     </main>
   );
