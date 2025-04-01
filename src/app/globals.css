@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes gradient-shift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-1%, 1%) scale(1.02);
+  }
+  66% {
+    transform: translate(1%, -1%) scale(0.98);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+.animate-gradient {
+  animation: gradient-shift 15s ease-in-out infinite;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

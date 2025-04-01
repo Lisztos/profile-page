@@ -22,8 +22,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="!scroll-smooth">
       <body className={`${inter.className} bg-gray-50 text-gray-950 relative pt-4 min-h-screen dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}>
-        <div className="bg-[#0ea5e9] fixed inset-0 -z-10 w-full max-w-[75rem] mx-auto rounded-full blur-[10rem] sm:w-[68.75rem] dark:bg-[#0369a1]"></div>
-        <div className="bg-[#c4b5fd] fixed inset-0 -z-10 w-full max-w-[50rem] mx-auto rounded-full blur-[10rem] sm:w-[68.75rem] dark:bg-[#5650a7]"></div>
+        <div className="bg-[#3b82f6] fixed inset-0 -z-10 w-full max-w-[75rem] mx-auto rounded-full blur-[10rem] sm:w-[68.75rem] dark:bg-[#2563eb] animate-gradient"></div>
+        <div className="bg-[#60a5fa] fixed inset-0 -z-10 w-full max-w-[50rem] mx-auto rounded-full blur-[10rem] sm:w-[68.75rem] dark:bg-[#3b82f6] animate-gradient [animation-delay:-7s]"></div>
 
         <ThemeContextProvider>
           <ActiveSectionContextProvider>
