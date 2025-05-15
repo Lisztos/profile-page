@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { HiDownload } from "react-icons/hi";
-import { FaMapMarkerAlt, FaLinkedin, FaGithub, FaGitlab, FaEnvelope } from "react-icons/fa";
+import { FaMapMarkerAlt, FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 import { useActiveSectionContext } from "@/app/context/active-section-context";
 import { useInView } from "react-intersection-observer";
 
@@ -77,9 +77,9 @@ export default function Intro() {
       >
         Adrian Sanchez
       </motion.h1>
-      
+
       <motion.h2
-        className="mb-1 px-4 text-xl text-gray-800 dark:text-gray-200 font-medium"
+        className="px-4 text-xl text-gray-800 dark:text-gray-200 font-medium"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
@@ -103,8 +103,8 @@ export default function Intro() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
       >
-        I build exceptional digital experiences with <span className="text-blue-500">5+ years</span> of 
-        experience in startup environments. Specialized in <span className="text-blue-500">Ruby on Rails</span> and 
+        I build exceptional digital experiences with <span className="text-blue-500">5+ years</span> of
+        experience in startup environments. Specialized in <span className="text-blue-500">Ruby on Rails</span> and
         full stack development.
       </motion.p>
 
@@ -145,15 +145,6 @@ export default function Intro() {
             <FaGithub size={20} />
           </a>
           <a
-            href="https://gitlab.com/Lisztos"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-white p-3 text-gray-700 rounded-full hover:text-orange-600 hover:scale-110 transition-all border border-gray-200 shadow-sm dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700"
-            aria-label="GitLab profile"
-          >
-            <FaGitlab size={20} />
-          </a>
-          <a
             href="mailto:isaias.liszt@gmail.com"
             className="bg-white p-3 text-gray-700 rounded-full hover:text-red-500 hover:scale-110 transition-all border border-gray-200 shadow-sm dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700"
             aria-label="Email contact"
@@ -164,4 +155,4 @@ export default function Intro() {
       </motion.div>
     </section>
   );
-} 
+}

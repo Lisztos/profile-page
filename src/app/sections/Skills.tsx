@@ -2,8 +2,6 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useActiveSectionContext } from "@/app/context/active-section-context";
-import { skillsData } from "@/lib/data";
 import SectionHeading from "@/app/components/SectionHeading";
 import { 
   FaGem, 
@@ -11,20 +9,16 @@ import {
   FaDocker, 
   FaJs, 
   FaGit,
-  FaDatabase,
   FaChartBar
 } from "react-icons/fa";
 import { 
   SiRubyonrails, 
   SiPostgresql, 
-  SiElasticsearch, 
-  SiHeroku, 
   SiSalesforce,
   SiHtml5,
-  SiCss3
+  SiCss3,
+  SiVuedotjs
 } from "react-icons/si";
-import { GoProjectRoadmap } from "react-icons/go";
-import { GrUserManager } from "react-icons/gr";
 import { TbApi } from "react-icons/tb";
 
 const fadeInAnimationVariants = {
@@ -41,37 +35,30 @@ const fadeInAnimationVariants = {
   }),
 };
 
-// Skill categories
-const skillCategories = [
-  {
-    title: "Backend Development",
-    skills: [
-      { name: "Ruby", icon: <FaGem /> },
-      { name: "Ruby on Rails", icon: <SiRubyonrails /> },
-      { name: "PostgreSQL", icon: <SiPostgresql /> },
-      { name: "RESTful APIs", icon: <TbApi /> },
-      { name: "AWS", icon: <FaAws /> },
-      { name: "Docker", icon: <FaDocker /> },
-    ],
-  },
-  {
-    title: "Frontend & Tools",
-    skills: [
-      { name: "JavaScript", icon: <FaJs /> },
-      { name: "HTML", icon: <SiHtml5 /> },
-      { name: "CSS", icon: <SiCss3 /> },
-      { name: "Power BI", icon: <FaChartBar /> },
-      { name: "Salesforce", icon: <SiSalesforce /> },
-      { name: "Git", icon: <FaGit /> },
-    ],
-  },
+// Skill categories organized in two rows
+const skillsRows = [
+  [
+    { name: "Ruby", icon: <FaGem /> },
+    { name: "Ruby on Rails", icon: <SiRubyonrails /> },
+    { name: "PostgreSQL", icon: <SiPostgresql /> },
+    { name: "AWS", icon: <FaAws /> },
+    { name: "Docker", icon: <FaDocker /> },
+    { name: "JavaScript", icon: <FaJs /> },
+  ],
+  [
+    { name: "Vue.js", icon: <SiVuedotjs /> },
+    { name: "RESTful APIs", icon: <TbApi /> },
+    { name: "HTML5", icon: <SiHtml5 /> },
+    { name: "CSS3", icon: <SiCss3 /> },
+    { name: "Power BI", icon: <FaChartBar /> },
+    { name: "Git", icon: <FaGit /> },
+  ],
 ];
 
 export default function Skills() {
-  const { ref, inView } = useInView({
+  const { ref } = useInView({
     threshold: 0.5,
   });
-  const { setActiveSection, timeOfLastClick } = useActiveSectionContext();
 
   return (
     <section
@@ -80,28 +67,25 @@ export default function Skills() {
       className="max-w-[53rem] scroll-mt-28 text-center mx-auto"
     >
       <SectionHeading>Skills</SectionHeading>
-      <div className="space-y-8">
-        {skillCategories.map((category, categoryIndex) => (
-          <div key={categoryIndex} className="space-y-4">
-            <h3 className="text-xl font-bold">{category.title}</h3>
-            <div className="flex flex-wrap justify-center gap-4">
-              {category.skills.map((skill, skillIndex) => (
-                <motion.div
-                  key={skillIndex}
-                  className="flex flex-col items-center group"
-                  variants={fadeInAnimationVariants}
-                  initial="initial"
-                  whileInView="animate"
-                  viewport={{ once: true }}
-                  custom={skillIndex}
-                >
-                  <div className="bg-white rounded-full p-4 border border-gray-200 text-2xl text-gray-800 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                    {skill.icon}
-                  </div>
-                  <span className="mt-2 text-sm">{skill.name}</span>
-                </motion.div>
-              ))}
-            </div>
+      <div className="flex flex-col gap-8">
+        {skillsRows.map((row, rowIndex) => (
+          <div key={rowIndex} className="flex justify-center gap-4">
+            {row.map((skill, skillIndex) => (
+              <motion.div
+                key={skillIndex}
+                className="flex flex-col items-center group"
+                variants={fadeInAnimationVariants}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+                custom={skillIndex + rowIndex * row.length}
+              >
+                <div className="bg-white rounded-full p-4 border border-gray-200 text-2xl text-gray-800 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                  {skill.icon}
+                </div>
+                <span className="mt-2 text-sm">{skill.name}</span>
+              </motion.div>
+            ))}
           </div>
         ))}
       </div>
