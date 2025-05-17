@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { BsLinkedin, BsGithub } from "react-icons/bs";
 
 export default function Footer() {
@@ -12,21 +11,21 @@ export default function Footer() {
               Senior Backend Engineer
             </p>
           </div>
-          
+
           <div className="text-center">
             <div className="flex items-center justify-center gap-5">
-              <a 
-                href="https://www.linkedin.com/in/adrian-isaias-sanchez/" 
-                target="_blank" 
+              <a
+                href="https://www.linkedin.com/in/adrian-isaias-sanchez/"
+                target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn Profile"
                 className="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors"
               >
                 <BsLinkedin size={18} />
               </a>
-              <a 
-                href="https://github.com/Lisztos" 
-                target="_blank" 
+              <a
+                href="https://github.com/Lisztos"
+                target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub Profile"
                 className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
@@ -35,7 +34,7 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          
+
           <div className="text-center md:text-right">
             <p className="text-sm text-gray-600 dark:text-gray-400">
               &copy; {new Date().getFullYear()} Adrian Sanchez
@@ -48,4 +47,4 @@ export default function Footer() {
       </div>
     </footer>
   );
-} 
+}

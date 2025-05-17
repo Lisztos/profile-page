@@ -4,15 +4,8 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { HiDownload } from "react-icons/hi";
 import { FaMapMarkerAlt, FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
-import { useActiveSectionContext } from "@/app/context/active-section-context";
-import { useInView } from "react-intersection-observer";
 
 export default function Intro() {
-  const { ref, inView } = useInView({
-    threshold: 0.5,
-  });
-  const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
-
   const waveAnimation = {
     initial: { rotate: 0 },
     hover: {
@@ -26,7 +19,6 @@ export default function Intro() {
 
   return (
     <section
-      ref={ref}
       id="home"
       className="max-w-[50rem] text-center leading-8 scroll-mt-[100rem] pt-4 mx-auto"
     >

@@ -1,22 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { useActiveSectionContext } from "@/app/context/active-section-context";
 import { experienceData } from "@/lib/data";
 import SectionHeading from "@/app/components/SectionHeading";
-import { FaBriefcase, FaLaptopCode, FaRegBuilding } from "react-icons/fa";
+import { FaBriefcase } from "react-icons/fa";
 import { SiRubyonrails, SiPostgresql, SiRedis, SiVuedotjs, SiAngular, SiTerraform, SiGithub, SiGitlab, SiGnubash, SiHeroku, SiSalesforce } from "react-icons/si";
-import { RiComputerLine } from "react-icons/ri";
-import { FaAws } from "react-icons/fa";
 import { MdOutlineSchool } from "react-icons/md";
+import { FaAws } from "react-icons/fa";
 
 export default function Experience() {
-  const { ref, inView } = useInView({
-    threshold: 0.5,
-  });
-  const { setActiveSection, timeOfLastClick } = useActiveSectionContext();
-
   // Function to return appropriate icon based on company
   const getCompanyIcon = (iconName: string) => {
     switch(iconName) {
@@ -85,43 +77,8 @@ export default function Experience() {
     }
   };
 
-  // Function to format tech name
-  const formatTechName = (tech: string): string => {
-    switch(tech) {
-      case "rails":
-        return "Rails";
-      case "postgresql":
-        return "PostgreSQL";
-      case "redis":
-        return "Redis";
-      case "vue":
-        return "Vue.js";
-      case "angular":
-        return "Angular";
-      case "terraform":
-        return "Terraform";
-      case "github":
-        return "GitHub";
-      case "aws":
-        return "AWS";
-      case "gitlab":
-        return "GitLab";
-      case "bash":
-        return "Bash";
-      case "heroku":
-        return "Heroku";
-      case "salesforce":
-        return "Salesforce";
-      case "matestack":
-        return "Matestack";
-      default:
-        return tech.charAt(0).toUpperCase() + tech.slice(1);
-    }
-  };
-
   return (
     <section
-      ref={ref}
       id="experience"
       className="scroll-mt-28 max-w-[50rem] text-center leading-8 mx-auto"
     >
@@ -196,7 +153,7 @@ export default function Experience() {
                             {getTechIcon(tech)}
                           </div>
                           <span className="text-xs text-gray-600 dark:text-gray-400 text-center">
-                            {formatTechName(tech)}
+                            {tech.charAt(0).toUpperCase() + tech.slice(1)}
                           </span>
                         </div>
                       ))}

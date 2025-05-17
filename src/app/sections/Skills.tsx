@@ -1,16 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import SectionHeading from "@/app/components/SectionHeading";
 import { skillsData } from "@/lib/data";
 import {
-  FaGem,
   FaAws,
-  FaGit,
-  FaChartBar,
-  FaUsers,
-  FaProjectDiagram
+  FaGit
 } from "react-icons/fa";
 import {
   SiRubyonrails,
@@ -19,12 +14,9 @@ import {
   SiVuedotjs,
   SiRedis,
   SiTerraform,
-  SiGithub,
-  SiGitlab,
-  SiGnubash,
-  SiHeroku
+  SiHeroku,
+  SiGnubash
 } from "react-icons/si";
-import { TbApi } from "react-icons/tb";
 
 const fadeInAnimationVariants = {
   initial: {
@@ -93,15 +85,10 @@ const organizeSkills = () => {
 };
 
 export default function Skills() {
-  const { ref } = useInView({
-    threshold: 0.5,
-  });
-
   const skillRows = organizeSkills();
 
   return (
     <section
-      ref={ref}
       id="skills"
       className="max-w-[53rem] scroll-mt-28 text-center mx-auto"
     >
