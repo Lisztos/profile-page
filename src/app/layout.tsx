@@ -4,7 +4,8 @@ import "./globals.css";
 import Footer from "./components/Footer";
 import ActiveSectionContextProvider from "./context/active-section-context";
 import ThemeContextProvider from "./context/theme-context";
-import ThemeSwitch from "./components/ThemeSwitch";
+// Theme switch is temporarily disabled
+// import ThemeSwitch from "./components/ThemeSwitch";
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Toaster } from "react-hot-toast";
@@ -52,7 +53,8 @@ export default function RootLayout({
           <ActiveSectionContextProvider>
             {children}
             <Footer />
-            <ThemeSwitch />
+            {/* ThemeSwitch temporarily disabled */}
+            {/* <ThemeSwitch /> */}
             <Toaster position="top-right" />
           </ActiveSectionContextProvider>
         </ThemeContextProvider>
