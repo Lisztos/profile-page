@@ -105,7 +105,7 @@ export default function Intro() {
       </motion.div>
 
       <motion.p
-        className="mb-10 px-4 text-lg !leading-[1.8] text-gray-800 dark:text-gray-200 max-w-2xl mx-auto"
+        className="mb-10 px-3 text-lg !leading-[1.8] text-gray-800 dark:text-gray-200 max-w-2xl mx-auto"
         initial={{ opacity: 0, y: 100 }}
         animate={controls}
         transition={{ delay: 0.2 }}
@@ -113,6 +113,16 @@ export default function Intro() {
         I build exceptional digital experiences with <span className="text-blue-500">5+ years</span> of
         experience in startup environments. Specialized in <span className="text-blue-500">Ruby on Rails</span> and
         full stack development.
+      </motion.p>
+
+      <motion.p
+        className="mb-10 px-3 text-md !leading-relaxed text-gray-700 dark:text-gray-300 max-w-2xl mx-auto bg-gray-50 dark:bg-gray-800/50 py-4 rounded-lg border border-gray-100 dark:border-gray-700 flex items-center justify-center gap-2"
+        initial={{ opacity: 0, y: 100 }}
+        animate={controls}
+        transition={{ delay: 0.22 }}
+      >
+        <span className="text-2xl">💬</span>
+        I&apos;m open for freelance and consulting work — book a call to discuss your project.
       </motion.p>
 
       <motion.div
