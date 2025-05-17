@@ -16,7 +16,7 @@ export default function Projects() {
       <SectionHeading>Projects</SectionHeading>
 
       <p className="text-center text-gray-700 dark:text-gray-300 mb-8 max-w-[42rem] mx-auto">
-        I've worked on various projects ranging from web applications to mobile apps.
+        I&apos;ve worked on various projects ranging from web applications to mobile apps.
         Here are some of my recent projects that showcase my skills and expertise.
       </p>
 

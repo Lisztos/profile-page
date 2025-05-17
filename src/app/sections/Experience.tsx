@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { experienceData } from "@/lib/data";
 import SectionHeading from "@/app/components/SectionHeading";
 import { FaBriefcase } from "react-icons/fa";
@@ -15,25 +16,25 @@ export default function Experience() {
       case "innovandio":
         return (
           <div className="w-full h-full flex items-center justify-center bg-white">
-            <img src="/images/logos/innovandio-icon.png" alt="Innovandio" className="w-12 h-12 object-contain" />
+            <Image src="/images/logos/innovandio-icon.png" alt="Innovandio" width={48} height={48} className="object-contain" />
           </div>
         );
       case "demodesk":
         return (
           <div className="w-full h-full flex items-center justify-center bg-white">
-            <img src="/images/logos/demodesk.svg" alt="Demodesk" className="w-12 h-12 object-contain" />
+            <Image src="/images/logos/demodesk.svg" alt="Demodesk" width={48} height={48} className="object-contain" />
           </div>
         );
       case "setting":
         return (
           <div className="w-full h-full flex items-center justify-center bg-white">
-            <img src="/images/logos/setting.svg" alt="Setting HQ" className="w-12 h-12 object-contain" />
+            <Image src="/images/logos/setting.svg" alt="Setting HQ" width={48} height={48} className="object-contain" />
           </div>
         );
       case "almondia":
         return (
           <div className="w-full h-full flex items-center justify-center bg-[#000F46]">
-            <img src="/images/logos/almondia.png" alt="Almondia" className="w-12 h-12 object-contain" />
+            <Image src="/images/logos/almondia.png" alt="Almondia" width={48} height={48} className="object-contain" />
           </div>
         );
       case "graduation":
@@ -71,7 +72,7 @@ export default function Experience() {
       case "salesforce":
         return <SiSalesforce className="w-7 h-7" style={{ color: "#00A1E0" }} />;
       case "matestack":
-        return <img src="/images/logos/matestack.png" alt="Matestack" className="w-7 h-7 object-contain" />;
+        return <Image src="/images/logos/matestack.png" alt="Matestack" width={28} height={28} className="object-contain" />;
       default:
         return null;
     }

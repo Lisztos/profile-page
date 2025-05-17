@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import SectionHeading from "@/app/components/SectionHeading";
 import { skillsData } from "@/lib/data";
 import {
@@ -54,7 +55,7 @@ const getSkillIcon = (skillName: string) => {
     case "Salesforce":
       return <SiSalesforce className="w-7 h-7" style={{ color: "#00A1E0" }} />;
     case "Matestack":
-      return <img src="/images/logos/matestack.png" alt="Matestack" className="w-7 h-7 object-contain" />;
+      return <Image src="/images/logos/matestack.png" alt="Matestack" width={28} height={28} className="object-contain" />;
     case "Git":
       return <FaGit className="w-7 h-7" style={{ color: "#F05032" }} />;
     default:

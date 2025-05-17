@@ -16,20 +16,20 @@ export default function About() {
 
       <div className="mb-12 text-left">
         <p className="mb-6 text-gray-700 dark:text-gray-300">
-          I'm a <span className="font-medium">Senior Backend Engineer</span> with a specialty in Ruby on Rails and
+          I&apos;m a <span className="font-medium">Senior Backend Engineer</span> with a specialty in Ruby on Rails and
           full stack development. With <span className="font-medium">5+ years</span> of experience in startup environments,
           I focus on building scalable, reliable web applications and leading engineering teams.
         </p>
 
         <p className="mb-6 text-gray-700 dark:text-gray-300">
-          Currently based in <span className="font-medium">Berlin, Germany</span>, I've worked with companies like
-          Innovandio GmbH, Demodesk, and Setting.io, where I've led teams, managed projects, and implemented
+          Currently based in <span className="font-medium">Berlin, Germany</span>, I&apos;ve worked with companies like
+          Innovandio GmbH, Demodesk, and Setting.io, where I&apos;ve led teams, managed projects, and implemented
           key technical solutions.
         </p>
 
         <p className="mb-6 text-gray-700 dark:text-gray-300">
           My core technical skills include <span className="font-medium">Ruby on Rails, Back-End Web Development,
-          Microsoft Power BI, and Heroku</span>. I'm passionate about solving complex problems and creating
+          Microsoft Power BI, and Heroku</span>. I&apos;m passionate about solving complex problems and creating
           efficient systems that drive business success.
         </p>
       </div>
