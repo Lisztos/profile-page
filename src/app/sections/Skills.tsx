@@ -105,13 +105,11 @@ const getTechUrl = (skillName: string): string => {
 
 // Organize skills in balanced rows
 const organizeSkills = () => {
-  const rowSize = Math.ceil(skillsData.length / 2); // Display in 2 rows
-  const rows = [];
-
-  for (let i = 0; i < skillsData.length; i += rowSize) {
-    rows.push(skillsData.slice(i, i + rowSize));
-  }
-
+  // First row gets 6 skills, second row gets 5
+  const rows = [
+    skillsData.slice(0, 6),
+    skillsData.slice(6)
+  ];
   return rows;
 };
 
@@ -121,33 +119,33 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="max-w-[53rem] scroll-mt-28 text-center mx-auto"
+      className="max-w-[53rem] scroll-mt-28 text-center mx-auto mb-10"
     >
       <SectionHeading>Skills</SectionHeading>
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-10">
         {skillRows.map((row, rowIndex) => (
-          <div key={rowIndex} className="flex flex-wrap justify-center gap-6">
+          <div key={rowIndex} className="flex flex-wrap justify-center gap-8">
             {row.map((skill, skillIndex) => (
               <motion.div
                 key={skillIndex}
-                className="flex flex-col items-center group"
+                className="flex flex-col items-center group mx-4"
                 variants={fadeInAnimationVariants}
                 initial="initial"
                 whileInView="animate"
                 viewport={{ once: true }}
-                custom={skillIndex + rowIndex * row.length}
+                custom={skillIndex + rowIndex * 6}
               >
                 <a
                   href={getTechUrl(skill)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block"
+                  className="block text-center"
                   aria-label={`Learn more about ${skill}`}
                 >
-                  <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-full flex items-center justify-center shadow-sm transition-all duration-300 transform group-hover:scale-110 group-hover:shadow-md">
+                  <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-full flex items-center justify-center shadow-sm transition-all duration-300 transform group-hover:scale-110 group-hover:shadow-md w-14 h-14 mx-auto">
                     {getSkillIcon(skill)}
                   </div>
-                  <span className="mt-2 text-sm text-gray-600 dark:text-gray-400 transition-all duration-300 group-hover:text-gray-900 dark:group-hover:text-gray-200">
+                  <span className="mt-2 text-sm text-gray-600 dark:text-gray-400 transition-all duration-300 group-hover:text-gray-900 dark:group-hover:text-gray-200 block transform group-hover:scale-110">
                     {formatTechName(skill)}
                   </span>
                 </a>
