@@ -134,19 +134,22 @@ export default function Intro() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4">
           {/* Primary CTA - Let's Work Together */}
-          <a
-            className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none transition duration-300 hover:bg-black active:scale-[0.98] cursor-pointer border border-transparent justify-center w-auto transform hover:scale-[1.03] focus:scale-[1.03]"
-            href="https://calendly.com/lisztos/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Let&apos;s Work Together{" "}
-            <FaCalendarCheck className="opacity-70 transition-transform duration-300 transform group-hover:translate-x-1" />
-          </a>
+          <div className="relative group">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full opacity-75 group-hover:opacity-100 blur-sm group-hover:blur transition-all duration-1000 animate-tilt"></div>
+            <a
+              className="relative bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none transition-all duration-300 hover:bg-black active:scale-[0.96] cursor-pointer border border-gray-700 justify-center w-auto transform hover:scale-[1.05] focus:scale-[1.05] shadow-sm hover:shadow-md z-10"
+              href="https://calendly.com/lisztos/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Let&apos;s Work Together{" "}
+              <FaCalendarCheck className="opacity-70 transition-transform duration-300 transform group-hover:translate-x-1" />
+            </a>
+          </div>
 
           {/* Secondary CTA - Download CV */}
           <a
-            className="group bg-transparent text-gray-900 dark:text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none transition duration-300 cursor-pointer border border-gray-300 dark:border-gray-700 justify-center hover:border-gray-400 dark:hover:border-gray-600 transform hover:scale-[1.03] focus:scale-[1.03] active:scale-[0.98]"
+            className="group bg-transparent text-gray-900 dark:text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none transition-all duration-300 cursor-pointer border border-gray-300 dark:border-gray-700 justify-center hover:border-gray-400 dark:hover:border-gray-600 transform hover:scale-[1.05] focus:scale-[1.05] active:scale-[0.96] hover:shadow-sm"
             href="/adrianisanchez-cv.pdf"
             download
           >
