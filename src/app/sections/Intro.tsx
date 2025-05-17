@@ -1,12 +1,24 @@
 "use client";
 
-import { motion } from "framer-motion";
+import React, { useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
 import { HiDownload } from "react-icons/hi";
-import { FaMapMarkerAlt, FaLinkedin, FaGithub, FaFileAlt } from "react-icons/fa";
+import { FaMapMarkerAlt, FaLinkedin, FaGithub } from "react-icons/fa";
 import { FaCalendarCheck } from "react-icons/fa6";
 
 export default function Intro() {
+  const controls = useAnimation();
+
+  useEffect(() => {
+    // Ensure animations run after component mounts
+    controls.start({
+      opacity: 1,
+      y: 0,
+      transition: { delay: 0.1 }
+    });
+  }, [controls]);
+
   const waveAnimation = {
     initial: { rotate: 0 },
     hover: {
@@ -33,14 +45,16 @@ export default function Intro() {
               duration: 0.2,
             }}
           >
+            {/* Using unoptimized to fix image loading issues with Next.js Image optimization */}
             <Image
               src="/images/profile-photo.png"
               alt="Adrian Sanchez"
-              width="192"
-              height="192"
-              quality="95"
+              width={192}
+              height={192}
+              quality={95}
               priority={true}
               className="h-40 w-40 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
+              unoptimized
             />
           </motion.div>
 
@@ -66,7 +80,7 @@ export default function Intro() {
       <motion.h1
         className="mb-4 mt-8 px-4 text-4xl font-bold !leading-[1.3] sm:text-5xl text-gray-900 dark:text-white"
         initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={controls}
       >
         Adrian Sanchez
       </motion.h1>
@@ -74,7 +88,7 @@ export default function Intro() {
       <motion.h2
         className="px-4 text-xl text-gray-800 dark:text-gray-200 font-medium"
         initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={controls}
         transition={{ delay: 0.1 }}
       >
         Full-Stack Engineer
@@ -83,7 +97,7 @@ export default function Intro() {
       <motion.div
         className="flex items-center justify-center gap-1 mb-8 text-gray-700 dark:text-gray-300"
         initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={controls}
         transition={{ delay: 0.15 }}
       >
         <FaMapMarkerAlt className="text-gray-500" />
@@ -93,7 +107,7 @@ export default function Intro() {
       <motion.p
         className="mb-10 px-4 text-lg !leading-[1.8] text-gray-800 dark:text-gray-200 max-w-2xl mx-auto"
         initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={controls}
         transition={{ delay: 0.2 }}
       >
         I build exceptional digital experiences with <span className="text-blue-500">5+ years</span> of
@@ -104,30 +118,30 @@ export default function Intro() {
       <motion.div
         className="flex flex-col items-center gap-6"
         initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={controls}
         transition={{ delay: 0.25 }}
       >
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4">
           {/* Primary CTA - Let's Work Together */}
           <a
-            className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-105 hover:scale-105 hover:bg-black active:scale-100 transition cursor-pointer border border-transparent justify-center w-auto"
+            className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none transition duration-300 hover:bg-black active:scale-[0.98] cursor-pointer border border-transparent justify-center w-auto transform hover:scale-[1.03] focus:scale-[1.03]"
             href="https://calendly.com/lisztos/30min"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Let's Work Together{" "}
-            <FaCalendarCheck className="opacity-70 group-hover:translate-x-1 transition" />
+            Let&apos;s Work Together{" "}
+            <FaCalendarCheck className="opacity-70 transition-transform duration-300 transform group-hover:translate-x-1" />
           </a>
 
           {/* Secondary CTA - Download CV */}
           <a
-            className="group bg-transparent text-gray-900 dark:text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-105 hover:scale-105 active:scale-100 transition cursor-pointer border border-gray-300 dark:border-gray-700 justify-center hover:border-gray-400 dark:hover:border-gray-600"
+            className="group bg-transparent text-gray-900 dark:text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none transition duration-300 cursor-pointer border border-gray-300 dark:border-gray-700 justify-center hover:border-gray-400 dark:hover:border-gray-600 transform hover:scale-[1.03] focus:scale-[1.03] active:scale-[0.98]"
             href="/adrianisanchez-cv.pdf"
             download
           >
             Download CV{" "}
-            <HiDownload className="opacity-70 group-hover:translate-y-1 transition" />
+            <HiDownload className="opacity-70 transition-transform duration-300 transform group-hover:translate-y-1" />
           </a>
         </div>
 
@@ -137,7 +151,7 @@ export default function Intro() {
             href="https://www.linkedin.com/in/adrian-isaias-sanchez/"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-white p-3 text-gray-700 rounded-full hover:text-blue-600 hover:scale-110 transition-all border border-gray-200 shadow-sm dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700"
+            className="bg-white p-3 text-gray-700 rounded-full transition-all duration-300 border border-gray-200 shadow-sm dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 transform hover:scale-110 hover:text-blue-600"
             aria-label="LinkedIn profile"
           >
             <FaLinkedin size={20} />
@@ -146,7 +160,7 @@ export default function Intro() {
             href="https://github.com/Lisztos"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-white p-3 text-gray-700 rounded-full hover:text-gray-900 hover:scale-110 transition-all border border-gray-200 shadow-sm dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700"
+            className="bg-white p-3 text-gray-700 rounded-full transition-all duration-300 border border-gray-200 shadow-sm dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 transform hover:scale-110 hover:text-gray-900"
             aria-label="GitHub profile"
           >
             <FaGithub size={20} />

@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import React, { useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
 import { experienceData } from "@/lib/data";
 import SectionHeading from "@/app/components/SectionHeading";
@@ -10,6 +11,13 @@ import { FaAws } from "react-icons/fa";
 import { HiDownload } from "react-icons/hi";
 
 export default function Experience() {
+  const controls = useAnimation();
+
+  useEffect(() => {
+    // Start animations after component mounts
+    controls.start("visible");
+  }, [controls]);
+
   // Function to return appropriate icon based on company
   const getCompanyIcon = (iconName: string) => {
     switch(iconName) {
@@ -111,7 +119,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="scroll-mt-28 max-w-[50rem] text-center leading-8 mx-auto mb-16"
+      className="scroll-mt-28 max-w-[50rem] text-center leading-8 mx-auto mb-28"
     >
       <SectionHeading>Experience</SectionHeading>
       <div className="relative">
@@ -120,7 +128,7 @@ export default function Experience() {
           className="absolute left-9 top-0 bottom-0 w-[2px] bg-gray-200 dark:bg-gray-700"
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "100%" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.8 }}
         />
 
         {/* Timeline items */}
@@ -201,17 +209,20 @@ export default function Experience() {
       {/* Download CV Button */}
       <motion.div
         className="mt-12 flex justify-center"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
+        animate={controls}
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          visible: { opacity: 1, y: 0, transition: { delay: 0.5, duration: 0.4 } }
+        }}
+        initial="hidden"
       >
         <a
-          className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-black active:scale-105 transition cursor-pointer border border-transparent justify-center w-auto"
+          className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none transition-all duration-300 cursor-pointer border border-transparent justify-center w-auto transform hover:scale-[1.03] focus:scale-[1.03] active:scale-[0.98] hover:bg-black"
           href="/adrianisanchez-cv.pdf"
           download
         >
-          Download CV{" "}
-          <HiDownload className="opacity-70 group-hover:translate-y-1 transition" />
+          Download Full CV{" "}
+          <HiDownload className="opacity-70 transition-transform duration-300 group-hover:translate-y-1" />
         </a>
       </motion.div>
     </section>
