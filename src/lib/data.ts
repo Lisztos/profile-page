@@ -5,10 +5,12 @@ export const links = [
     name: "Home" as SectionName,
     hash: "#home",
   },
+  /* Temporarily hidden
   {
     name: "Projects" as SectionName,
     hash: "#projects",
   },
+  */
   {
     name: "Skills" as SectionName,
     hash: "#skills",

@@ -45,12 +45,14 @@ export default function Home() {
           <Education />
         </div>
 
+        {/* Projects section temporarily hidden
         <div
           className="w-full rounded-lg bg-white text-gray-900 dark:bg-gray-900 dark:text-white p-8 shadow-lg"
           style={sectionStyle}
         >
           <Projects />
         </div>
+        */}
       </div>
     </main>
   );
