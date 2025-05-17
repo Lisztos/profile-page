@@ -1,57 +1,50 @@
+"use client";
+
 import Experience from "./sections/Experience";
 import Intro from "./sections/Intro";
 // import Projects from "./sections/Projects";
 import Skills from "./sections/Skills";
 import Education from "./sections/Education";
+import Card from "./components/Card";
+import DuckAnimation from "./components/DuckAnimation";
+import { useState, useEffect } from "react";
 
 export default function Home() {
-  const sectionStyle = {
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)',
-    border: '1px solid rgba(0, 0, 0, 0.1)',
-  };
+  const [isMounted, setIsMounted] = useState(false);
+
+  // Ensure duck is only rendered client-side
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   return (
     <main className="flex flex-col items-center px-4">
+      {isMounted && <DuckAnimation />}
       <div
         className="min-h-[calc(100vh-4rem)] w-full flex items-center justify-center py-8 relative"
       >
-        <div
-          className="w-full max-w-5xl rounded-lg bg-white text-gray-900 dark:bg-gray-900 dark:text-white p-8 shadow-lg"
-          style={sectionStyle}
-        >
+        <Card id="intro-card" className="w-full max-w-5xl mx-auto">
           <Intro />
-        </div>
+        </Card>
       </div>
 
       <div className="w-full max-w-5xl flex flex-col gap-8 py-16">
-        <div
-          className="w-full my-2 rounded-lg bg-white text-gray-900 dark:bg-gray-900 dark:text-white p-8 shadow-lg"
-          style={sectionStyle}
-        >
+        <Card id="skills-card" className="w-full my-2">
           <Skills />
-        </div>
+        </Card>
 
-        <div
-          className="w-full my-2 rounded-lg bg-white text-gray-900 dark:bg-gray-900 dark:text-white p-8 shadow-lg"
-          style={sectionStyle}
-        >
+        <Card id="experience-card" className="w-full my-2">
           <Experience />
-        </div>
+        </Card>
 
-        <div
-          className="w-full my-2 rounded-lg bg-white text-gray-900 dark:bg-gray-900 dark:text-white p-8 shadow-lg"
-          style={sectionStyle}
-        >
+        <Card id="education-card" className="w-full my-2">
           <Education />
-        </div>
+        </Card>
 
         {/* Projects section temporarily hidden
-        <div
-          className="w-full rounded-lg bg-white text-gray-900 dark:bg-gray-900 dark:text-white p-8 shadow-lg"
-          style={sectionStyle}
-        >
+        <Card id="projects-card" className="w-full">
           <Projects />
-        </div>
+        </Card>
         */}
       </div>
     </main>

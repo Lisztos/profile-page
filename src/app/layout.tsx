@@ -11,8 +11,23 @@ import { Toaster } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Adrian Sanchez | Senior Full Stack Engineer",
+  title: "Adrian Sanchez",
   description: "Senior Full Stack Engineer with Ruby on Rails expertise and 5+ years of experience in startup environments.",
+  icons: {
+    icon: '/icon.png',
+    apple: '/icon.png',
+  },
+  openGraph: {
+    title: "Adrian Sanchez | Senior Full Stack Engineer",
+    description: "Senior Full Stack Engineer with Ruby on Rails expertise and 5+ years of experience in startup environments.",
+    images: [{ url: '/images/duck.png', width: 60, height: 60 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Adrian Sanchez | Senior Full Stack Engineer",
+    description: "Senior Full Stack Engineer with Ruby on Rails expertise and 5+ years of experience in startup environments.",
+    images: ['/images/duck.png'],
+  },
 };
 
 export default function RootLayout({
@@ -22,6 +37,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="!scroll-smooth">
+      <head>
+        <link rel="shortcut icon" href="/icon.png" />
+        <link rel="apple-touch-icon" href="/icon.png" />
+      </head>
       <body className={`${inter.className} bg-gray-50 text-gray-950 relative pt-4 min-h-screen dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}>
 
 
