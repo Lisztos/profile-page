@@ -8,7 +8,7 @@ export default function Footer() {
           <div className="text-center md:text-left">
             <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Adrian Sanchez</h3>
             <p className="text-sm text-gray-700 dark:text-gray-300">
-              Senior Backend Engineer
+              Senior Full Stack Engineer
             </p>
           </div>
 

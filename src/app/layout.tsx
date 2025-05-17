@@ -11,8 +11,8 @@ import { Toaster } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Adrian Sanchez | Senior Backend Engineer",
-  description: "Senior Backend Engineer with Ruby on Rails expertise and 5+ years of experience in startup environments.",
+  title: "Adrian Sanchez | Senior Full Stack Engineer",
+  description: "Senior Full Stack Engineer with Ruby on Rails expertise and 5+ years of experience in startup environments.",
 };
 
 export default function RootLayout({

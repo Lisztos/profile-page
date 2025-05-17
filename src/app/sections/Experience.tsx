@@ -69,8 +69,6 @@ export default function Experience() {
             </a>
           </div>
         );
-      case "graduation":
-        return <MdOutlineSchool className="w-9 h-9 text-blue-600 dark:text-blue-400" />;
       default:
         return <FaBriefcase className="w-9 h-9 text-blue-600 dark:text-blue-400" />;
     }
@@ -113,7 +111,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="scroll-mt-28 max-w-[50rem] text-center leading-8 mx-auto"
+      className="scroll-mt-28 max-w-[50rem] text-center leading-8 mx-auto mb-16"
     >
       <SectionHeading>Experience</SectionHeading>
       <div className="relative">
@@ -167,6 +165,7 @@ export default function Experience() {
                 <p className="text-gray-700 dark:text-gray-300 mb-3">
                   {experience.company} • {experience.location}
                 </p>
+
                 <ul className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed list-disc pl-5 space-y-1 mb-4">
                   {experience.description.map((item, i) => (
                     <li key={i}>{item}</li>
@@ -197,16 +196,6 @@ export default function Experience() {
             </motion.div>
           ))}
         </div>
-      </div>
-
-      <div className="mt-12 flex justify-center">
-        <a
-          href="/adrian-sanchez-cv.pdf"
-          download
-          className="px-6 py-3 bg-blue-600 text-white rounded-md font-medium hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:ring-offset-gray-900"
-        >
-          Download Full Resume
-        </a>
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-export type SectionName = "Home" | "Projects" | "Skills" | "Experience";
+export type SectionName = "Home" | "Projects" | "Skills" | "Experience" | "Education";
 
 export type TechItem =
   | "rails"
@@ -22,5 +22,14 @@ export interface ExperienceItem {
   description: string[];
   techStack?: TechItem[];
   icon: string;
+  date: string;
+}
+
+export interface EducationItem {
+  degree: string;
+  institution: string;
+  location: string;
+  description: string[];
+  logo: string;
   date: string;
 }

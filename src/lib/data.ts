@@ -17,6 +17,10 @@ export const links = [
     name: "Experience" as SectionName,
     hash: "#experience",
   },
+  {
+    name: "Education" as SectionName,
+    hash: "#education",
+  },
 ] as const;
 
 export const experienceData = [
@@ -114,19 +118,22 @@ export const experienceData = [
     ],
     icon: "almondia",
     date: "February 2020 - October 2020",
-  },
+  }
+] as const;
+
+// Education data
+export const educationData = [
   {
-    title: "Bachelor of Science – Wirtschaftsinformatik",
-    company: "Technische Universität Berlin",
+    degree: "Bachelor of Science – Wirtschaftsinformatik",
+    institution: "Technische Universität Berlin",
     location: "Berlin, Germany",
     description: [
-      "Studied Business Informatics, combining computer science with business administration",
-      "Gained a solid foundation in software development, databases, and IT management",
-      "Completed coursework in algorithms, data structures, and system design"
+      "B.Sc. Business Informatics (Wirtschaftsinformatik)",
+      "Thesis topic: \"Integrating Didcomm Messaging in ActivityPub-based Social Networks\"",
     ],
-    icon: "graduation",
+    logo: "tu-berlin",
     date: "2018 - 2022",
-  },
+  }
 ] as const;
 
 export const projectsData = [
