@@ -21,56 +21,109 @@ export const links = [
 
 export const experienceData = [
   {
-    title: "Senior Software Engineer | Project Manager",
+    title: "Senior Software Engineer",
     company: "Innovandio GmbH",
     location: "Berlin, Germany",
-    description:
-      "Leading development teams and managing projects in a fast-paced startup environment. Applying Ruby on Rails expertise and full stack development skills to deliver high-quality software solutions.",
-    icon: "briefcase",
+    description: [
+      "Built and maintained two full stack applications for enterprise clients",
+      "Designed CI/CD pipelines and infrastructure to streamline deployments and testing",
+      "Managed engineers and led multiple client projects under tight deadlines"
+    ],
+    techStack: [
+      "rails",
+      "matestack",
+      "vue",
+      "postgresql",
+      "terraform",
+      "aws",
+      "redis",
+      "github",
+      "bash"
+    ],
+    icon: "innovandio",
     date: "October 2023 - Present",
   },
   {
     title: "Full Stack Software Engineer | Team Lead",
     company: "Demodesk",
-    location: "Berlin, Germany",
-    description:
-      "Led a team of engineers launching features and maintaining platform stability. Managed daily stand-ups and cross-department coordination. Co-developed a product idea assessment process and reported progress directly to the CEO.",
-    icon: "briefcase",
+    location: "Munich, Germany",
+    description: [
+      "Led a team of engineers focused on feature delivery and platform stability",
+      "Shipped features under strict SLA and uptime requirements for a global-facing platform",
+      "Improved cross-team alignment by co-developing a process to prioritize product ideas"
+    ],
+    techStack: [
+      "rails",
+      "vue",
+      "postgresql",
+      "redis",
+      "gitlab",
+      "aws",
+      "bash"
+    ],
+    icon: "demodesk",
     date: "November 2022 - September 2023",
   },
   {
     title: "Software Engineer Intern",
     company: "Demodesk",
     location: "Munich, Germany",
-    description:
-      "Contributed to platform development and learned professional software engineering practices in a collaborative environment.",
-    icon: "briefcase",
+    description: [
+      "Cut technical debt and simplified the codebase by 15%",
+      "Boosted backend performance by optimizing queries and reducing response times",
+      "Contributed to development of platform features and functionality"
+    ],
+    techStack: [
+      "rails",
+      "vue",
+      "postgresql"
+    ],
+    icon: "demodesk",
     date: "February 2022 - November 2022",
   },
   {
-    title: "Working Student – Full Stack Developer",
-    company: "Setting.io",
+    title: "Full Stack Software Engineer (Working Student)",
+    company: "Setting HQ GmbH",
     location: "Berlin, Germany",
-    description:
-      "Acted as technical support to the CTO. Optimized Office-Search load time by 45%. Designed a self-service onboarding system, developed a digital handover tool, and led company website relaunch.",
-    icon: "briefcase",
+    description: [
+      "Optimized the platform's Office-Search functionality, reducing load times by 45%",
+      "Developed an office onboarding system, digitizing a previous manual and error-prone system",
+      "Eliminated legacy dependencies by migrating the platform to a modern system architecture",
+      "Led the relaunch of the company's website"
+    ],
+    techStack: [
+      "rails",
+      "postgresql",
+      "heroku"
+    ],
+    icon: "setting",
     date: "October 2020 - February 2022",
   },
   {
-    title: "Working Student – Software Engineer",
+    title: "Full Stack Software Engineer (Working Student)",
     company: "Almondia GmbH",
     location: "Berlin, Germany",
-    description:
-      "Worked with Salesforce, Ruby on Rails, AWS, Docker, Elasticsearch & PostgreSQL to support the company's technical infrastructure and development needs.",
-    icon: "briefcase",
+    description: [
+      "Designed and developed a custom CRM system for a partner company",
+      "Maintained and optimized Salesforce integration pipelines, improving data flow and error detection"
+    ],
+    techStack: [
+      "rails",
+      "postgresql",
+      "salesforce"
+    ],
+    icon: "almondia",
     date: "February 2020 - October 2020",
   },
   {
     title: "Bachelor of Science – Wirtschaftsinformatik",
     company: "Technische Universität Berlin",
     location: "Berlin, Germany",
-    description:
-      "Studied Business Informatics, combining computer science with business administration knowledge. Gained a solid foundation in software development, databases, and IT management.",
+    description: [
+      "Studied Business Informatics, combining computer science with business administration",
+      "Gained a solid foundation in software development, databases, and IT management",
+      "Completed coursework in algorithms, data structures, and system design"
+    ],
     icon: "graduation",
     date: "2018 - 2022",
   },
@@ -109,21 +162,14 @@ export const projectsData = [
 
 export const skillsData = [
   "Ruby on Rails",
-  "Back-End Development",
-  "Microsoft Power BI",
-  "Heroku",
-  "AWS",
-  "Docker",
+  "Vue.js",
+  "Matestack",
   "PostgreSQL",
-  "Elasticsearch",
-  "JavaScript",
-  "HTML/CSS",
-  "Git",
+  "Terraform",
+  "AWS",
+  "Bash",
+  "Heroku",
   "Salesforce",
-  "Project Management",
-  "Team Leadership",
-  "RESTful APIs",
-  "CI/CD",
-  "Agile Methodologies",
-  "Problem Solving",
-] as const; 
+  "Redis",
+  "Git"
+] as const;

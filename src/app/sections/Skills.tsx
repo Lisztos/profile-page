@@ -3,21 +3,26 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import SectionHeading from "@/app/components/SectionHeading";
-import { 
-  FaGem, 
-  FaAws, 
-  FaDocker, 
-  FaJs, 
+import { skillsData } from "@/lib/data";
+import {
+  FaGem,
+  FaAws,
   FaGit,
-  FaChartBar
+  FaChartBar,
+  FaUsers,
+  FaProjectDiagram
 } from "react-icons/fa";
-import { 
-  SiRubyonrails, 
-  SiPostgresql, 
+import {
+  SiRubyonrails,
+  SiPostgresql,
   SiSalesforce,
-  SiHtml5,
-  SiCss3,
-  SiVuedotjs
+  SiVuedotjs,
+  SiRedis,
+  SiTerraform,
+  SiGithub,
+  SiGitlab,
+  SiGnubash,
+  SiHeroku
 } from "react-icons/si";
 import { TbApi } from "react-icons/tb";
 
@@ -35,30 +40,64 @@ const fadeInAnimationVariants = {
   }),
 };
 
-// Skill categories organized in two rows
-const skillsRows = [
-  [
-    { name: "Ruby", icon: <FaGem /> },
-    { name: "Ruby on Rails", icon: <SiRubyonrails /> },
-    { name: "PostgreSQL", icon: <SiPostgresql /> },
-    { name: "AWS", icon: <FaAws /> },
-    { name: "Docker", icon: <FaDocker /> },
-    { name: "JavaScript", icon: <FaJs /> },
-  ],
-  [
-    { name: "Vue.js", icon: <SiVuedotjs /> },
-    { name: "RESTful APIs", icon: <TbApi /> },
-    { name: "HTML5", icon: <SiHtml5 /> },
-    { name: "CSS3", icon: <SiCss3 /> },
-    { name: "Power BI", icon: <FaChartBar /> },
-    { name: "Git", icon: <FaGit /> },
-  ],
-];
+// Map skill names to icons with their original brand colors
+const getSkillIcon = (skillName: string) => {
+  switch(skillName) {
+    case "Ruby on Rails":
+      return <SiRubyonrails className="w-7 h-7" style={{ color: "#CC0000" }} />;
+    case "Vue.js":
+      return <SiVuedotjs className="w-7 h-7" style={{ color: "#4FC08D" }} />;
+    case "PostgreSQL":
+      return <SiPostgresql className="w-7 h-7" style={{ color: "#336791" }} />;
+    case "Redis":
+      return <SiRedis className="w-7 h-7" style={{ color: "#DC382D" }} />;
+    case "Terraform":
+      return <SiTerraform className="w-7 h-7" style={{ color: "#7B42BC" }} />;
+    case "AWS":
+      return <FaAws className="w-7 h-7" style={{ color: "#FF9900" }} />;
+    case "Bash":
+      return <SiGnubash className="w-7 h-7" style={{ color: "#4EAA25" }} />;
+    case "Heroku":
+      return <SiHeroku className="w-7 h-7" style={{ color: "#430098" }} />;
+    case "Salesforce":
+      return <SiSalesforce className="w-7 h-7" style={{ color: "#00A1E0" }} />;
+    case "Matestack":
+      return <img src="/images/logos/matestack.png" alt="Matestack" className="w-7 h-7 object-contain" />;
+    case "Git":
+      return <FaGit className="w-7 h-7" style={{ color: "#F05032" }} />;
+    default:
+      return null;
+  }
+};
+
+// Function to format tech name
+const formatTechName = (tech: string): string => {
+  switch(tech) {
+    case "GitHub Actions":
+      return "GitHub";
+    default:
+      return tech;
+  }
+};
+
+// Organize skills in balanced rows
+const organizeSkills = () => {
+  const rowSize = Math.ceil(skillsData.length / 2); // Display in 2 rows
+  const rows = [];
+
+  for (let i = 0; i < skillsData.length; i += rowSize) {
+    rows.push(skillsData.slice(i, i + rowSize));
+  }
+
+  return rows;
+};
 
 export default function Skills() {
   const { ref } = useInView({
     threshold: 0.5,
   });
+
+  const skillRows = organizeSkills();
 
   return (
     <section
@@ -68,8 +107,8 @@ export default function Skills() {
     >
       <SectionHeading>Skills</SectionHeading>
       <div className="flex flex-col gap-8">
-        {skillsRows.map((row, rowIndex) => (
-          <div key={rowIndex} className="flex justify-center gap-4">
+        {skillRows.map((row, rowIndex) => (
+          <div key={rowIndex} className="flex flex-wrap justify-center gap-6">
             {row.map((skill, skillIndex) => (
               <motion.div
                 key={skillIndex}
@@ -80,10 +119,12 @@ export default function Skills() {
                 viewport={{ once: true }}
                 custom={skillIndex + rowIndex * row.length}
               >
-                <div className="bg-white rounded-full p-4 border border-gray-200 text-2xl text-gray-800 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                  {skill.icon}
+                <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-full flex items-center justify-center shadow-sm">
+                  {getSkillIcon(skill)}
                 </div>
-                <span className="mt-2 text-sm">{skill.name}</span>
+                <span className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                  {formatTechName(skill)}
+                </span>
               </motion.div>
             ))}
           </div>
@@ -91,4 +132,4 @@ export default function Skills() {
       </div>
     </section>
   );
-} 
+}
