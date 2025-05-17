@@ -1,6 +1,6 @@
 import Experience from "./sections/Experience";
 import Intro from "./sections/Intro";
-import Projects from "./sections/Projects";
+// import Projects from "./sections/Projects";
 import Skills from "./sections/Skills";
 import Education from "./sections/Education";
 

@@ -6,8 +6,8 @@ import { experienceData } from "@/lib/data";
 import SectionHeading from "@/app/components/SectionHeading";
 import { FaBriefcase } from "react-icons/fa";
 import { SiRubyonrails, SiPostgresql, SiRedis, SiVuedotjs, SiAngular, SiTerraform, SiGithub, SiGitlab, SiGnubash, SiHeroku, SiSalesforce } from "react-icons/si";
-import { MdOutlineSchool } from "react-icons/md";
 import { FaAws } from "react-icons/fa";
+import { HiDownload } from "react-icons/hi";
 
 export default function Experience() {
   // Function to return appropriate icon based on company
@@ -197,6 +197,23 @@ export default function Experience() {
           ))}
         </div>
       </div>
+
+      {/* Download CV Button */}
+      <motion.div
+        className="mt-12 flex justify-center"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3 }}
+      >
+        <a
+          className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-black active:scale-105 transition cursor-pointer border border-transparent justify-center w-auto"
+          href="/adrianisanchez-cv.pdf"
+          download
+        >
+          Download CV{" "}
+          <HiDownload className="opacity-70 group-hover:translate-y-1 transition" />
+        </a>
+      </motion.div>
     </section>
   );
 }

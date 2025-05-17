@@ -3,7 +3,8 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { HiDownload } from "react-icons/hi";
-import { FaMapMarkerAlt, FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+import { FaMapMarkerAlt, FaLinkedin, FaGithub, FaFileAlt } from "react-icons/fa";
+import { FaCalendarCheck } from "react-icons/fa6";
 
 export default function Intro() {
   const waveAnimation = {
@@ -106,17 +107,31 @@ export default function Intro() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.25 }}
       >
-        {/* Download CV Button */}
-        <a
-          className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-black active:scale-105 transition cursor-pointer border border-transparent justify-center w-auto"
-          href="/adrian-sanchez-cv.pdf"
-          download
-        >
-          Download CV{" "}
-          <HiDownload className="opacity-70 group-hover:translate-y-1 transition" />
-        </a>
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4">
+          {/* Primary CTA - Let's Work Together */}
+          <a
+            className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-105 hover:scale-105 hover:bg-black active:scale-100 transition cursor-pointer border border-transparent justify-center w-auto"
+            href="https://calendly.com/lisztos/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Let's Work Together{" "}
+            <FaCalendarCheck className="opacity-70 group-hover:translate-x-1 transition" />
+          </a>
 
-        {/* Social Links */}
+          {/* Secondary CTA - Download CV */}
+          <a
+            className="group bg-transparent text-gray-900 dark:text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-105 hover:scale-105 active:scale-100 transition cursor-pointer border border-gray-300 dark:border-gray-700 justify-center hover:border-gray-400 dark:hover:border-gray-600"
+            href="/adrianisanchez-cv.pdf"
+            download
+          >
+            Download CV{" "}
+            <HiDownload className="opacity-70 group-hover:translate-y-1 transition" />
+          </a>
+        </div>
+
+        {/* Social Links - Icons Only */}
         <div className="flex gap-5 items-center justify-center">
           <a
             href="https://www.linkedin.com/in/adrian-isaias-sanchez/"
@@ -135,13 +150,6 @@ export default function Intro() {
             aria-label="GitHub profile"
           >
             <FaGithub size={20} />
-          </a>
-          <a
-            href="mailto:isaias.liszt@gmail.com"
-            className="bg-white p-3 text-gray-700 rounded-full hover:text-red-500 hover:scale-110 transition-all border border-gray-200 shadow-sm dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700"
-            aria-label="Email contact"
-          >
-            <FaEnvelope size={20} />
           </a>
         </div>
       </motion.div>
