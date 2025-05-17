@@ -16,25 +16,57 @@ export default function Experience() {
       case "innovandio":
         return (
           <div className="w-full h-full flex items-center justify-center bg-white">
-            <Image src="/images/logos/innovandio-icon.png" alt="Innovandio" width={48} height={48} className="object-contain" />
+            <a
+              href="https://innovandio.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-transform duration-300 hover:scale-110 flex items-center justify-center"
+              aria-label="Visit Innovandio website"
+            >
+              <Image src="/images/logos/innovandio-icon.png" alt="Innovandio" width={48} height={48} className="object-contain" />
+            </a>
           </div>
         );
       case "demodesk":
         return (
           <div className="w-full h-full flex items-center justify-center bg-white">
-            <Image src="/images/logos/demodesk.svg" alt="Demodesk" width={48} height={48} className="object-contain" />
+            <a
+              href="https://demodesk.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-transform duration-300 hover:scale-110 flex items-center justify-center"
+              aria-label="Visit Demodesk website"
+            >
+              <Image src="/images/logos/demodesk.svg" alt="Demodesk" width={48} height={48} className="object-contain" />
+            </a>
           </div>
         );
       case "setting":
         return (
           <div className="w-full h-full flex items-center justify-center bg-white">
-            <Image src="/images/logos/setting.svg" alt="Setting HQ" width={48} height={48} className="object-contain" />
+            <a
+              href="https://setting.io"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-transform duration-300 hover:scale-110 flex items-center justify-center"
+              aria-label="Visit Setting HQ website"
+            >
+              <Image src="/images/logos/setting.svg" alt="Setting HQ" width={48} height={48} className="object-contain" />
+            </a>
           </div>
         );
       case "almondia":
         return (
           <div className="w-full h-full flex items-center justify-center bg-[#000F46]">
-            <Image src="/images/logos/almondia.png" alt="Almondia" width={48} height={48} className="object-contain" />
+            <a
+              href="https://almondia.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-transform duration-300 hover:scale-110 flex items-center justify-center"
+              aria-label="Visit Almondia website"
+            >
+              <Image src="/images/logos/almondia.png" alt="Almondia" width={48} height={48} className="object-contain" />
+            </a>
           </div>
         );
       case "graduation":
