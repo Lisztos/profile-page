@@ -2,7 +2,7 @@ import { BsLinkedin, BsGithub } from "react-icons/bs";
 
 export default function Footer() {
   return (
-    <footer className="py-8 mt-16 border-t border-gray-200 dark:border-gray-800 bg-white rounded-lg dark:bg-gray-900">
+    <footer className="py-8 mt-2 border-t border-gray-200 dark:border-gray-800 bg-white rounded-lg dark:bg-gray-900">
       <div className="max-w-5xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
           <div className="text-center md:text-left">

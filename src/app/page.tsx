@@ -11,9 +11,9 @@ export default function Home() {
   };
 
   return (
-    <main className="flex flex-col items-center">
+    <main className="flex flex-col items-center px-4">
       <div
-        className="min-h-[calc(100vh-4rem)] w-full flex items-center justify-center px-4 py-8 relative"
+        className="min-h-[calc(100vh-4rem)] w-full flex items-center justify-center py-8 relative"
       >
         <div
           className="w-full max-w-5xl rounded-lg bg-white text-gray-900 dark:bg-gray-900 dark:text-white p-8 shadow-lg"
@@ -23,23 +23,23 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-full max-w-5xl px-4 flex flex-col gap-8 py-16">
+      <div className="w-full max-w-5xl flex flex-col gap-8 py-16">
         <div
-          className="w-full rounded-lg bg-white text-gray-900 dark:bg-gray-900 dark:text-white p-8 shadow-lg"
+          className="w-full my-2 rounded-lg bg-white text-gray-900 dark:bg-gray-900 dark:text-white p-8 shadow-lg"
           style={sectionStyle}
         >
           <Skills />
         </div>
 
         <div
-          className="w-full rounded-lg bg-white text-gray-900 dark:bg-gray-900 dark:text-white p-8 shadow-lg"
+          className="w-full my-2 rounded-lg bg-white text-gray-900 dark:bg-gray-900 dark:text-white p-8 shadow-lg"
           style={sectionStyle}
         >
           <Experience />
         </div>
 
         <div
-          className="w-full rounded-lg bg-white text-gray-900 dark:bg-gray-900 dark:text-white p-8 shadow-lg"
+          className="w-full my-2 rounded-lg bg-white text-gray-900 dark:bg-gray-900 dark:text-white p-8 shadow-lg"
           style={sectionStyle}
         >
           <Education />
