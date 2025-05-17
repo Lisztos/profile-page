@@ -73,6 +73,36 @@ const formatTechName = (tech: string): string => {
   }
 };
 
+// Function to get technology URL
+const getTechUrl = (skillName: string): string => {
+  switch(skillName) {
+    case "Ruby on Rails":
+      return "https://rubyonrails.org/";
+    case "Vue.js":
+      return "https://vuejs.org/";
+    case "PostgreSQL":
+      return "https://www.postgresql.org/";
+    case "Redis":
+      return "https://redis.io/";
+    case "Terraform":
+      return "https://www.terraform.io/";
+    case "AWS":
+      return "https://aws.amazon.com/";
+    case "Bash":
+      return "https://www.gnu.org/software/bash/";
+    case "Heroku":
+      return "https://www.heroku.com/";
+    case "Salesforce":
+      return "https://www.salesforce.com/";
+    case "Matestack":
+      return "https://matestack.io/";
+    case "Git":
+      return "https://git-scm.com/";
+    default:
+      return "#";
+  }
+};
+
 // Organize skills in balanced rows
 const organizeSkills = () => {
   const rowSize = Math.ceil(skillsData.length / 2); // Display in 2 rows
@@ -107,12 +137,20 @@ export default function Skills() {
                 viewport={{ once: true }}
                 custom={skillIndex + rowIndex * row.length}
               >
-                <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-full flex items-center justify-center shadow-sm">
-                  {getSkillIcon(skill)}
-                </div>
-                <span className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                  {formatTechName(skill)}
-                </span>
+                <a
+                  href={getTechUrl(skill)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                  aria-label={`Learn more about ${skill}`}
+                >
+                  <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-full flex items-center justify-center shadow-sm transition-all duration-300 transform group-hover:scale-110 group-hover:shadow-md">
+                    {getSkillIcon(skill)}
+                  </div>
+                  <span className="mt-2 text-sm text-gray-600 dark:text-gray-400 transition-all duration-300 group-hover:text-gray-900 dark:group-hover:text-gray-200">
+                    {formatTechName(skill)}
+                  </span>
+                </a>
               </motion.div>
             ))}
           </div>
