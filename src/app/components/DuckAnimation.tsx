@@ -25,7 +25,7 @@ export default function DuckAnimation() {
       setIsQuacking(true);
       setTimeout(() => {
         setIsQuacking(false);
-      }, 1000);
+      }, 1500);
     }, 10000);
 
     return () => clearInterval(quackInterval);

@@ -8,9 +8,12 @@ import Education from "./sections/Education";
 import Card from "./components/Card";
 import DuckAnimation from "./components/DuckAnimation";
 import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
+  const searchParams = useSearchParams();
+  const showDuck = searchParams?.get("duck") === "true";
 
   // Ensure duck is only rendered client-side
   useEffect(() => {
@@ -19,7 +22,7 @@ export default function Home() {
 
   return (
     <main className="flex flex-col items-center px-4">
-      {isMounted && <DuckAnimation />}
+      {isMounted && showDuck && <DuckAnimation />}
       <div
         className="min-h-[calc(100vh-4rem)] w-full flex items-center justify-center py-8 relative"
       >
