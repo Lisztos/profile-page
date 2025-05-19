@@ -78,7 +78,7 @@ export default function Intro() {
       </div>
 
       <motion.h1
-        className="mb-4 mt-8 px-4 text-4xl font-bold !leading-[1.3] sm:text-5xl text-gray-900 dark:text-white"
+        className="mb-3 mt-8 px-4 text-4xl font-bold !leading-[1.3] sm:text-5xl text-gray-900 dark:text-white"
         initial={{ opacity: 0, y: 100 }}
         animate={controls}
       >
@@ -105,7 +105,7 @@ export default function Intro() {
       </motion.div>
 
       <motion.p
-        className="mb-10 px-3 text-lg !leading-[1.8] text-gray-800 dark:text-gray-200 max-w-2xl mx-auto"
+        className="mb-4 px-3 text-lg !leading-[1.8] text-gray-800 dark:text-gray-200 max-w-2xl mx-auto"
         initial={{ opacity: 0, y: 100 }}
         animate={controls}
         transition={{ delay: 0.2 }}
