@@ -21,14 +21,30 @@ export default function Intro() {
 
   const waveAnimation = {
     initial: { rotate: 0 },
+    wave: {
+      rotate: [0, 14, -8, 14, -4, 10, 0],
+      transition: {
+        duration: 1.5,
+        ease: "easeInOut",
+        type: "tween",
+      },
+    },
     hover: {
       rotate: [0, 14, -8, 14, -4, 10, 0],
       transition: {
         duration: 1.5,
         ease: "easeInOut",
+        type: "tween",
       },
     },
   };
+
+  const [handWaved, setHandWaved] = React.useState(false);
+
+  useEffect(() => {
+    setTimeout(() => setHandWaved(true), 600); // delay for effect
+    setTimeout(() => setHandWaved(false), 2200); // reset after animation
+  }, []);
 
   return (
     <section
@@ -41,7 +57,7 @@ export default function Intro() {
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
-              type: "tween",
+              type: "spring",
               duration: 0.2,
             }}
           >
@@ -61,12 +77,11 @@ export default function Intro() {
           <motion.span
             className="absolute bottom-0 right-0 text-4xl cursor-pointer"
             initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
+            animate={handWaved ? { opacity: 1, scale: 1, rotate: [0, 14, -8, 14, -4, 10, 0] } : { opacity: 1, scale: 1 }}
             whileHover="hover"
             variants={waveAnimation}
             style={{ originX: 0.7, originY: 0.7 }}
             transition={{
-              type: "spring",
               stiffness: 125,
               delay: 0.1,
               duration: 0.7,

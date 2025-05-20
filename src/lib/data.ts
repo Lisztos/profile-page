@@ -28,7 +28,7 @@ export const links = [
 export const experienceData = [
   {
     title: "Senior Software Engineer",
-    company: "Innovandio GmbH",
+    company: "Innovandio",
     location: "Berlin, Germany",
     description: [
       "Built and maintained two full stack applications for enterprise clients",
@@ -89,7 +89,7 @@ export const experienceData = [
   },
   {
     title: "Full Stack Software Engineer (Working Student)",
-    company: "Setting HQ GmbH",
+    company: "Setting HQ",
     location: "Berlin, Germany",
     description: [
       "Optimized the platform's Office-Search functionality, reducing load times by 45%",
@@ -107,7 +107,7 @@ export const experienceData = [
   },
   {
     title: "Full Stack Software Engineer (Working Student)",
-    company: "Almondia GmbH",
+    company: "Almondia",
     location: "Berlin, Germany",
     description: [
       "Designed and developed a custom CRM system for a partner company",

@@ -170,8 +170,9 @@ export default function Experience() {
                     experience.title
                   )}
                 </h3>
-                <p className="text-gray-700 dark:text-gray-300 mb-3">
-                  {experience.company} • {experience.location}
+                <p className="mb-3">
+                  <span className="font-bold text-lg text-gray-600 dark:text-gray-100">{experience.company}</span>
+                  <span className="text-gray-700 dark:text-gray-300"> • {experience.location}</span>
                 </p>
 
                 <ul className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed list-disc pl-5 space-y-1 mb-4">
