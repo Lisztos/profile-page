@@ -8,7 +8,7 @@ export default function Education() {
   return (
     <section id="education" className="scroll-mt-28 max-w-[50rem] text-center leading-8 mx-auto mb-16">
       <SectionHeading>Education</SectionHeading>
-      <div className="relative sm:pl-20 pl-4 text-left mt-12">
+      <div className="relative md:pl-24 text-left mt-12">
         {/* Logo circle */}
         <div className={
           `sm:absolute sm:left-0 sm:top-0 w-[74px] h-[74px] bg-white border-2 border-gray-200 rounded-full flex items-center justify-center dark:bg-gray-800 dark:border-gray-700 shadow-md overflow-hidden ` +
