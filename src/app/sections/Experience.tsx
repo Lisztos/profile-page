@@ -119,31 +119,34 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="scroll-mt-28 max-w-[50rem] text-center leading-8 mx-auto mb-28"
+      className="scroll-mt-28 max-w-[50rem] text-center leading-8 mx-auto mb-16"
     >
       <SectionHeading>Experience</SectionHeading>
       <div className="relative">
-        {/* Timeline bar */}
+        {/* Timeline bar (hidden on mobile) */}
         <motion.div
-          className="absolute left-9 top-0 bottom-0 w-[2px] bg-gray-200 dark:bg-gray-700"
+          className="hidden sm:block absolute left-9 top-0 bottom-0 w-[2px] bg-gray-200 dark:bg-gray-700"
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "100%" }}
           transition={{ duration: 0.8 }}
         />
 
         {/* Timeline items */}
-        <div className="space-y-8">
+        <div className="space-y-16 sm:space-y-8">
           {experienceData.map((experience, index) => (
             <motion.div
               key={index}
-              className="relative pl-20 text-left"
+              className="relative sm:pl-20 pl-4 text-left"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.1 }}
             >
-              {/* Timeline icon */}
+              {/* Timeline icon - static and centered on mobile */}
               <motion.div
-                className={`absolute left-0 top-0 w-[74px] h-[74px] bg-white border-2 border-gray-200 rounded-full flex items-center justify-center dark:bg-gray-800 dark:border-gray-700 shadow-md overflow-hidden`}
+                className={
+                  `md:absolute md:left-0 md:top-0 w-[74px] h-[74px] bg-white border-2 border-gray-200 rounded-full flex items-center justify-center dark:bg-gray-800 dark:border-gray-700 shadow-md overflow-hidden ` +
+                  `relative mx-auto mb-2 md:mx-0 md:mb-0`
+                }
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{
@@ -157,11 +160,11 @@ export default function Experience() {
               </motion.div>
 
               {/* Content */}
-              <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+              <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 dark:bg-gray-800 dark:border-gray-700 sm:text-left text-center flex flex-col items-center sm:items-start">
                 <span className="inline-block px-3 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full mb-3 dark:bg-blue-900/30 dark:text-blue-400">
                   {experience.date}
                 </span>
-                <h3 className="text-xl font-bold mb-1">
+                <h3 className="text-xl font-bold mb-1 sm:text-left text-center w-full">
                   {experience.title.includes("Working Student") ? (
                     <>
                       Full Stack Software Engineer <span className="text-sm font-normal text-gray-500 dark:text-gray-400">(Working Student)</span>
@@ -170,12 +173,12 @@ export default function Experience() {
                     experience.title
                   )}
                 </h3>
-                <p className="mb-3">
+                <p className="mb-3 sm:text-left text-center w-full">
                   <span className="font-bold text-lg text-gray-600 dark:text-gray-100">{experience.company}</span>
                   <span className="text-gray-700 dark:text-gray-300"> • {experience.location}</span>
                 </p>
 
-                <ul className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed list-disc pl-5 space-y-1 mb-4">
+                <ul className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed list-disc pl-5 space-y-1 mb-4 text-left">
                   {experience.description.map((item, i) => (
                     <li key={i}>{item}</li>
                   ))}
@@ -184,7 +187,7 @@ export default function Experience() {
                 {/* Tech Stack Icons */}
                 {'techStack' in experience && experience.techStack.length > 0 && (
                   <div className="mt-3">
-                    <div className="flex flex-wrap gap-4">
+                    <div className="flex flex-wrap gap-4 justify-center sm:justify-start">
                       {experience.techStack.map((tech, i) => (
                         <div
                           key={i}
