@@ -22,13 +22,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Adrian Sanchez | Senior Full Stack Engineer",
     description: "Senior Full Stack Engineer with Ruby on Rails expertise and 5+ years of experience in startup environments.",
-    images: [{ url: '/images/duck.png', width: 60, height: 60 }],
+    images: [{ url: '/icon.png', width: 60, height: 60 }],
   },
   twitter: {
     card: 'summary_large_image',
     title: "Adrian Sanchez | Senior Full Stack Engineer",
     description: "Senior Full Stack Engineer with Ruby on Rails expertise and 5+ years of experience in startup environments.",
-    images: ['/images/duck.png'],
+    images: ['/icon.png'],
   },
 };
 
