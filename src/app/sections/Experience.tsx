@@ -136,7 +136,7 @@ export default function Experience() {
           {experienceData.map((experience, index) => (
             <motion.div
               key={index}
-              className="relative pl-20 text-left"
+              className="relative md:pl-24 text-left"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.1 }}
