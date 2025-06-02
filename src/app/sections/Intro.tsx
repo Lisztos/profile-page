@@ -137,7 +137,7 @@ export default function Intro() {
         transition={{ delay: 0.22 }}
       >
         <span className="text-2xl">💬</span>
-        I&apos;m open for freelance and consulting work — book a call to discuss your project.
+        I welcome freelance and consulting inquiries - please feel free to schedule a call.
       </motion.p>
 
       <motion.div
