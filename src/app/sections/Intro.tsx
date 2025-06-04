@@ -125,8 +125,7 @@ export default function Intro() {
         animate={controls}
         transition={{ delay: 0.2 }}
       >
-        I build exceptional digital experiences with <span className="text-blue-500">5+ years</span> of
-        experience in startup environments. Specialized in <span className="text-blue-500">Ruby on Rails</span> and
+        I build exceptional digital experiences, backed by <span className="text-blue-500">5+ years</span> years in startup environments. Specialized in <span className="text-blue-500">Ruby on Rails</span> and
         full stack development.
       </motion.p>
 
@@ -137,7 +136,7 @@ export default function Intro() {
         transition={{ delay: 0.22 }}
       >
         <span className="text-2xl">💬</span>
-        I welcome freelance and consulting inquiries - please feel free to schedule a call.
+        Freelance & consulting inquiries welcome — book a call to discuss your project.
       </motion.p>
 
       <motion.div
