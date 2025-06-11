@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import SectionHeading from "@/app/components/SectionHeading";
 import { skillsData } from "@/lib/data";
+import { useTranslation } from "@/lib/hooks/useTranslation";
 import {
   FaAws,
   FaGit
@@ -115,13 +116,14 @@ const organizeSkills = () => {
 
 export default function Skills() {
   const skillRows = organizeSkills();
+  const { t } = useTranslation();
 
   return (
     <section
       id="skills"
       className="max-w-[53rem] scroll-mt-28 text-center mx-auto mb-10"
     >
-      <SectionHeading>Skills</SectionHeading>
+      <SectionHeading>{t('skills.title')}</SectionHeading>
       <div className="flex flex-col gap-10">
         {skillRows.map((row, rowIndex) => (
           <div key={rowIndex} className="flex flex-wrap justify-center gap-8">

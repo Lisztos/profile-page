@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/Footer";
+import Header from "./components/Header";
 import ActiveSectionContextProvider from "./context/active-section-context";
 import ThemeContextProvider from "./context/theme-context";
 import { LocationProvider } from "../lib/hooks/useLocationDisplay";
+import LanguageContextProvider from "./context/language-context";
 // Theme switch is temporarily disabled
 // import ThemeSwitch from "./components/ThemeSwitch";
 import { Analytics } from '@vercel/analytics/next';
@@ -52,13 +54,16 @@ export default function RootLayout({
 
         <LocationProvider>
           <ThemeContextProvider>
-            <ActiveSectionContextProvider>
+            <LanguageContextProvider>
+              <ActiveSectionContextProvider>
+                <Header />
               {children}
               <Footer />
               {/* ThemeSwitch temporarily disabled */}
               {/* <ThemeSwitch /> */}
               <Toaster position="top-right" />
-            </ActiveSectionContextProvider>
+              </ActiveSectionContextProvider>
+            </LanguageContextProvider>
           </ThemeContextProvider>
         </LocationProvider>
         <Analytics />

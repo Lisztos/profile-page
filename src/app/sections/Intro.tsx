@@ -7,11 +7,34 @@ import { HiDownload } from "react-icons/hi";
 import { FaMapMarkerAlt, FaLinkedin, FaGithub } from "react-icons/fa";
 import { FaCalendarCheck } from "react-icons/fa6";
 import { useLocationDisplay, useCVSelection } from "../../lib/hooks/useLocationDisplay";
+import { useTranslation } from "@/lib/hooks/useTranslation";
 
 export default function Intro() {
   const controls = useAnimation();
   const { displayLocation, isLoading } = useLocationDisplay();
   const { handleCVDownload } = useCVSelection();
+  const { t } = useTranslation();
+
+  // Function to render text with highlighted parts in blue
+  const renderHighlightedText = (text: string) => {
+    if (!text) return null;
+
+    // Split the text by highlight tags
+    const parts = text.split(/<highlight>|<\/highlight>/);
+
+    return parts.map((part, index) => {
+      // Every even index (0, 2, 4...) is regular text, odd indices are highlighted
+      const isHighlighted = index % 2 === 1;
+
+      return isHighlighted ? (
+        <span key={index} className="text-blue-500 font-medium">
+          {part}
+        </span>
+      ) : (
+        <span key={index}>{part}</span>
+      );
+    });
+  };
 
   useEffect(() => {
     // Ensure animations run after component mounts
@@ -100,7 +123,7 @@ export default function Intro() {
         initial={{ opacity: 0, y: 100 }}
         animate={controls}
       >
-        Adrian Sanchez
+        {t('intro.name')}
       </motion.h1>
 
       <motion.h2
@@ -109,7 +132,7 @@ export default function Intro() {
         animate={controls}
         transition={{ delay: 0.1 }}
       >
-        Full-Stack Engineer
+        {t('intro.title')}
       </motion.h2>
 
       <motion.div
@@ -120,7 +143,7 @@ export default function Intro() {
       >
         <FaMapMarkerAlt className="text-gray-500" />
         <span>
-          {isLoading ? "Berlin, Germany" : displayLocation}
+          {isLoading ? t('footer.location') : displayLocation}
         </span>
       </motion.div>
 
@@ -130,8 +153,7 @@ export default function Intro() {
         animate={controls}
         transition={{ delay: 0.2 }}
       >
-        I build exceptional digital experiences, backed by <span className="text-blue-500">5+ years</span> in startup environments. Specialized in <span className="text-blue-500">Ruby on Rails</span> and
-        full stack development.
+        {renderHighlightedText(t('intro.description'))}
       </motion.p>
 
       <motion.p
@@ -161,7 +183,7 @@ export default function Intro() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Let&apos;s Work Together{" "}
+              {t('intro.workWithMe')}{" "}
               <FaCalendarCheck className="opacity-70 transition-transform duration-300 transform group-hover:translate-x-1" />
             </a>
           </div>
@@ -171,7 +193,7 @@ export default function Intro() {
             className="group bg-transparent text-gray-900 dark:text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none transition-all duration-300 cursor-pointer border border-gray-300 dark:border-gray-700 justify-center hover:border-gray-400 dark:hover:border-gray-600 transform hover:scale-[1.05] focus:scale-[1.05] active:scale-[0.96] hover:shadow-sm"
             onClick={handleCVDownload}
           >
-            Download CV{" "}
+            {t('intro.downloadCV')}{" "}
             <HiDownload className="opacity-70 transition-transform duration-300 transform group-hover:translate-y-1" />
           </button>
         </div>

@@ -1,6 +1,12 @@
+"use client";
+
 import { BsLinkedin, BsGithub } from "react-icons/bs";
+import { useTranslation } from "@/lib/hooks/useTranslation";
 
 export default function Footer() {
+  const { t } = useTranslation();
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="py-8 mt-2 border-t border-gray-200 dark:border-gray-800 bg-white rounded-lg dark:bg-gray-900">
       <div className="max-w-5xl mx-auto px-6">
@@ -8,7 +14,7 @@ export default function Footer() {
           <div className="text-center md:text-left">
             <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Adrian Sanchez</h3>
             <p className="text-sm text-gray-700 dark:text-gray-300">
-              Senior Full Stack Engineer
+              {t('intro.title')}
             </p>
           </div>
 
@@ -36,12 +42,14 @@ export default function Footer() {
           </div>
 
           <div className="text-center md:text-right">
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              &copy; {new Date().getFullYear()} Adrian Sanchez
-            </p>
-            <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">
-              Made with ❤️ in Berlin
-            </p>
+            <div className="flex flex-col items-center md:items-end">
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                {t('footer.rights', { year: currentYear })}
+              </p>
+              <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">
+                {t('footer.location')}
+              </p>
+            </div>
           </div>
                 </div>
       </div>
