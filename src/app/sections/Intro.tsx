@@ -125,7 +125,7 @@ export default function Intro() {
         animate={controls}
         transition={{ delay: 0.2 }}
       >
-        I build exceptional digital experiences, backed by <span className="text-blue-500">5+ years</span> years in startup environments. Specialized in <span className="text-blue-500">Ruby on Rails</span> and
+        I build exceptional digital experiences, backed by <span className="text-blue-500">5+ years</span> in startup environments. Specialized in <span className="text-blue-500">Ruby on Rails</span> and
         full stack development.
       </motion.p>
 
