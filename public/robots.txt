@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Prevent bots from accessing PDF files directly
+Disallow: /*.pdf
+
+# Site info
+Sitemap: https://adriansanchez.dev/sitemap.xml

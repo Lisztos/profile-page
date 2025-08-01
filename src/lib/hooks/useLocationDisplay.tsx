@@ -101,5 +101,24 @@ export function useCVSelection() {
     ? '/adriansanchez-curriculum.pdf'
     : '/adrianisanchez-cv.pdf';
 
-  return { cvPath, isLoading };
+  const handleCVDownload = (e: React.MouseEvent) => {
+    e.preventDefault();
+
+    // Simple human verification to prevent bots
+    const userConfirmed = window.confirm(
+      "Download CV? (This helps prevent automated downloads)"
+    );
+
+    if (userConfirmed) {
+      // Create temporary link for download
+      const link = document.createElement('a');
+      link.href = cvPath;
+      link.download = '';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  };
+
+  return { cvPath, isLoading, handleCVDownload };
 }

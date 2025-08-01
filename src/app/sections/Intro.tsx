@@ -11,7 +11,7 @@ import { useLocationDisplay, useCVSelection } from "../../lib/hooks/useLocationD
 export default function Intro() {
   const controls = useAnimation();
   const { displayLocation, isLoading } = useLocationDisplay();
-  const { cvPath } = useCVSelection();
+  const { handleCVDownload } = useCVSelection();
 
   useEffect(() => {
     // Ensure animations run after component mounts
@@ -167,14 +167,13 @@ export default function Intro() {
           </div>
 
           {/* Secondary CTA - Download CV */}
-          <a
+          <button
             className="group bg-transparent text-gray-900 dark:text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none transition-all duration-300 cursor-pointer border border-gray-300 dark:border-gray-700 justify-center hover:border-gray-400 dark:hover:border-gray-600 transform hover:scale-[1.05] focus:scale-[1.05] active:scale-[0.96] hover:shadow-sm"
-            href={cvPath}
-            download
+            onClick={handleCVDownload}
           >
             Download CV{" "}
             <HiDownload className="opacity-70 transition-transform duration-300 transform group-hover:translate-y-1" />
-          </a>
+          </button>
         </div>
 
         {/* Social Links - Icons Only */}

@@ -13,7 +13,7 @@ import { useCVSelection } from "@/lib/hooks/useLocationDisplay";
 
 export default function Experience() {
   const controls = useAnimation();
-  const { cvPath } = useCVSelection();
+  const { handleCVDownload } = useCVSelection();
 
   useEffect(() => {
     // Start animations after component mounts
@@ -222,14 +222,13 @@ export default function Experience() {
         }}
         initial="hidden"
       >
-        <a
+        <button
           className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none transition-all duration-300 cursor-pointer border border-transparent justify-center w-auto transform hover:scale-[1.03] focus:scale-[1.03] active:scale-[0.98] hover:bg-black"
-          href={cvPath}
-          download
+          onClick={handleCVDownload}
         >
           Download Full CV{" "}
           <HiDownload className="opacity-70 transition-transform duration-300 group-hover:translate-y-1" />
-        </a>
+        </button>
       </motion.div>
     </section>
   );
