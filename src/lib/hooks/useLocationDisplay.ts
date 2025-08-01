@@ -31,7 +31,7 @@ export function useLocationDisplay() {
         // Check both country and country_code fields for Americas detection
         const countryCode = data.country_code || data.country;
 
-        if (countryCode && americasCountries.includes(countryCode as any)) {
+        if (countryCode && americasCountries.includes(countryCode as typeof americasCountries[number])) {
           setDisplayLocation(locationConfig.americas);
         } else {
           setDisplayLocation(locationConfig.default);

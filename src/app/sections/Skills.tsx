@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import SectionHeading from "@/app/components/SectionHeading";
 import { skillsData } from "@/lib/data";
 import {
@@ -55,8 +54,6 @@ const getSkillIcon = (skillName: string) => {
       return <SiHeroku className="w-7 h-7" style={{ color: "#430098" }} />;
     case "Salesforce":
       return <SiSalesforce className="w-7 h-7" style={{ color: "#00A1E0" }} />;
-    case "Matestack":
-      return <Image src="/images/logos/matestack.png" alt="Matestack" width={28} height={28} className="object-contain" />;
     case "Git":
       return <FaGit className="w-7 h-7" style={{ color: "#F05032" }} />;
     case "Twilio":
@@ -97,8 +94,6 @@ const getTechUrl = (skillName: string): string => {
       return "https://www.heroku.com/";
     case "Salesforce":
       return "https://www.salesforce.com/";
-    case "Matestack":
-      return "https://matestack.io/";
     case "Git":
       return "https://git-scm.com/";
     case "Twilio":

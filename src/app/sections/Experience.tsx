@@ -109,8 +109,6 @@ export default function Experience() {
         return <SiHeroku className="w-7 h-7" style={{ color: "#430098" }} />;
       case "salesforce":
         return <SiSalesforce className="w-7 h-7" style={{ color: "#00A1E0" }} />;
-      case "matestack":
-        return <Image src="/images/logos/matestack.png" alt="Matestack" width={28} height={28} className="object-contain" />;
       case "twilio":
         return <SiTwilio className="w-7 h-7" style={{ color: "#F22F46" }} />;
       default:
@@ -195,7 +193,7 @@ export default function Experience() {
                           key={i}
                           className="flex flex-col items-center"
                         >
-                          <div className={`bg-gray-100 dark:bg-gray-700 p-3 rounded-full flex items-center justify-center shadow-sm mb-1 ${tech === "matestack" ? "overflow-hidden" : ""}`}>
+                          <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-full flex items-center justify-center shadow-sm mb-1">
                             {getTechIcon(tech)}
                           </div>
                           <span className="text-xs text-gray-600 dark:text-gray-400 text-center">

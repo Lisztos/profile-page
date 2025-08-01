@@ -37,7 +37,6 @@ export const experienceData = [
     ],
     techStack: [
       "rails",
-      "matestack",
       "vue",
       "postgresql",
       "terraform",
@@ -174,7 +173,6 @@ export const projectsData = [
 export const skillsData = [
   "Ruby on Rails",
   "Vue.js",
-  "Matestack",
   "PostgreSQL",
   "Terraform",
   "AWS",
