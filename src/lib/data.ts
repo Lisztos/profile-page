@@ -182,3 +182,19 @@ export const skillsData = [
   "Redis",
   "Git"
 ] as const;
+
+// Location configuration
+export const locationConfig = {
+  default: "Berlin, Germany",
+  americas: "Mexico City, Mexico"
+} as const;
+
+// Countries in the Americas for location detection
+export const americasCountries = [
+  // North America
+  "US", "CA", "MX", "GT", "BZ", "SV", "HN", "NI", "CR", "PA",
+  // Caribbean
+  "CU", "JM", "HT", "DO", "PR", "TT", "BB", "BS", "AG", "DM", "GD", "KN", "LC", "VC",
+  // South America
+  "AR", "BO", "BR", "CL", "CO", "EC", "FK", "GF", "GY", "PY", "PE", "SR", "UY", "VE"
+] as const;
