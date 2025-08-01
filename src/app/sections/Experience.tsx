@@ -6,7 +6,7 @@ import Image from "next/image";
 import { experienceData } from "@/lib/data";
 import SectionHeading from "@/app/components/SectionHeading";
 import { FaBriefcase } from "react-icons/fa";
-import { SiRubyonrails, SiPostgresql, SiRedis, SiVuedotjs, SiAngular, SiTerraform, SiGithub, SiGitlab, SiGnubash, SiHeroku, SiSalesforce } from "react-icons/si";
+import { SiRubyonrails, SiPostgresql, SiRedis, SiVuedotjs, SiAngular, SiTerraform, SiGithub, SiGitlab, SiGnubash, SiHeroku, SiSalesforce, SiTwilio } from "react-icons/si";
 import { FaAws } from "react-icons/fa";
 import { HiDownload } from "react-icons/hi";
 
@@ -111,6 +111,8 @@ export default function Experience() {
         return <SiSalesforce className="w-7 h-7" style={{ color: "#00A1E0" }} />;
       case "matestack":
         return <Image src="/images/logos/matestack.png" alt="Matestack" width={28} height={28} className="object-contain" />;
+      case "twilio":
+        return <SiTwilio className="w-7 h-7" style={{ color: "#F22F46" }} />;
       default:
         return null;
     }

@@ -44,7 +44,8 @@ export const experienceData = [
       "aws",
       "redis",
       "github",
-      "bash"
+      "bash",
+      "twilio"
     ],
     icon: "innovandio",
     date: "October 2023 - Present",
@@ -65,7 +66,8 @@ export const experienceData = [
       "redis",
       "gitlab",
       "aws",
-      "bash"
+      "bash",
+      "twilio"
     ],
     icon: "demodesk",
     date: "November 2022 - September 2023",
@@ -180,7 +182,8 @@ export const skillsData = [
   "Heroku",
   "Salesforce",
   "Redis",
-  "Git"
+  "Git",
+  "Twilio"
 ] as const;
 
 // Location configuration

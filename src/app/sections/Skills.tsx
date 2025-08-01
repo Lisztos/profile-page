@@ -16,7 +16,8 @@ import {
   SiRedis,
   SiTerraform,
   SiHeroku,
-  SiGnubash
+  SiGnubash,
+  SiTwilio
 } from "react-icons/si";
 
 const fadeInAnimationVariants = {
@@ -58,6 +59,8 @@ const getSkillIcon = (skillName: string) => {
       return <Image src="/images/logos/matestack.png" alt="Matestack" width={28} height={28} className="object-contain" />;
     case "Git":
       return <FaGit className="w-7 h-7" style={{ color: "#F05032" }} />;
+    case "Twilio":
+      return <SiTwilio className="w-7 h-7" style={{ color: "#F22F46" }} />;
     default:
       return null;
   }
@@ -98,6 +101,8 @@ const getTechUrl = (skillName: string): string => {
       return "https://matestack.io/";
     case "Git":
       return "https://git-scm.com/";
+    case "Twilio":
+      return "https://www.twilio.com/";
     default:
       return "#";
   }
