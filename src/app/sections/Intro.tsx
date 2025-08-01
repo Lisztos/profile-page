@@ -163,7 +163,7 @@ export default function Intro() {
         transition={{ delay: 0.22 }}
       >
         <span className="text-2xl">💬</span>
-        Freelance & consulting inquiries welcome — book a call to discuss your project.
+        {t('intro.callToAction')}
       </motion.p>
 
       <motion.div

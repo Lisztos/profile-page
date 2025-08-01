@@ -14,7 +14,7 @@ export const es = {
     title: "Ingeniero Full Stack",
     location: "Berlín, Alemania",
     description: "Creo experiencias digitales excepcionales, respaldado por <highlight>5+ años</highlight> en entornos de startups. Especializado en <highlight>Ruby on Rails</highlight> y desarrollo full stack.",
-    callToAction: "Consultas freelance y de consultoría bienvenidas — agenda una llamada para discutir tu proyecto.",
+    callToAction: "Consultas freelance y de consultoría bienvenidas — contáctame para discutir tu proyecto.",
     workWithMe: "Trabajemos juntos",
     downloadCV: "Descargar CV Completo",
   },

@@ -4,9 +4,10 @@ import { getTranslation, formatMessage } from "../translations";
 export function useTranslation() {
   const { language } = useLanguage();
 
-  const t = (key: string, variables?: Record<string, string | number>) => {
+  const t = (key: string, variables?: Record<string, string | number>): string => {
     const translation = getTranslation(key, language);
-    return variables ? formatMessage(translation, variables) : translation;
+    const translationStr = typeof translation === 'string' ? translation : String(translation);
+    return variables ? formatMessage(translationStr, variables) : translationStr;
   };
 
   return { t };
