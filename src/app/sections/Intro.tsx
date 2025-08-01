@@ -6,9 +6,11 @@ import Image from "next/image";
 import { HiDownload } from "react-icons/hi";
 import { FaMapMarkerAlt, FaLinkedin, FaGithub } from "react-icons/fa";
 import { FaCalendarCheck } from "react-icons/fa6";
+import { useLocationDisplay } from "../../lib/hooks/useLocationDisplay";
 
 export default function Intro() {
   const controls = useAnimation();
+  const { displayLocation, isLoading } = useLocationDisplay();
 
   useEffect(() => {
     // Ensure animations run after component mounts
@@ -116,7 +118,9 @@ export default function Intro() {
         transition={{ delay: 0.15 }}
       >
         <FaMapMarkerAlt className="text-gray-500" />
-        <span>Berlin, Germany</span>
+        <span>
+          {isLoading ? "Berlin, Germany" : displayLocation}
+        </span>
       </motion.div>
 
       <motion.p
