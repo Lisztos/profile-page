@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "./components/Footer";
 import ActiveSectionContextProvider from "./context/active-section-context";
 import ThemeContextProvider from "./context/theme-context";
+import { LocationProvider } from "../lib/hooks/useLocationDisplay";
 // Theme switch is temporarily disabled
 // import ThemeSwitch from "./components/ThemeSwitch";
 import { Analytics } from '@vercel/analytics/next';
@@ -49,15 +50,17 @@ export default function RootLayout({
         <div className="bg-[#fbe2e3] fixed inset-0 -z-10 w-full max-w-[75rem] right-[11rem] rounded-full blur-[10rem] sm:w-[68.75rem] dark:bg-[#2563eb] animate-gradient"></div>
         <div className="bg-[#539df7] fixed inset-0 -z-10 w-full max-w-[50rem] left-[35rem] rounded-full blur-[10rem] sm:w-[68.75rem] dark:bg-[#3b82f6] animate-gradient [animation-delay:-7s]"></div>
 
-        <ThemeContextProvider>
-          <ActiveSectionContextProvider>
-            {children}
-            <Footer />
-            {/* ThemeSwitch temporarily disabled */}
-            {/* <ThemeSwitch /> */}
-            <Toaster position="top-right" />
-          </ActiveSectionContextProvider>
-        </ThemeContextProvider>
+        <LocationProvider>
+          <ThemeContextProvider>
+            <ActiveSectionContextProvider>
+              {children}
+              <Footer />
+              {/* ThemeSwitch temporarily disabled */}
+              {/* <ThemeSwitch /> */}
+              <Toaster position="top-right" />
+            </ActiveSectionContextProvider>
+          </ThemeContextProvider>
+        </LocationProvider>
         <Analytics />
         <SpeedInsights />
       </body>

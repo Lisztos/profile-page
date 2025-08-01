@@ -6,11 +6,12 @@ import Image from "next/image";
 import { HiDownload } from "react-icons/hi";
 import { FaMapMarkerAlt, FaLinkedin, FaGithub } from "react-icons/fa";
 import { FaCalendarCheck } from "react-icons/fa6";
-import { useLocationDisplay } from "../../lib/hooks/useLocationDisplay";
+import { useLocationDisplay, useCVSelection } from "../../lib/hooks/useLocationDisplay";
 
 export default function Intro() {
   const controls = useAnimation();
   const { displayLocation, isLoading } = useLocationDisplay();
+  const { cvPath } = useCVSelection();
 
   useEffect(() => {
     // Ensure animations run after component mounts
@@ -168,7 +169,7 @@ export default function Intro() {
           {/* Secondary CTA - Download CV */}
           <a
             className="group bg-transparent text-gray-900 dark:text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none transition-all duration-300 cursor-pointer border border-gray-300 dark:border-gray-700 justify-center hover:border-gray-400 dark:hover:border-gray-600 transform hover:scale-[1.05] focus:scale-[1.05] active:scale-[0.96] hover:shadow-sm"
-            href="/adrianisanchez-cv.pdf"
+            href={cvPath}
             download
           >
             Download CV{" "}
