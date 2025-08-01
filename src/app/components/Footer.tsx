@@ -40,10 +40,10 @@ export default function Footer() {
               &copy; {new Date().getFullYear()} Adrian Sanchez
             </p>
             <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">
-              Berlin, Germany
+              Made with ❤️ in Berlin
             </p>
           </div>
-        </div>
+                </div>
       </div>
     </footer>
   );
