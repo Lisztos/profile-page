@@ -15,8 +15,8 @@ export const es = {
     location: "Berlín, Alemania",
     description: "Desarrollo soluciones digitales innovadoras con más de <highlight>5 años</highlight> de experiencia en entornos startups. Especializado en <highlight>Ruby on Rails</highlight> y desarrollo full stack.",
     callToAction: "Acepto proyectos freelance y consultoría — platiquemos sobre tu proyecto.",
-    workWithMe: "Trabajemos juntos",
-    downloadCV: "Descargar CV Completo",
+    workWithMe: "¡Colaboremos!",
+    downloadCV: "Currículum",
   },
 
   // Skills section
