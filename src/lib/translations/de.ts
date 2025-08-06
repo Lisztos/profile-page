@@ -11,9 +11,9 @@ export const de = {
   // Intro section
   intro: {
     name: "Adrian Sanchez",
-    title: "Full-Stack-Entwickler",
+    title: "Senior Software Engineer",
     location: "Berlin, Deutschland",
-    description: "Ich entwickle außergewöhnliche digitale Erlebnisse, gestützt auf <highlight>5+ Jahre</highlight> Erfahrung in Startup-Umgebungen. Spezialisiert auf <highlight>Ruby on Rails</highlight> und Full-Stack-Entwicklung.",
+    description: "Ich entwickle digitale Erlebnisse, gestützt auf <highlight>5+ Jahre</highlight> Erfahrung in Startup-Umgebungen. Spezialisiert auf <highlight>Ruby on Rails</highlight> und Full-Stack-Entwicklung.",
     callToAction: "Freiberufliche und Beratungsanfragen willkommen — buchen Sie einen Termin, um Ihr Projekt zu besprechen.",
     workWithMe: "Lass uns zusammenarbeiten",
     downloadCV: "Vollständigen Lebenslauf herunterladen",

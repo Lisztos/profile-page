@@ -11,10 +11,10 @@ export const es = {
   // Intro section
   intro: {
     name: "Adrian Sanchez",
-    title: "Ingeniero Full Stack",
+    title: "Senior Software Engineer",
     location: "Berlín, Alemania",
-    description: "Creo experiencias digitales excepcionales, respaldado por <highlight>5+ años</highlight> en entornos de startups. Especializado en <highlight>Ruby on Rails</highlight> y desarrollo full stack.",
-    callToAction: "Consultas freelance y de consultoría bienvenidas — contáctame para discutir tu proyecto.",
+    description: "Desarrollo experiencias digitales excepcionales, con más de <highlight>5+ años</highlight> de experiencia en entornos startup. Especializado en <highlight>Ruby on Rails</highlight> y desarrollo full stack.",
+    callToAction: "Acepto proyectos freelance y consultoría — platiquemos sobre tu proyecto.",
     workWithMe: "Trabajemos juntos",
     downloadCV: "Descargar CV Completo",
   },
@@ -39,9 +39,9 @@ export const es = {
         company: "Innovandio",
         location: "Berlín, Alemania",
         description: [
-          "Construí y mantuve dos aplicaciones full stack para clientes empresariales",
-          "Diseñé pipelines de CI/CD e infraestructura para optimizar despliegues y testing",
-          "Gestioné ingenieros y lideré múltiples proyectos de clientes bajo plazos ajustados"
+          "Desarrollé y mantuve dos aplicaciones full stack para clientes empresariales",
+          "Diseñé pipelines de CI/CD e infraestructura para optimizar deployments y pruebas",
+          "Manejé equipos de ingenieros y lideré múltiples proyectos de clientes con tiempos ajustados"
         ]
       },
       demodesk_lead: {
@@ -49,9 +49,9 @@ export const es = {
         company: "Demodesk",
         location: "Múnich, Alemania",
         description: [
-          "Lideré un equipo de ingenieros enfocado en la entrega de funcionalidades y estabilidad de la plataforma",
-          "Entregué funcionalidades bajo estrictos requisitos de SLA y tiempo de actividad para una plataforma global",
-          "Mejoré la alineación entre equipos co-desarrollando un proceso para priorizar ideas de producto"
+          "Lideré un equipo de ingenieros enfocado en la entrega de features y estabilidad de la plataforma",
+          "Entregué funcionalidades bajo estrictos requisitos de SLA y uptime para una plataforma global",
+          "Mejoré la coordinación entre equipos desarrollando un proceso para priorizar ideas de producto"
         ]
       },
       demodesk_intern: {
@@ -59,9 +59,9 @@ export const es = {
         company: "Demodesk",
         location: "Múnich, Alemania",
         description: [
-          "Reduje la deuda técnica y simplifiqué la base de código en un 15%",
-          "Mejoré el rendimiento del backend optimizando consultas y reduciendo tiempos de respuesta",
-          "Contribuí al desarrollo de funcionalidades y características de la plataforma"
+          "Reduje la deuda técnica y simplifiqué el código base en un 15%",
+          "Mejoré el performance del backend optimizando queries y reduciendo tiempos de respuesta",
+          "Contribuí al desarrollo de features y funcionalidades de la plataforma"
         ]
       },
       setting: {
@@ -69,10 +69,10 @@ export const es = {
         company: "Setting HQ",
         location: "Berlín, Alemania",
         description: [
-          "Optimicé la funcionalidad de búsqueda de oficinas de la plataforma, reduciendo tiempos de carga en un 45%",
-          "Desarrollé un sistema de onboarding de oficinas, digitalizando un sistema previo manual y propenso a errores",
-          "Eliminé dependencias obsoletas migrando la plataforma a una arquitectura de sistema moderna",
-          "Lideré el relanzamiento del sitio web de la empresa"
+          "Optimicé la funcionalidad de búsqueda de oficinas de la plataforma, reduciendo load times en un 45%",
+          "Desarrollé un sistema de onboarding de oficinas, digitalizando un proceso manual propenso a errores",
+          "Eliminé dependencias obsoletas migrando la plataforma a una arquitectura moderna",
+          "Lideré el rediseño del sitio web de la empresa"
         ]
       },
       almondia: {
@@ -80,8 +80,8 @@ export const es = {
         company: "Almondia",
         location: "Berlín, Alemania",
         description: [
-          "Diseñé y desarrollé un sistema CRM personalizado para una empresa asociada",
-          "Mantuve y optimicé pipelines de integración con Salesforce, mejorando el flujo de datos y detección de errores"
+          "Diseñé y desarrollé un sistema CRM personalizado para una empresa partner",
+          "Mantuve y optimicé pipelines de integración con Salesforce, mejorando el data flow y detección de errores"
         ]
       }
     }

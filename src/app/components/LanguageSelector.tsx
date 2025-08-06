@@ -3,7 +3,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useLanguage } from "../context/language-context";
 import { useTranslation } from "@/lib/hooks/useTranslation";
-import { GB, DE, ES } from 'country-flag-icons/react/3x2';
+import { GB, DE, MX } from 'country-flag-icons/react/3x2';
 
 type LanguageCode = "en" | "de" | "es";
 
@@ -27,7 +27,7 @@ export default function LanguageSelector({ isHeader = false }: LanguageSelectorP
     switch (lang) {
       case "en": return <GB className="w-4 h-3 rounded-sm shadow-sm" />;
       case "de": return <DE className="w-4 h-3 rounded-sm shadow-sm" />;
-      case "es": return <ES className="w-4 h-3 rounded-sm shadow-sm" />;
+      case "es": return <MX className="w-4 h-3 rounded-sm shadow-sm" />;
       default: return <GB className="w-4 h-3 rounded-sm shadow-sm" />;
     }
   };

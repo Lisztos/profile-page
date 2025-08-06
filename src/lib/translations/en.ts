@@ -11,7 +11,7 @@ export const en = {
   // Intro section
   intro: {
     name: "Adrian Sanchez",
-    title: "Full-Stack Engineer",
+    title: "Senior Software Engineer",
     location: "Berlin, Germany",
     description: "I build exceptional digital experiences, backed by <highlight>5+ years</highlight> in startup environments. Specialized in <highlight>Ruby on Rails</highlight> and full stack development.",
     callToAction: "Freelance & consulting inquiries welcome — book a call to discuss your project.",
