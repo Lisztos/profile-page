@@ -123,4 +123,10 @@ export const en = {
     location: "Berlin, Germany",
     languageSelector: "Language",
   },
+
+  // Locations
+  locations: {
+    default: "Berlin, Germany",
+    americas: "Mexico City, Mexico",
+  },
 };

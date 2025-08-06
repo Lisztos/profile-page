@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect, useContext, createContext, ReactNode } from 'react';
-import { locationConfig, americasCountries } from '../data';
+import { americasCountries } from '../data';
+import { useTranslation } from './useTranslation';
 
 interface LocationData {
   country?: string;
@@ -85,10 +86,11 @@ function useLocationContext(): LocationContextType {
 // Hook for location display
 export function useLocationDisplay() {
   const { isAmericas, isLoading } = useLocationContext();
+  const { t } = useTranslation();
 
   const displayLocation = isAmericas
-    ? locationConfig.americas
-    : locationConfig.default;
+    ? t('locations.americas')
+    : t('locations.default');
 
   return { displayLocation, isLoading };
 }
