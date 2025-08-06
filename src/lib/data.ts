@@ -27,14 +27,7 @@ export const links = [
 
 export const experienceData = [
   {
-    title: "Senior Software Engineer",
-    company: "Innovandio",
-    location: "Berlin, Germany",
-    description: [
-      "Built and maintained two full stack applications for enterprise clients",
-      "Designed CI/CD pipelines and infrastructure to streamline deployments and testing",
-      "Managed engineers and led multiple client projects under tight deadlines"
-    ],
+    jobKey: "innovandio",
     techStack: [
       "rails",
       "vue",
@@ -50,14 +43,7 @@ export const experienceData = [
     date: "October 2023 - Present",
   },
   {
-    title: "Full Stack Software Engineer | Team Lead",
-    company: "Demodesk",
-    location: "Munich, Germany",
-    description: [
-      "Led a team of engineers focused on feature delivery and platform stability",
-      "Shipped features under strict SLA and uptime requirements for a global-facing platform",
-      "Improved cross-team alignment by co-developing a process to prioritize product ideas"
-    ],
+    jobKey: "demodesk_lead",
     techStack: [
       "rails",
       "vue",
@@ -72,14 +58,7 @@ export const experienceData = [
     date: "November 2022 - September 2023",
   },
   {
-    title: "Software Engineer Intern",
-    company: "Demodesk",
-    location: "Munich, Germany",
-    description: [
-      "Cut technical debt and simplified the codebase by 15%",
-      "Boosted backend performance by optimizing queries and reducing response times",
-      "Contributed to development of platform features and functionality"
-    ],
+    jobKey: "demodesk_intern",
     techStack: [
       "rails",
       "vue",
@@ -89,15 +68,7 @@ export const experienceData = [
     date: "February 2022 - November 2022",
   },
   {
-    title: "Full Stack Software Engineer (Working Student)",
-    company: "Setting HQ",
-    location: "Berlin, Germany",
-    description: [
-      "Optimized the platform's Office-Search functionality, reducing load times by 45%",
-      "Developed an office onboarding system, digitizing a previous manual and error-prone system",
-      "Eliminated legacy dependencies by migrating the platform to a modern system architecture",
-      "Led the relaunch of the company's website"
-    ],
+    jobKey: "setting",
     techStack: [
       "rails",
       "postgresql",
@@ -107,13 +78,7 @@ export const experienceData = [
     date: "October 2020 - February 2022",
   },
   {
-    title: "Full Stack Software Engineer (Working Student)",
-    company: "Almondia",
-    location: "Berlin, Germany",
-    description: [
-      "Designed and developed a custom CRM system for a partner company",
-      "Maintained and optimized Salesforce integration pipelines, improving data flow and error detection"
-    ],
+    jobKey: "almondia",
     techStack: [
       "rails",
       "postgresql",

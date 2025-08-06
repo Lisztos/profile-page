@@ -33,6 +33,58 @@ export const es = {
     teamLead: "Líder de Equipo",
     senior: "Ingeniero de Software Senior",
     intern: "Practicante",
+    jobs: {
+      innovandio: {
+        title: "Senior Software Engineer",
+        company: "Innovandio",
+        location: "Berlín, Alemania",
+        description: [
+          "Construí y mantuve dos aplicaciones full stack para clientes empresariales",
+          "Diseñé pipelines de CI/CD e infraestructura para optimizar despliegues y testing",
+          "Gestioné ingenieros y lideré múltiples proyectos de clientes bajo plazos ajustados"
+        ]
+      },
+      demodesk_lead: {
+        title: "Full Stack Software Engineer | Team Lead",
+        company: "Demodesk",
+        location: "Múnich, Alemania",
+        description: [
+          "Lideré un equipo de ingenieros enfocado en la entrega de funcionalidades y estabilidad de la plataforma",
+          "Entregué funcionalidades bajo estrictos requisitos de SLA y tiempo de actividad para una plataforma global",
+          "Mejoré la alineación entre equipos co-desarrollando un proceso para priorizar ideas de producto"
+        ]
+      },
+      demodesk_intern: {
+        title: "Software Engineer Intern",
+        company: "Demodesk",
+        location: "Múnich, Alemania",
+        description: [
+          "Reduje la deuda técnica y simplifiqué la base de código en un 15%",
+          "Mejoré el rendimiento del backend optimizando consultas y reduciendo tiempos de respuesta",
+          "Contribuí al desarrollo de funcionalidades y características de la plataforma"
+        ]
+      },
+      setting: {
+        title: "Full Stack Software Engineer (Working Student)",
+        company: "Setting HQ",
+        location: "Berlín, Alemania",
+        description: [
+          "Optimicé la funcionalidad de búsqueda de oficinas de la plataforma, reduciendo tiempos de carga en un 45%",
+          "Desarrollé un sistema de onboarding de oficinas, digitalizando un sistema previo manual y propenso a errores",
+          "Eliminé dependencias obsoletas migrando la plataforma a una arquitectura de sistema moderna",
+          "Lideré el relanzamiento del sitio web de la empresa"
+        ]
+      },
+      almondia: {
+        title: "Full Stack Software Engineer (Working Student)",
+        company: "Almondia",
+        location: "Berlín, Alemania",
+        description: [
+          "Diseñé y desarrollé un sistema CRM personalizado para una empresa asociada",
+          "Mantuve y optimicé pipelines de integración con Salesforce, mejorando el flujo de datos y detección de errores"
+        ]
+      }
+    }
   },
 
   // Education section
@@ -46,6 +98,23 @@ export const es = {
   // Projects section
   projects: {
     title: "Proyectos",
+  },
+
+  // Months
+  months: {
+    january: "Enero",
+    february: "Febrero",
+    march: "Marzo",
+    april: "Abril",
+    may: "Mayo",
+    june: "Junio",
+    july: "Julio",
+    august: "Agosto",
+    september: "Septiembre",
+    october: "Octubre",
+    november: "Noviembre",
+    december: "Diciembre",
+    present: "Presente",
   },
 
   // Footer

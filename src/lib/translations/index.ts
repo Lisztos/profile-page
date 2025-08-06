@@ -55,3 +55,34 @@ export function formatMessage(message: string, variables: Record<string, string 
     return variables[key] !== undefined ? String(variables[key]) : `{${key}}`;
   });
 }
+
+// Helper function to translate date strings
+export function translateDate(dateString: string, language: Language): string {
+  const monthMap: Record<string, string> = {
+    'January': 'january',
+    'February': 'february',
+    'March': 'march',
+    'April': 'april',
+    'May': 'may',
+    'June': 'june',
+    'July': 'july',
+    'August': 'august',
+    'September': 'september',
+    'October': 'october',
+    'November': 'november',
+    'December': 'december',
+    'Present': 'present'
+  };
+
+  let translatedDate = dateString;
+
+  // Replace each English month/word with its translation
+  Object.entries(monthMap).forEach(([englishMonth, translationKey]) => {
+    if (translatedDate.includes(englishMonth)) {
+      const translation = getTranslation(`months.${translationKey}`, language) as string;
+      translatedDate = translatedDate.replace(englishMonth, translation);
+    }
+  });
+
+  return translatedDate;
+}

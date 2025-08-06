@@ -33,6 +33,58 @@ export const de = {
     teamLead: "Teamleiter",
     senior: "Senior Softwareentwickler",
     intern: "Praktikant",
+    jobs: {
+      innovandio: {
+        title: "Senior Software Engineer",
+        company: "Innovandio",
+        location: "Berlin, Deutschland",
+        description: [
+          "Aufbau und Wartung von zwei Full-Stack-Anwendungen für Unternehmenskunden",
+          "Entwurf von CI/CD-Pipelines und Infrastruktur zur Optimierung von Deployments und Tests",
+          "Management von Entwicklern und Leitung mehrerer Kundenprojekte unter engen Deadlines"
+        ]
+      },
+      demodesk_lead: {
+        title: "Full Stack Software Engineer | Team Lead",
+        company: "Demodesk",
+        location: "München, Deutschland",
+        description: [
+          "Leitung eines Entwicklerteams mit Fokus auf Feature-Entwicklung und Plattformstabilität",
+          "Bereitstellung von Features unter strengen SLA- und Uptime-Anforderungen für eine globale Plattform",
+          "Verbesserung der teamübergreifenden Ausrichtung durch Mitentwicklung eines Prozesses zur Priorisierung von Produktideen"
+        ]
+      },
+      demodesk_intern: {
+        title: "Software Engineer Intern",
+        company: "Demodesk",
+        location: "München, Deutschland",
+        description: [
+          "Reduzierung technischer Schulden und Vereinfachung der Codebasis um 15%",
+          "Steigerung der Backend-Performance durch Optimierung von Abfragen und Reduzierung von Antwortzeiten",
+          "Beitrag zur Entwicklung von Plattform-Features und -Funktionalitäten"
+        ]
+      },
+      setting: {
+        title: "Full Stack Software Engineer (Working Student)",
+        company: "Setting HQ",
+        location: "Berlin, Deutschland",
+        description: [
+          "Optimierung der Office-Search-Funktionalität der Plattform, Reduzierung der Ladezeiten um 45%",
+          "Entwicklung eines Office-Onboarding-Systems, Digitalisierung eines zuvor manuellen und fehleranfälligen Systems",
+          "Beseitigung veralteter Abhängigkeiten durch Migration der Plattform zu einer modernen Systemarchitektur",
+          "Leitung des Relaunches der Firmenwebsite"
+        ]
+      },
+      almondia: {
+        title: "Full Stack Software Engineer (Working Student)",
+        company: "Almondia",
+        location: "Berlin, Deutschland",
+        description: [
+          "Entwurf und Entwicklung eines maßgeschneiderten CRM-Systems für ein Partnerunternehmen",
+          "Wartung und Optimierung von Salesforce-Integrationspipelines, Verbesserung des Datenflusses und der Fehlererkennung"
+        ]
+      }
+    }
   },
 
   // Education section
@@ -46,6 +98,23 @@ export const de = {
   // Projects section
   projects: {
     title: "Projekte",
+  },
+
+  // Months
+  months: {
+    january: "Januar",
+    february: "Februar",
+    march: "März",
+    april: "April",
+    may: "Mai",
+    june: "Juni",
+    july: "Juli",
+    august: "August",
+    september: "September",
+    october: "Oktober",
+    november: "November",
+    december: "Dezember",
+    present: "Heute",
   },
 
   // Footer
