@@ -47,7 +47,7 @@ export default function Footer() {
                 {t('footer.rights', { year: currentYear })}
               </p>
               <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">
-                {t('footer.location')}
+                Made with ❤️ in Berlin
               </p>
             </div>
           </div>
