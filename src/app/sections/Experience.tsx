@@ -10,10 +10,15 @@ import { SiRubyonrails, SiPostgresql, SiRedis, SiVuedotjs, SiAngular, SiTerrafor
 import { FaAws } from "react-icons/fa";
 import { HiDownload } from "react-icons/hi";
 import { useCVSelection } from "@/lib/hooks/useLocationDisplay";
+import { useTranslation } from "@/lib/hooks/useTranslation";
+import { useLanguage } from "@/app/context/language-context";
+import { getTranslation, translateDate } from "@/lib/translations";
 
 export default function Experience() {
   const controls = useAnimation();
   const { handleCVDownload } = useCVSelection();
+  const { t } = useTranslation();
+  const { language } = useLanguage();
 
   useEffect(() => {
     // Start animations after component mounts
@@ -123,7 +128,7 @@ export default function Experience() {
       id="experience"
       className="scroll-mt-28 max-w-[50rem] text-center leading-8 mx-auto mb-16"
     >
-      <SectionHeading>Experience</SectionHeading>
+      <SectionHeading>{t('experience.title')}</SectionHeading>
       <div className="relative">
         {/* Timeline bar (hidden on mobile) */}
         <motion.div
@@ -164,24 +169,18 @@ export default function Experience() {
               {/* Content */}
               <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 dark:bg-gray-800 dark:border-gray-700 sm:text-left text-center flex flex-col items-center sm:items-start">
                 <span className="inline-block px-3 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full mb-3 dark:bg-blue-900/30 dark:text-blue-400">
-                  {experience.date}
+                  {translateDate(experience.date, language)}
                 </span>
                 <h3 className="text-xl font-bold mb-1 sm:text-left text-center w-full">
-                  {experience.title.includes("Working Student") ? (
-                    <>
-                      Full Stack Software Engineer <span className="text-sm font-normal text-gray-500 dark:text-gray-400">(Working Student)</span>
-                    </>
-                  ) : (
-                    experience.title
-                  )}
+                  {t(`experience.jobs.${experience.jobKey}.title`)}
                 </h3>
                 <p className="mb-3 sm:text-left text-center w-full">
-                  <span className="font-bold text-lg text-gray-600 dark:text-gray-100">{experience.company}</span>
-                  <span className="text-gray-700 dark:text-gray-300"> • {experience.location}</span>
+                  <span className="font-bold text-lg text-gray-600 dark:text-gray-100">{t(`experience.jobs.${experience.jobKey}.company`)}</span>
+                  <span className="text-gray-700 dark:text-gray-300"> • {t(`experience.jobs.${experience.jobKey}.location`)}</span>
                 </p>
 
                 <ul className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed list-disc pl-5 space-y-1 mb-4 text-left">
-                  {experience.description.map((item, i) => (
+                  {(getTranslation(`experience.jobs.${experience.jobKey}.description`, language) as string[]).map((item: string, i: number) => (
                     <li key={i}>{item}</li>
                   ))}
                 </ul>
@@ -226,7 +225,7 @@ export default function Experience() {
           className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none transition-all duration-300 cursor-pointer border border-transparent justify-center w-auto transform hover:scale-[1.03] focus:scale-[1.03] active:scale-[0.98] hover:bg-black"
           onClick={handleCVDownload}
         >
-          Download Full CV{" "}
+          {t('intro.downloadCV')}{" "}
           <HiDownload className="opacity-70 transition-transform duration-300 group-hover:translate-y-1" />
         </button>
       </motion.div>

@@ -3,11 +3,14 @@
 import React from "react";
 import SectionHeading from "@/app/components/SectionHeading";
 import Image from "next/image";
+import { useTranslation } from "@/lib/hooks/useTranslation";
 
 export default function Education() {
+  const { t } = useTranslation();
+
   return (
     <section id="education" className="scroll-mt-28 max-w-[50rem] text-center leading-8 mx-auto mb-16">
-      <SectionHeading>Education</SectionHeading>
+      <SectionHeading>{t('education.title')}</SectionHeading>
       <div className="relative md:pl-24 text-left mt-12">
         {/* Logo circle */}
         <div className={
@@ -29,14 +32,14 @@ export default function Education() {
           <span className="inline-block px-3 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full mb-3 dark:bg-blue-900/30 dark:text-blue-400">
             2018 - 2022
           </span>
-          <h3 className="text-xl font-bold mb-1 sm:text-left text-center w-full">B.Sc. Business Informatics (Wirtschaftsinformatik)</h3>
+          <h3 className="text-xl font-bold mb-1 sm:text-left text-center w-full">{t('education.degree')}</h3>
           <p className="mb-3 sm:text-left text-center w-full">
             <span className="font-bold text-lg text-gray-600 dark:text-gray-100">Technische Universität Berlin</span>
             <span className="text-gray-700 dark:text-gray-300"> • Berlin, Germany</span>
           </p>
           <div className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed list-disc sm:pl-5 pl-0 space-y-1 mb-1 sm:text-left text-center">
-            Thesis: <i>Integrating Didcomm Messaging in ActivityPub-based Social Networks</i>
-            <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">Grade: 1.0</div>
+            {t('education.thesis')}: <i>Integrating Didcomm Messaging in ActivityPub-based Social Networks</i>
+            <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">{t('education.grade')}: 1.0</div>
           </div>
         </div>
       </div>

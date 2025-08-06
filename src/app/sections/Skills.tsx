@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import SectionHeading from "@/app/components/SectionHeading";
 import { skillsData } from "@/lib/data";
+import { useTranslation } from "@/lib/hooks/useTranslation";
 import {
   FaAws,
   FaGit
@@ -103,7 +104,7 @@ const getTechUrl = (skillName: string): string => {
   }
 };
 
-// Organize skills in balanced rows
+// Organize skills in balanced rows for desktop
 const organizeSkills = () => {
   // First row gets 6 skills, second row gets 5
   const rows = [
@@ -115,14 +116,47 @@ const organizeSkills = () => {
 
 export default function Skills() {
   const skillRows = organizeSkills();
+  const { t } = useTranslation();
 
   return (
     <section
       id="skills"
-      className="max-w-[53rem] scroll-mt-28 text-center mx-auto mb-10"
+      className="max-w-[53rem] scroll-mt-28 text-center mx-auto mb-10 px-4"
     >
-      <SectionHeading>Skills</SectionHeading>
-      <div className="flex flex-col gap-10">
+      <SectionHeading>{t('skills.title')}</SectionHeading>
+
+      {/* Mobile layout - 2 columns */}
+      <div className="grid grid-cols-2 gap-4 sm:hidden">
+        {skillsData.map((skill, skillIndex) => (
+          <motion.div
+            key={skillIndex}
+            className="flex flex-col items-center group"
+            variants={fadeInAnimationVariants}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            custom={skillIndex}
+          >
+            <a
+              href={getTechUrl(skill)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-center"
+              aria-label={`Learn more about ${skill}`}
+            >
+              <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-full flex items-center justify-center shadow-sm transition-all duration-300 transform group-hover:scale-110 group-hover:shadow-md w-14 h-14 mx-auto">
+                {getSkillIcon(skill)}
+              </div>
+              <span className="mt-2 text-sm text-gray-600 dark:text-gray-400 transition-all duration-300 group-hover:text-gray-900 dark:group-hover:text-gray-200 block transform group-hover:scale-110 leading-tight">
+                {formatTechName(skill)}
+              </span>
+            </a>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Desktop layout - 6+5 rows */}
+      <div className="hidden sm:flex flex-col gap-10">
         {skillRows.map((row, rowIndex) => (
           <div key={rowIndex} className="flex flex-wrap justify-center gap-8">
             {row.map((skill, skillIndex) => (
