@@ -13,10 +13,10 @@ export const de = {
     name: "Adrian Sanchez",
     title: "Senior Software Engineer",
     location: "Berlin, Deutschland",
-    description: "Ich entwickle digitale Erlebnisse, gestützt auf <highlight>5+ Jahre</highlight> Erfahrung in Startup-Umgebungen. Spezialisiert auf <highlight>Ruby on Rails</highlight> und Full-Stack-Entwicklung.",
-    callToAction: "Freiberufliche und Beratungsanfragen willkommen — buchen Sie einen Termin, um Ihr Projekt zu besprechen.",
-    workWithMe: "Lass uns zusammenarbeiten",
-    downloadCV: "Vollständigen Lebenslauf herunterladen",
+    description: "Ich entwickle digitale Lösungen mit über <highlight>5 Jahren</highlight> Erfahrung in dynamischen Startup-Umgebungen. Spezialisiert auf <highlight>Ruby on Rails</highlight> und moderne Full-Stack-Entwicklung.",
+    callToAction: "Aktuell freiberuflich verfügbar — buchen Sie einen Termin, um Ihr Projekt zu besprechen.",
+    workWithMe: "Zusammenarbeiten",
+    downloadCV: "Lebenslauf",
   },
 
   // Skills section
@@ -122,5 +122,11 @@ export const de = {
     rights: "© {year} Adrian Sanchez",
     location: "Berlin, Deutschland",
     languageSelector: "Sprache",
+  },
+
+  // Locations
+  locations: {
+    default: "Berlin, Deutschland",
+    americas: "Mexiko-Stadt, Mexiko",
   },
 };

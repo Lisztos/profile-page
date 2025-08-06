@@ -13,7 +13,7 @@ export const es = {
     name: "Adrian Sanchez",
     title: "Senior Software Engineer",
     location: "Berlín, Alemania",
-    description: "Desarrollo experiencias digitales excepcionales, con más de <highlight>5+ años</highlight> de experiencia en entornos startup. Especializado en <highlight>Ruby on Rails</highlight> y desarrollo full stack.",
+    description: "Desarrollo soluciones digitales innovadoras con más de <highlight>5 años</highlight> de experiencia en entornos startups. Especializado en <highlight>Ruby on Rails</highlight> y desarrollo full stack.",
     callToAction: "Acepto proyectos freelance y consultoría — platiquemos sobre tu proyecto.",
     workWithMe: "Trabajemos juntos",
     downloadCV: "Descargar CV Completo",
@@ -122,5 +122,11 @@ export const es = {
     rights: "© {year} Adrian Sanchez",
     location: "Berlín, Alemania",
     languageSelector: "Idioma",
+  },
+
+  // Locations
+  locations: {
+    default: "Berlín, Alemania",
+    americas: "Ciudad de México, México",
   },
 };
