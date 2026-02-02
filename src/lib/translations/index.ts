@@ -76,11 +76,13 @@ export function translateDate(dateString: string, language: Language): string {
 
   let translatedDate = dateString;
 
-  // Replace each English month/word with its translation
+  // Replace each English month/word with its translation (replace all occurrences)
   Object.entries(monthMap).forEach(([englishMonth, translationKey]) => {
     if (translatedDate.includes(englishMonth)) {
       const translation = getTranslation(`months.${translationKey}`, language) as string;
-      translatedDate = translatedDate.replace(englishMonth, translation);
+      // Use global regex to replace all occurrences
+      const regex = new RegExp(englishMonth.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+      translatedDate = translatedDate.replace(regex, translation);
     }
   });
 

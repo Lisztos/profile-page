@@ -40,7 +40,7 @@ export const experienceData = [
       "twilio"
     ],
     icon: "innovandio",
-    date: "October 2023 - Present",
+    date: "October 2023 - October 2025",
   },
   {
     jobKey: "demodesk_lead",
