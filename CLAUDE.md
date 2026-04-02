@@ -78,7 +78,7 @@ import { experienceData } from "@/lib/data";
 
 ### SEO & Metadata
 
-- **metadataBase**: Set to `https://adrianisanchez.dev` in layout.tsx for absolute URLs in Open Graph/Twitter tags
+- **metadataBase**: Set to `https://adrianisanchez.com` in layout.tsx for absolute URLs in Open Graph/Twitter tags
 - **Dynamic OG images**: `/api/og` route generates 1200x630 images
 - **JSON-LD structured data**: Person and WebSite schemas embedded in layout.tsx
 - **Sitemap**: Generated via `src/app/sitemap.ts`

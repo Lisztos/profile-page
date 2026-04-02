@@ -16,6 +16,7 @@ import { Toaster } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://adrianisanchez.com"),
   title: "Adrian Sanchez",
   description: "Senior Full Stack Engineer with Ruby on Rails expertise and 5+ years of experience in startup environments.",
   icons: {
