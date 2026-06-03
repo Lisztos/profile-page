@@ -127,6 +127,6 @@ export const es = {
   // Locations
   locations: {
     default: "Berlín, Alemania",
-    americas: "Ciudad de México, México",
+    americas: "Cuernavaca, México",
   },
 };
