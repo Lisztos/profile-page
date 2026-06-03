@@ -26,7 +26,7 @@ export default function Home() {
       <Suspense fallback={null}>
         <DuckClientWrapper />
       </Suspense>
-      <div className="min-h-[calc(100vh-4rem)] w-full flex items-center justify-center py-8 relative">
+      <div className="min-h-[100dvh] w-full flex items-center justify-center py-8 relative">
         <Card id="intro-card" className="w-full max-w-5xl mx-auto">
           <Intro />
         </Card>
