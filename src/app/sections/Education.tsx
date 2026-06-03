@@ -28,7 +28,7 @@ export default function Education() {
           </a>
         </div>
         {/* Card content */}
-        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 dark:bg-gray-800 dark:border-gray-700 sm:text-left text-center flex flex-col items-center sm:items-start">
+        <div className="sm:text-left text-center flex flex-col items-center sm:items-start pt-2">
           <span className="inline-block px-3 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full mb-3 dark:bg-blue-900/30 dark:text-blue-400">
             2018 - 2022
           </span>
