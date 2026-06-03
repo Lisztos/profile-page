@@ -176,7 +176,7 @@ export default function Intro() {
         <div className="flex flex-col sm:flex-row gap-4">
           {/* Primary CTA - Let's Work Together */}
           <div className="relative group">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full opacity-75 group-hover:opacity-100 blur-sm group-hover:blur transition-all duration-1000 animate-tilt"></div>
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full opacity-0 group-hover:opacity-75 blur-sm transition-opacity duration-300"></div>
             <a
               className="relative bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none transition-all duration-300 hover:bg-black active:scale-[0.96] cursor-pointer border border-gray-700 justify-center w-auto transform hover:scale-[1.05] focus:scale-[1.05] shadow-sm hover:shadow-md z-10"
               href="https://calendly.com/lisztos/30min"
