@@ -9,17 +9,10 @@ interface CardProps {
 }
 
 export default function Card({ children, id, className = "" }: CardProps) {
-  const sectionStyle = {
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)',
-    border: '1px solid rgba(0, 0, 0, 0.1)',
-    position: 'relative' as const
-  };
-
   return (
     <div
       id={id}
-      className={`relative w-full rounded-lg bg-white text-gray-900 p-8 shadow-lg overflow-hidden ${className}`}
-      style={sectionStyle}
+      className={`relative w-full rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 p-8 shadow-md border border-black/10 dark:border-white/10 overflow-hidden ${className}`}
     >
       {children}
     </div>
