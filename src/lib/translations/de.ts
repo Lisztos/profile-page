@@ -100,6 +100,14 @@ export const de = {
     title: "Projekte",
   },
 
+  // GitHub Stars
+  githubStars: {
+    title: "Zuletzt markiert",
+    subtitle: "Tools, Libraries und Projekte, die ich zuletzt auf GitHub markiert habe und interessant finde.",
+    error: "Repos konnten nicht geladen werden.",
+    viewAll: "Alle auf GitHub ansehen",
+  },
+
   // Months
   months: {
     january: "Januar",

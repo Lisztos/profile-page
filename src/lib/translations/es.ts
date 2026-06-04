@@ -100,6 +100,14 @@ export const es = {
     title: "Proyectos",
   },
 
+  // GitHub Stars
+  githubStars: {
+    title: "Repos Destacados",
+    subtitle: "Herramientas, librerías y proyectos que he marcado recientemente en GitHub y que encuentro interesantes.",
+    error: "No se pudieron cargar los repositorios.",
+    viewAll: "Ver todos en GitHub",
+  },
+
   // Months
   months: {
     january: "Enero",

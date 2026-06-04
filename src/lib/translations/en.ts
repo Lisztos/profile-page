@@ -100,6 +100,14 @@ export const en = {
     title: "Projects",
   },
 
+  // GitHub Stars
+  githubStars: {
+    title: "Recently Starred",
+    subtitle: "Tools, libraries, and projects I've recently starred on GitHub and find worth exploring.",
+    error: "Could not load starred repos.",
+    viewAll: "View all on GitHub",
+  },
+
   // Months
   months: {
     january: "January",
