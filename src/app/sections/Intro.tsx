@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
 import { HiDownload } from "react-icons/hi";
-import { FaMapMarkerAlt, FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaMapMarkerAlt, FaLinkedin, FaGithub, FaCommentDots } from "react-icons/fa";
 import { FaCalendarCheck } from "react-icons/fa6";
 import { useLocationDisplay, useCVSelection } from "../../lib/hooks/useLocationDisplay";
 import { useTranslation } from "@/lib/hooks/useTranslation";
@@ -162,7 +162,7 @@ export default function Intro() {
         animate={controls}
         transition={{ delay: 0.22 }}
       >
-        <span className="text-2xl">💬</span>
+        <FaCommentDots className="text-gray-400 dark:text-gray-500 flex-shrink-0" size={18} />
         {t('intro.callToAction')}
       </motion.p>
 

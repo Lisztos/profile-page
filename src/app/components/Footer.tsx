@@ -1,6 +1,6 @@
 "use client";
 
-import { BsLinkedin, BsGithub } from "react-icons/bs";
+import { BsLinkedin, BsGithub, BsHeart } from "react-icons/bs";
 import { useTranslation } from "@/lib/hooks/useTranslation";
 
 export default function Footer() {
@@ -47,7 +47,7 @@ export default function Footer() {
                 {t('footer.rights', { year: currentYear })}
               </p>
               <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">
-                Made with ❤️ in Berlin
+                Made with <BsHeart className="inline text-red-400 mx-0.5" size={11} /> in Berlin
               </p>
             </div>
           </div>
