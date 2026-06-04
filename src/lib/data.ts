@@ -10,6 +10,10 @@ export const links = [
     name: "Projects" as SectionName,
     hash: "#projects",
   },
+  {
+    name: "GitHub Stars" as SectionName,
+    hash: "#github-stars",
+  },
   */
   {
     name: "Skills" as SectionName,

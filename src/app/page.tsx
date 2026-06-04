@@ -5,6 +5,7 @@ import Intro from "./sections/Intro";
 // import Projects from "./sections/Projects";
 import Skills from "./sections/Skills";
 import Education from "./sections/Education";
+import GithubStars from "./sections/GithubStars";
 import Card from "./components/Card";
 import { Suspense, useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
@@ -40,6 +41,9 @@ export default function Home() {
         </Card>
         <Card id="education-card" className="w-full my-2">
           <Education />
+        </Card>
+        <Card id="github-stars-card" className="w-full my-2">
+          <GithubStars />
         </Card>
         {/* Projects section temporarily hidden
         <Card id="projects-card" className="w-full">
