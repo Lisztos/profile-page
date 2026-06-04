@@ -34,25 +34,19 @@ export default function ThemeContextProvider({
   };
 
   useEffect(() => {
-    // Force light mode on initialization
-    setTheme("light");
-    window.localStorage.setItem("theme", "light");
-    document.documentElement.classList.remove("dark");
-
-    // Original theme detection code (commented out)
-    /*
     const localTheme = window.localStorage.getItem("theme") as Theme | null;
 
     if (localTheme) {
       setTheme(localTheme);
       if (localTheme === "dark") {
         document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
       }
     } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
       setTheme("dark");
       document.documentElement.classList.add("dark");
     }
-    */
   }, []);
 
   return (
