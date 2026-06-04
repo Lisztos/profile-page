@@ -8,14 +8,15 @@ export default function ThemeSwitch() {
 
   return (
     <button
-      className="fixed bottom-5 right-5 bg-white w-[3rem] h-[3rem] bg-opacity-80 backdrop-blur-[0.5rem] border border-white border-opacity-40 shadow-2xl rounded-full flex items-center justify-center hover:scale-[1.15] active:scale-105 transition-all dark:bg-gray-950"
       onClick={toggleTheme}
+      aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+      className="flex items-center justify-center w-7 h-7 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200/60 dark:hover:bg-gray-700/60 transition-colors"
     >
       {theme === "light" ? (
-        <SunIcon className="h-[1.2rem] w-[1.2rem] text-gray-800" />
+        <MoonIcon className="h-4 w-4" />
       ) : (
-        <MoonIcon className="h-[1.2rem] w-[1.2rem] text-gray-200" />
+        <SunIcon className="h-4 w-4" />
       )}
     </button>
   );
-} 
+}
