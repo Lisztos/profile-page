@@ -3,6 +3,7 @@
 import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
+import Script from "next/script";
 import { HiDownload } from "react-icons/hi";
 import { FaMapMarkerAlt, FaLinkedin, FaGithub, FaCommentDots } from "react-icons/fa";
 import { FaCalendarCheck } from "react-icons/fa6";
@@ -177,15 +178,15 @@ export default function Intro() {
           {/* Primary CTA - Let's Work Together */}
           <div className="relative group">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full opacity-0 group-hover:opacity-75 blur-sm transition-opacity duration-300"></div>
-            <a
+            <button
               className="relative bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none transition-all duration-300 hover:bg-black active:scale-[0.96] cursor-pointer border border-gray-700 justify-center w-auto transform hover:scale-[1.05] focus:scale-[1.05] shadow-sm hover:shadow-md z-10"
-              href="https://cal.eu/adriansanchez/30min"
-              target="_blank"
-              rel="noopener noreferrer"
+              data-cal-link="adriansanchez/30min"
+              data-cal-namespace="30min"
+              data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
             >
               {t('intro.workWithMe')}{" "}
               <FaCalendarCheck className="opacity-70 transition-transform duration-300 transform group-hover:translate-x-1" />
-            </a>
+            </button>
           </div>
 
           {/* Secondary CTA - Download CV */}
@@ -220,6 +221,15 @@ export default function Intro() {
           </a>
         </div>
       </motion.div>
+      <Script
+        id="cal-embed"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `(function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.eu/embed/embed.js", "init");
+Cal("init", "30min", {origin:"https://app.cal.eu"});
+Cal.ns["30min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});`,
+        }}
+      />
     </section>
   );
 }
