@@ -128,7 +128,7 @@ export default function Experience() {
       id="experience"
       className="scroll-mt-28 max-w-[50rem] text-center leading-8 mx-auto mb-16"
     >
-      <SectionHeading>{t('experience.title')}</SectionHeading>
+      <SectionHeading align="left">{t('experience.title')}</SectionHeading>
       <div className="relative">
         {/* Timeline bar (hidden on mobile) */}
         <motion.div

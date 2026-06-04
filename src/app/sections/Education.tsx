@@ -10,7 +10,7 @@ export default function Education() {
 
   return (
     <section id="education" className="scroll-mt-28 max-w-[50rem] text-center leading-8 mx-auto mb-16">
-      <SectionHeading>{t('education.title')}</SectionHeading>
+      <SectionHeading align="left">{t('education.title')}</SectionHeading>
       <div className="relative md:pl-24 text-left mt-12">
         {/* Logo circle */}
         <div className={
