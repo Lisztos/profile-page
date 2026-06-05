@@ -14,7 +14,7 @@ export async function GET() {
     "https://api.github.com/users/Lisztos/starred?per_page=6&sort=created",
     {
       headers,
-      next: { revalidate: 3600 },
+      next: { revalidate: 86400 },
     }
   );
 
