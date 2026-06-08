@@ -6,6 +6,7 @@ export const es = {
     experience: "Experiencia",
     education: "Educación",
     projects: "Proyectos",
+    githubStars: "GitHub Stars",
   },
 
   // Intro section
