@@ -156,7 +156,7 @@ export const skillsData = [
 // Location configuration
 export const locationConfig = {
   default: "Berlin, Germany",
-  americas: "Mexico City, Mexico"
+  americas: "Cuernavaca, Mexico"
 } as const;
 
 // Countries in the Americas for location detection

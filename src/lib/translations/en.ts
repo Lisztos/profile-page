@@ -136,6 +136,6 @@ export const en = {
   // Locations
   locations: {
     default: "Berlin, Germany",
-    americas: "Mexico City, Mexico",
+    americas: "Cuernavaca, Mexico",
   },
 };
