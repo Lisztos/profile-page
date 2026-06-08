@@ -1,11 +1,9 @@
 import { en } from './en';
-import { es } from './es';
 import { de } from './de';
 import { Language } from '@/app/context/language-context';
 
 export const translations = {
   en,
-  es,
   de
 };
 

@@ -2,7 +2,7 @@
 
 import React, { createContext, useState, useContext, useEffect } from "react";
 
-export type Language = "en" | "es" | "de";
+export type Language = "en" | "de";
 
 type LanguageContextType = {
   language: Language;
@@ -21,7 +21,7 @@ export default function LanguageContextProvider({
   // Load saved language preference from localStorage
   useEffect(() => {
     const savedLanguage = localStorage.getItem("language") as Language;
-    if (savedLanguage && ["en", "es", "de"].includes(savedLanguage)) {
+    if (savedLanguage && ["en", "de"].includes(savedLanguage)) {
       setLanguage(savedLanguage);
     }
   }, []);
