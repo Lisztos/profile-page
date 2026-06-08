@@ -40,29 +40,23 @@ export const en = {
         company: "Innovandio",
         location: "Berlin, Germany",
         description: [
-          "Built and maintained two full stack applications for enterprise clients",
-          "Designed CI/CD pipelines and infrastructure to streamline deployments and testing",
-          "Managed engineers and led multiple client projects under tight deadlines"
+          "Architected backend systems and integrations (Twilio, APNs, FCM, Microsoft Graph API, Power BI, Timecard, POS payment terminals) for a multi-service Rails platform powering 30+ car wash and gas stations across Germany and Austria, serving 3,000+ users",
+          "Engineered CI/CD pipelines on AWS and GitHub Actions with Docker and SonarQube quality gates, reducing deployment failures and release times",
+          "Built an AI-powered billing pipeline integrating GitHub, calendar, video call, and project management data that automated client reporting and reduced it from a full day per month to 10 minutes per week",
+          "Developed custom Angular plugins on top of OpenProject's Rails backend for Mercedes-AMG, covering agenda management, meeting minutes, and PowerPoint exports"
         ]
       },
-      demodesk_lead: {
+      demodesk: {
         title: "Full Stack Software Engineer | Team Lead",
         company: "Demodesk",
         location: "Munich, Germany",
         description: [
-          "Led a team of engineers focused on feature delivery and platform stability",
-          "Shipped features under strict SLA and uptime requirements for a global-facing platform",
-          "Improved cross-team alignment by co-developing a process to prioritize product ideas"
-        ]
-      },
-      demodesk_intern: {
-        title: "Software Engineer Intern",
-        company: "Demodesk",
-        location: "Munich, Germany",
-        description: [
-          "Cut technical debt and simplified the codebase by 15%",
-          "Boosted backend performance by optimizing queries and reducing response times",
-          "Contributed to development of platform features and functionality"
+          "Led a team of ~10 engineers maintaining core backend services for a B2B SaaS platform used by 20,000+ users",
+          "Reduced engineering backlog by ~40% during team lead period while maintaining continuous feature delivery",
+          "Worked in a cross-functional feature team that integrated Google Meet to the platform",
+          "Owned scheduling, Salesforce/HubSpot/Pipedrive integrations, user onboarding, and core video workflows",
+          "Shipped features end to end, from system design to production deployment",
+          "Refactored core modules and reduced codebase complexity by ~15%"
         ]
       },
       setting: {

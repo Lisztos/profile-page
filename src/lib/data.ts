@@ -47,7 +47,7 @@ export const experienceData = [
     date: "October 2023 - May 2026",
   },
   {
-    jobKey: "demodesk_lead",
+    jobKey: "demodesk",
     techStack: [
       "rails",
       "vue",
@@ -59,17 +59,7 @@ export const experienceData = [
       "twilio"
     ],
     icon: "demodesk",
-    date: "November 2022 - September 2023",
-  },
-  {
-    jobKey: "demodesk_intern",
-    techStack: [
-      "rails",
-      "vue",
-      "postgresql"
-    ],
-    icon: "demodesk",
-    date: "February 2022 - November 2022",
+    date: "February 2022 - September 2023",
   },
   {
     jobKey: "setting",

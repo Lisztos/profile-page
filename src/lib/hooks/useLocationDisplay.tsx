@@ -100,8 +100,8 @@ export function useCVSelection() {
   const { isAmericas, isLoading } = useLocationContext();
 
   const cvPath = isAmericas
-    ? '/adriansanchez-curriculum.pdf'
-    : '/adrianisanchez-cv.pdf';
+    ? '/CV-adrian-en-mx.pdf'
+    : '/CV-adrian-en-ber.pdf';
 
   const handleCVDownload = (e: React.MouseEvent) => {
     e.preventDefault();

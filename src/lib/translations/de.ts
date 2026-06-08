@@ -40,29 +40,23 @@ export const de = {
         company: "Innovandio",
         location: "Berlin, Deutschland",
         description: [
-          "Aufbau und Wartung von zwei Full-Stack-Anwendungen für Unternehmenskunden",
-          "Entwurf von CI/CD-Pipelines und Infrastruktur zur Optimierung von Deployments und Tests",
-          "Management von Entwicklern und Leitung mehrerer Kundenprojekte unter engen Deadlines"
+          "Entwurf von Backend-Systemen und Integrationen (Twilio, APNs, FCM, Microsoft Graph API, Power BI, Timecard, POS-Zahlungsterminals) für eine Multi-Service-Rails-Plattform, die 30+ Autowaschanlagen und Tankstellen in Deutschland und Österreich mit 3.000+ Nutzern betreibt",
+          "Entwicklung von CI/CD-Pipelines auf AWS und GitHub Actions mit Docker und SonarQube-Qualitätsgates, wodurch Deployment-Fehler und Release-Zeiten reduziert wurden",
+          "Aufbau einer KI-gestützten Abrechnungspipeline, die GitHub-, Kalender-, Videoanruf- und Projektmanagementdaten integriert und die Kundenberichterstattung von einem vollen Tag pro Monat auf 10 Minuten pro Woche reduzierte",
+          "Entwicklung benutzerdefinierter Angular-Plugins auf Basis von OpenProjects Rails-Backend für Mercedes-AMG, mit Funktionen für Tagesordnungsverwaltung, Sitzungsprotokolle und PowerPoint-Exporte"
         ]
       },
-      demodesk_lead: {
+      demodesk: {
         title: "Full Stack Software Engineer | Team Lead",
         company: "Demodesk",
         location: "München, Deutschland",
         description: [
-          "Leitung eines Entwicklerteams mit Fokus auf Feature-Entwicklung und Plattformstabilität",
-          "Bereitstellung von Features unter strengen SLA- und Uptime-Anforderungen für eine globale Plattform",
-          "Verbesserung der teamübergreifenden Ausrichtung durch Mitentwicklung eines Prozesses zur Priorisierung von Produktideen"
-        ]
-      },
-      demodesk_intern: {
-        title: "Software Engineer Intern",
-        company: "Demodesk",
-        location: "München, Deutschland",
-        description: [
-          "Reduzierung technischer Schulden und Vereinfachung der Codebasis um 15%",
-          "Steigerung der Backend-Performance durch Optimierung von Abfragen und Reduzierung von Antwortzeiten",
-          "Beitrag zur Entwicklung von Plattform-Features und -Funktionalitäten"
+          "Leitete ein Team von ~10 Ingenieuren, das Core-Backend-Services für eine B2B-SaaS-Plattform mit 20.000+ Nutzern betreute",
+          "Reduzierte den Engineering-Backlog um ~40% während der Team-Lead-Phase bei gleichzeitiger kontinuierlicher Feature-Lieferung",
+          "Arbeitete in einem cross-funktionalen Feature-Team, das Google Meet in die Plattform integrierte",
+          "Verantwortete Scheduling, Salesforce/HubSpot/Pipedrive-Integrationen, User-Onboarding und zentrale Video-Workflows",
+          "Lieferte Features von Ende zu Ende, vom System Design bis zum Produktions-Deployment",
+          "Refaktorierte Kernmodule und reduzierte die Codebasis-Komplexität um ~15%"
         ]
       },
       setting: {

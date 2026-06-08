@@ -40,29 +40,23 @@ export const es = {
         company: "Innovandio",
         location: "Berlín, Alemania",
         description: [
-          "Desarrollé y mantuve dos aplicaciones full stack para clientes empresariales",
-          "Diseñé pipelines de CI/CD e infraestructura para optimizar deployments y pruebas",
-          "Manejé equipos de ingenieros y lideré múltiples proyectos de clientes con tiempos ajustados"
+          "Diseñé sistemas backend e integraciones (Twilio, APNs, FCM, Microsoft Graph API, Power BI, Timecard, terminales de pago POS) para una plataforma Rails multi-servicio que opera más de 30 autolavados y gasolineras en Alemania y Austria, con más de 3,000 usuarios",
+          "Desarrollé pipelines de CI/CD en AWS y GitHub Actions con Docker y quality gates de SonarQube, reduciendo fallos en deployments y tiempos de release",
+          "Construí un pipeline de facturación con IA que integra datos de GitHub, calendario, videollamadas y gestión de proyectos, automatizando los reportes a clientes y reduciéndolos de un día completo al mes a 10 minutos por semana",
+          "Desarrollé plugins personalizados de Angular sobre el backend Rails de OpenProject para Mercedes-AMG, cubriendo gestión de agendas, actas de reuniones y exportaciones a PowerPoint"
         ]
       },
-      demodesk_lead: {
+      demodesk: {
         title: "Full Stack Software Engineer | Team Lead",
         company: "Demodesk",
         location: "Múnich, Alemania",
         description: [
-          "Lideré un equipo de ingenieros enfocado en la entrega de features y estabilidad de la plataforma",
-          "Entregué funcionalidades bajo estrictos requisitos de SLA y uptime para una plataforma global",
-          "Mejoré la coordinación entre equipos desarrollando un proceso para priorizar ideas de producto"
-        ]
-      },
-      demodesk_intern: {
-        title: "Software Engineer Intern",
-        company: "Demodesk",
-        location: "Múnich, Alemania",
-        description: [
-          "Reduje la deuda técnica y simplifiqué el código base en un 15%",
-          "Mejoré el performance del backend optimizando queries y reduciendo tiempos de respuesta",
-          "Contribuí al desarrollo de features y funcionalidades de la plataforma"
+          "Lideré un equipo de ~10 ingenieros que mantenía los servicios backend principales de una plataforma B2B SaaS con más de 20,000 usuarios",
+          "Reduje el backlog de ingeniería en ~40% durante el período de team lead manteniendo la entrega continua de features",
+          "Trabajé en un equipo cross-funcional que integró Google Meet a la plataforma",
+          "Fui responsable del scheduling, integraciones con Salesforce/HubSpot/Pipedrive, onboarding de usuarios y flujos de video principales",
+          "Entregué features de extremo a extremo, desde el diseño del sistema hasta el despliegue en producción",
+          "Refactoricé módulos principales y reduje la complejidad del código base en ~15%"
         ]
       },
       setting: {
