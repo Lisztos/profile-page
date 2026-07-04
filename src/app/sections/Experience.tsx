@@ -8,15 +8,12 @@ import SectionHeading from "@/app/components/SectionHeading";
 import { FaBriefcase } from "react-icons/fa";
 import { SiRubyonrails, SiPostgresql, SiRedis, SiVuedotjs, SiAngular, SiTerraform, SiGithub, SiGitlab, SiGnubash, SiHeroku, SiSalesforce, SiTwilio } from "react-icons/si";
 import { FaAws } from "react-icons/fa";
-import { HiDownload } from "react-icons/hi";
-import { useCVSelection } from "@/lib/hooks/useLocationDisplay";
 import { useTranslation } from "@/lib/hooks/useTranslation";
 import { useLanguage } from "@/app/context/language-context";
 import { getTranslation, translateDate } from "@/lib/translations";
 
 export default function Experience() {
   const controls = useAnimation();
-  const { handleCVDownload } = useCVSelection();
   const { t } = useTranslation();
   const { language } = useLanguage();
 
@@ -211,24 +208,6 @@ export default function Experience() {
         </div>
       </div>
 
-      {/* Download CV Button */}
-      <motion.div
-        className="mt-12 flex justify-center"
-        animate={controls}
-        variants={{
-          hidden: { opacity: 0, y: 20 },
-          visible: { opacity: 1, y: 0, transition: { delay: 0.5, duration: 0.4 } }
-        }}
-        initial="hidden"
-      >
-        <button
-          className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none transition-all duration-300 cursor-pointer border border-transparent justify-center w-auto transform hover:scale-[1.03] focus:scale-[1.03] active:scale-[0.98] hover:bg-black"
-          onClick={handleCVDownload}
-        >
-          {t('intro.downloadCV')}{" "}
-          <HiDownload className="opacity-70 transition-transform duration-300 group-hover:translate-y-1" />
-        </button>
-      </motion.div>
     </section>
   );
 }
