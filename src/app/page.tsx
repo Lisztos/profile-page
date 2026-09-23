@@ -1,98 +1,114 @@
-"use client";
+import { getContributions, getStars } from "@/lib/github";
+import { site } from "@/lib/site";
+import { CommitGraph } from "./components/CommitGraph";
+import { Reveal } from "./components/Reveal";
+import { StarredRepos } from "./components/StarredRepos";
+import { Ticker } from "./components/Ticker";
+import { TiltPortrait } from "./components/TiltPortrait";
 
-import Experience from "./sections/Experience";
-import Intro from "./sections/Intro";
-import Skills from "./sections/Skills";
-import Education from "./sections/Education";
-import GithubStars from "./sections/GithubStars";
-import Card from "./components/Card";
-import { Suspense, useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
-import DuckAnimation from "./components/DuckAnimation";
-import { useTranslation } from "@/lib/hooks/useTranslation";
-
-type Tab = "skills" | "experience" | "education" | "github-stars";
-
-function DuckClientWrapper() {
-  "use client";
-  const [isMounted, setIsMounted] = useState(false);
-  const searchParams = useSearchParams();
-  const showDuck = searchParams?.get("duck") === "true";
-  useEffect(() => { setIsMounted(true); }, []);
-  if (!isMounted || !showDuck) return null;
-  return <DuckAnimation />;
-}
-
-function TabNav({ activeTab, onChange }: { activeTab: Tab; onChange: (tab: Tab) => void }) {
-  const { t } = useTranslation();
-
-  const tabs: { id: Tab; label: string }[] = [
-    { id: "skills", label: t("nav.skills") },
-    { id: "experience", label: t("nav.experience") },
-    { id: "education", label: t("nav.education") },
-    { id: "github-stars", label: t("nav.githubStars") },
-  ];
+export default async function Home() {
+  const [stars, contributions] = await Promise.all([
+    getStars(),
+    getContributions(),
+  ]);
 
   return (
-    <div className="w-full max-w-5xl sticky top-16 z-40 py-4">
-      <div className="flex gap-1 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm p-1.5 rounded-full shadow-sm border border-gray-200/50 dark:border-gray-700/50 w-fit mx-auto">
-        {tabs.map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => onChange(tab.id)}
-            className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
-              activeTab === tab.id
-                ? "bg-gray-900 dark:bg-white text-white dark:text-gray-900 shadow-sm"
-                : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
-            }`}
-          >
-            {tab.label}
-          </button>
-        ))}
-      </div>
-    </div>
-  );
-}
+    <main>
+      <header>
+        <div className="dateline hero-fade d1">
+          <span className="meta">{site.location}</span>
+          <span className="meta">EST. 5+ YRS IN PROD</span>
+        </div>
+        <h1>
+          <span className="mask">
+            <span className="line">{site.givenName}</span>
+          </span>
+          <span className="mask">
+            <span className="line">
+              <em>{site.familyName}</em>
+            </span>
+          </span>
+        </h1>
+        <div className="titlebar hero-fade d2">
+          <span className="role">{site.role.toUpperCase()}</span>
+          <a className="pill" href={site.cal}>
+            reach me
+          </a>
+        </div>
+        <div className="intro hero-fade d3">
+          <TiltPortrait />
+          <p>{site.intro}</p>
+        </div>
+        <Ticker />
+      </header>
 
-export default function Home() {
-  const [activeTab, setActiveTab] = useState<Tab>("skills");
+      <section className="defs" aria-label="About">
+        <Reveal className="def">
+          <span className="label" style={{ color: "var(--brick)" }}>
+            NOW
+          </span>
+          <p>
+            Senior full stack,{" "}
+            <span className="u-now">{site.nowCompany}</span>
+            {site.nowRest}
+          </p>
+        </Reveal>
+        <Reveal className="def">
+          <span className="label" style={{ color: "var(--muted)" }}>
+            BEFORE
+          </span>
+          <p>
+            {site.before.map((item) => (
+              <span key={item.name}>
+                <span className="u-past">{item.name}</span>
+                {item.after}
+              </span>
+            ))}
+          </p>
+        </Reveal>
+        <Reveal className="def">
+          <span className="label" style={{ color: "var(--muted)" }}>
+            STACK
+          </span>
+          <p className="stack">{site.stack}</p>
+        </Reveal>
+      </section>
 
-  return (
-    <main className="flex flex-col items-center px-4">
-      <Suspense fallback={null}>
-        <DuckClientWrapper />
-      </Suspense>
+      <CommitGraph days={contributions} />
+      <StarredRepos repos={stars} />
 
-      <div className="min-h-[100dvh] w-full flex items-center justify-center py-8 relative">
-        <Card id="intro-card" className="w-full max-w-5xl mx-auto">
-          <Intro />
-        </Card>
-      </div>
+      <section className="ruled">
+        <Reveal className="inner">
+          <h2>Projects &amp; writing</h2>
+          <div className="projects">
+            {site.projects.map((item) => (
+              <div className="cell" key={item.title}>
+                <div className="t">{item.title}</div>
+                <div className="k">{item.kicker}</div>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      </section>
 
-      <TabNav activeTab={activeTab} onChange={setActiveTab} />
-
-      <div className="w-full max-w-5xl py-8 pb-16">
-        {activeTab === "skills" && (
-          <Card id="skills-card" className="w-full">
-            <Skills />
-          </Card>
-        )}
-        {activeTab === "experience" && (
-          <Card id="experience-card" className="w-full">
-            <Experience />
-          </Card>
-        )}
-        {activeTab === "education" && (
-          <Card id="education-card" className="w-full">
-            <Education />
-          </Card>
-        )}
-        {activeTab === "github-stars" && (
-          <Card id="github-stars-card" className="w-full">
-            <GithubStars />
-          </Card>
-        )}
-      </div>
+      <footer>
+        <Reveal className="cta">
+          <span className="q">Got a project?</span>
+          <a className="pill-solid" href={site.cal}>
+            reach me →
+          </a>
+        </Reveal>
+        <div className="colophon">
+          © {new Date().getFullYear()} ADRIAN SANCHEZ ·{" "}
+          <a className="sweep" href={site.linkedin} rel="me">
+            LINKEDIN
+          </a>{" "}
+          ·{" "}
+          <a className="sweep" href={site.github} rel="me">
+            GITHUB
+          </a>
+        </div>
+      </footer>
     </main>
   );
 }
