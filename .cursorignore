@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Build output
+.next/
+tsconfig.tsbuildinfo
+
+# Env / secrets
+.env
+.env.*
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test / tooling artifacts
+.playwright-mcp/
+.tldrignore
+
+# OS
+.DS_Store
+
+# Editor/tooling
+.vscode/
+.idea/

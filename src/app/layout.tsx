@@ -1,39 +1,47 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { DotGrid } from "./components/DotGrid";
+import { InkCursor } from "./components/InkCursor";
+import { Preloader } from "./components/Preloader";
+import { mono, serif } from "./fonts";
+import { site } from "@/lib/site";
 import "./globals.css";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import ActiveSectionContextProvider from "./context/active-section-context";
-import ThemeContextProvider from "./context/theme-context";
-import { LocationProvider } from "../lib/hooks/useLocationDisplay";
-import LanguageContextProvider from "./context/language-context";
-// Theme switch is temporarily disabled
-// import ThemeSwitch from "./components/ThemeSwitch";
-import { Analytics } from '@vercel/analytics/next';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Toaster } from "react-hot-toast";
-
-const geist = Geist({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://adrianisanchez.com"),
-  title: "Adrian Sanchez",
-  description: "Senior Full Stack Engineer with Ruby on Rails expertise and 5+ years of experience in startup environments.",
-  icons: {
-    icon: '/icon.png',
-    apple: '/icon.png',
-  },
+  metadataBase: new URL(site.url),
+  title: site.title,
+  description: site.description,
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Adrian Sanchez | Senior Full Stack Engineer",
-    description: "Senior Full Stack Engineer with Ruby on Rails expertise and 5+ years of experience in startup environments.",
-    images: [{ url: '/icon.png', width: 60, height: 60 }],
+    type: "profile",
+    title: site.title,
+    description: site.description,
+    url: site.url,
   },
   twitter: {
-    card: 'summary_large_image',
-    title: "Adrian Sanchez | Senior Full Stack Engineer",
-    description: "Senior Full Stack Engineer with Ruby on Rails expertise and 5+ years of experience in startup environments.",
-    images: ['/icon.png'],
+    card: "summary_large_image",
+    title: site.title,
+    description: site.description,
   },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.name,
+  jobTitle: site.role,
+  worksFor: {
+    "@type": "Organization",
+    name: site.nowCompany,
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Cuernavaca",
+    addressCountry: "MX",
+  },
+  url: site.url,
+  sameAs: [site.github, site.linkedin],
 };
 
 export default function RootLayout({
@@ -42,31 +50,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="!scroll-smooth">
-      <head>
-        <link rel="shortcut icon" href="/icon.png" />
-        <link rel="apple-touch-icon" href="/icon.png" />
-      </head>
-      <body className={`${geist.className} bg-gray-50 text-gray-950 relative pt-4 min-h-screen dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}>
-
-
-        <div className="bg-[#fbe2e3] fixed inset-0 -z-10 w-full max-w-[75rem] right-[11rem] rounded-full blur-[10rem] sm:w-[68.75rem] dark:bg-[#2563eb] animate-gradient"></div>
-        <div className="bg-[#539df7] fixed inset-0 -z-10 w-full max-w-[50rem] left-[35rem] rounded-full blur-[10rem] sm:w-[68.75rem] dark:bg-[#3b82f6] animate-gradient [animation-delay:-7s]"></div>
-
-        <LocationProvider>
-          <ThemeContextProvider>
-            <LanguageContextProvider>
-              <ActiveSectionContextProvider>
-                <Header />
-              {children}
-              <Footer />
-              {/* ThemeSwitch temporarily disabled */}
-              {/* <ThemeSwitch /> */}
-              <Toaster position="top-right" />
-              </ActiveSectionContextProvider>
-            </LanguageContextProvider>
-          </ThemeContextProvider>
-        </LocationProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${serif.variable} ${mono.variable}`}>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.classList.add('js');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('loading');`,
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <Preloader />
+        <InkCursor />
+        <DotGrid />
+        {children}
         <Analytics />
         <SpeedInsights />
       </body>
