@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
+import { site } from "@/lib/site";
 
-export const alt = "Adrian Sanchez | Senior Full Stack Engineer";
+export const alt = site.title;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -51,7 +52,7 @@ export default async function Image() {
             fontFamily: "Georgia",
           }}
         >
-          <span>BERLIN, DE</span>
+          <span>{site.location}</span>
           <span>EST. 5+ YRS IN PROD</span>
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
@@ -81,7 +82,7 @@ export default async function Image() {
             fontFamily: "Georgia",
           }}
         >
-          SENIOR FULL STACK ENGINEER
+          {site.role.toUpperCase()}
         </div>
       </div>
     ),

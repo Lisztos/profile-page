@@ -48,7 +48,7 @@ export default async function Home() {
             NOW
           </span>
           <p>
-            Senior full stack,{" "}
+            {site.nowLead}
             <span className="u-now">{site.nowCompany}</span>
             {site.nowRest}
           </p>
@@ -70,7 +70,7 @@ export default async function Home() {
           <span className="label" style={{ color: "var(--muted)" }}>
             STACK
           </span>
-          <p className="stack">{site.stack}</p>
+          <p>{site.stack}</p>
         </Reveal>
       </section>
 
@@ -79,7 +79,7 @@ export default async function Home() {
 
       <section className="ruled">
         <Reveal className="inner">
-          <h2>Projects &amp; writing</h2>
+          <h2>Projects</h2>
           <div className="projects">
             {site.projects.map((item) => (
               <div className="cell" key={item.title}>

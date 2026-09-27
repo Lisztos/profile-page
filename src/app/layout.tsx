@@ -10,19 +10,19 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: "Adrian Sanchez | Senior Full Stack Engineer",
-  description: "Rails and Vue engineer, 5+ years in startups. Berlin.",
+  title: site.title,
+  description: site.description,
   alternates: { canonical: "/" },
   openGraph: {
     type: "profile",
-    title: "Adrian Sanchez | Senior Full Stack Engineer",
-    description: "Rails and Vue engineer, 5+ years in startups. Berlin.",
+    title: site.title,
+    description: site.description,
     url: site.url,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Adrian Sanchez | Senior Full Stack Engineer",
-    description: "Rails and Vue engineer, 5+ years in startups. Berlin.",
+    title: site.title,
+    description: site.description,
   },
 };
 
@@ -31,6 +31,15 @@ const jsonLd = {
   "@type": "Person",
   name: site.name,
   jobTitle: site.role,
+  worksFor: {
+    "@type": "Organization",
+    name: site.nowCompany,
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Cuernavaca",
+    addressCountry: "MX",
+  },
   url: site.url,
   sameAs: [site.github, site.linkedin],
 };

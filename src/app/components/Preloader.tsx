@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { site } from "@/lib/site";
 
 let played = false;
 
@@ -71,7 +72,7 @@ export function Preloader() {
     <div id="loader" ref={loaderRef} aria-hidden="true">
       <div className="row">
         <span className="meta">PORTFOLIO 2026 - ADRIAN SANCHEZ</span>
-        <span className="meta">BERLIN, DE</span>
+        <span className="meta">{site.location}</span>
       </div>
       <div className="mid">
         <div className="big">

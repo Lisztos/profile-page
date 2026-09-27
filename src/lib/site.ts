@@ -2,39 +2,45 @@ export const site = {
   name: "Adrian Sanchez",
   givenName: "Adrian",
   familyName: "Sanchez",
-  role: "Senior Full Stack Engineer",
-  location: "Berlin, DE",
+  role: "Software Engineer II",
+  location: "CUERNAVACA, MX",
   url: "https://adrianisanchez.com",
   githubUser: "Lisztos",
   github: "https://github.com/Lisztos",
   githubStars: "https://github.com/Lisztos?tab=stars",
   linkedin: "https://www.linkedin.com/in/adrian-isaias-sanchez/",
   cal: "https://cal.eu/adriansanchez/30min",
+  title: "Adrian Sanchez | Software Engineer II",
+  description:
+    "Software Engineer II at One Call. 5+ years shipping product in startups. Cuernavaca, Mexico.",
   intro:
-    "I build software that pays rent: Rails on the back, whatever it takes on the front. Startups only: small teams, real users, no ceremony.",
-  nowCompany: "Independent",
+    "I build software that pays rent. Backends, frontends, whatever it takes. Small teams, real users, no ceremony.",
+  nowLead: "Software Engineer II at ",
+  nowCompany: "One Call",
   nowRest:
-    ". Freelance and consulting. Rails services, Vue frontends, and the 2am migrations that go fine, actually.",
+    ". Product engineering on a workers' compensation care platform.",
   before: [
     {
       name: "Innovandio",
-      after: ", Rails services and a Vue frontend for stations across DE and AT. Earlier, ",
+      after:
+        ", Rails services and a Vue frontend for stations across DE and AT. Earlier, ",
     },
     {
       name: "Demodesk",
-      after: ": payments, Twilio, Salesforce plumbing. Setting HQ and Almondia before that, where shipping beat perfect.",
+      after:
+        ": payments, Twilio, Salesforce plumbing. Setting HQ and Almondia before that, where shipping beat perfect.",
     },
   ],
   stack:
-    "rails · vue · postgres · aws · terraform · redis · twilio · heroku · salesforce",
+    "The whole slice: product, infra, and AI in the loop. Tools follow the job.",
   tickerItems: [
     "FULL STACK",
-    "RAILS",
-    "VUE",
-    "POSTGRES",
+    "PRODUCT",
+    "INFRA",
+    "AI",
     "ZERO-TO-ONE",
-    "STARTUPS ONLY",
-    "BERLIN",
+    "ONE CALL",
+    "CUERNAVACA",
   ],
   projects: [
     {
@@ -46,12 +52,12 @@ export const site = {
       kicker: "PROJECT",
     },
     {
-      title: "First post",
-      kicker: "WRITING, SOON",
+      title: "Digital Handover Tool",
+      kicker: "PROJECT",
     },
     {
-      title: "Second post",
-      kicker: "WRITING, SOON",
+      title: "Platform Migration",
+      kicker: "PROJECT",
     },
   ],
 } as const;
