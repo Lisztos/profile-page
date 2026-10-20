@@ -44,7 +44,7 @@ export default async function Home() {
 
       <section className="defs" aria-label="About">
         <Reveal className="def">
-          <span className="label" style={{ color: "var(--brick)" }}>
+          <span className="label" style={{ color: "var(--accent)" }}>
             NOW
           </span>
           <p>

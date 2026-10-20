@@ -1,7 +1,7 @@
-import { Instrument_Serif, JetBrains_Mono } from "next/font/google";
+import { Source_Serif_4, JetBrains_Mono } from "next/font/google";
 
-export const serif = Instrument_Serif({
-  weight: "400",
+export const serif = Source_Serif_4({
+  weight: ["400", "500", "600"],
   style: ["normal", "italic"],
   subsets: ["latin"],
   variable: "--font-serif",
