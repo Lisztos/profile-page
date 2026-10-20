@@ -37,8 +37,8 @@ const jsonLd = {
   },
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Cuernavaca",
-    addressCountry: "MX",
+    addressLocality: "Basel",
+    addressCountry: "CH",
   },
   url: site.url,
   sameAs: [site.github, site.linkedin],

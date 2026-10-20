@@ -10,11 +10,11 @@ export function StarredRepos({ repos }: { repos: StarredRepo[] }) {
       <Reveal className="inner">
         <div className="h2row">
           <h2>Recently starred</h2>
-          <span className="meta">WHAT I&apos;M LOOKING AT</span>
+          <span className="meta">CURRENT INTERESTS</span>
         </div>
         <p className="starred-intro">
-          New tools, AI agents, things I might fold into day-to-day work.
-          Curated by use, not hype. Steal freely.
+          Tools and projects I am evaluating for day-to-day work, selected for
+          practical use rather than popularity.
         </p>
         <div className="ledger">
           {repos.map((repo) => (
