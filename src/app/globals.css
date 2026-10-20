@@ -167,11 +167,11 @@ html.js.cursor-on * {
   background: var(--ink);
   pointer-events: none;
   transition:
-    width 0.22s,
-    height 0.22s,
-    margin 0.22s,
-    background 0.22s,
-    opacity 0.22s;
+    width 0.1s,
+    height 0.1s,
+    margin 0.1s,
+    background 0.1s,
+    opacity 0.1s;
 }
 
 html.js.cursor-on #cursor {

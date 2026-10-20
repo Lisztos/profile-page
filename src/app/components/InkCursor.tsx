@@ -29,8 +29,8 @@ export function InkCursor() {
 
     const follow = () => {
       if (!running) return;
-      cx += (tx - cx) * 0.22;
-      cy += (ty - cy) * 0.22;
+      cx += (tx - cx) * 0.45;
+      cy += (ty - cy) * 0.45;
       cur.style.translate = `${cx.toFixed(1)}px ${cy.toFixed(1)}px`;
       frame = requestAnimationFrame(follow);
     };
