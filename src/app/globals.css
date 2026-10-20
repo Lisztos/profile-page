@@ -214,6 +214,10 @@ header {
   padding-bottom: 12px;
 }
 
+.dateline .meta {
+  white-space: nowrap;
+}
+
 h1 {
   margin: 24px 0 0;
   font-weight: 400;
@@ -350,6 +354,12 @@ html.js.ready .hero-fade {
 }
 
 @media (max-width: 560px) {
+  .dateline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
   .intro {
     grid-template-columns: 1fr;
   }
