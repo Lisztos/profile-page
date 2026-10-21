@@ -349,8 +349,9 @@ html.js.ready .hero-fade {
 
 .intro p {
   margin: 0;
-  font-size: 23px;
+  font-size: 14.5px;
   line-height: 1.5;
+  color: var(--ink-soft);
 }
 
 @media (max-width: 560px) {
@@ -369,7 +370,7 @@ html.js.ready .hero-fade {
   }
 
   .intro p {
-    font-size: 19px;
+    font-size: 14.5px;
   }
 
   h2 {
@@ -382,8 +383,7 @@ html.js.ready .hero-fade {
   margin-top: 36px;
   margin-inline: calc(50% - 50vw);
   overflow: hidden;
-  border-top: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
+  background: var(--ink);
   padding: 9px 0;
 }
 
@@ -402,7 +402,7 @@ html.js.ready .hero-fade {
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.16em;
-  color: var(--ink-soft);
+  color: var(--paper);
   white-space: nowrap;
 }
 
@@ -446,8 +446,9 @@ html.js.ready .hero-fade {
 
 .def p {
   margin: 0;
-  font-size: 19px;
-  line-height: 1.55;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--ink-soft);
 }
 
 .def .u-now {
@@ -465,7 +466,7 @@ html.js.ready .hero-fade {
   }
 
   .def p {
-    font-size: 17px;
+    font-size: 14.5px;
   }
 }
 
@@ -599,8 +600,9 @@ html.js.ready .hero-fade {
 
 .cell-media {
   position: relative;
-  width: 100%;
-  aspect-ratio: 1 / 1;
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
   border-radius: 4px;
   overflow: hidden;
   background: var(--paper);
@@ -683,12 +685,8 @@ html.js.ready .hero-fade {
   }
 }
 
-/* ---------- footer ---------- */
-footer {
-  padding: 64px 0 56px;
-}
-
 .cta {
+  margin-top: 64px;
   border-top: 2.5px solid var(--ink);
   padding-top: 22px;
   display: flex;
@@ -725,12 +723,42 @@ footer {
   outline: none;
 }
 
+/* ---------- footer ---------- */
+footer {
+  margin-inline: calc(50% - 50vw);
+  margin-top: 56px;
+  width: 100vw;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+footer .inner {
+  max-width: 680px;
+  margin-inline: auto;
+  padding: 44px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
 .colophon {
-  margin-top: 20px;
   font-family: var(--mono);
   font-size: 10px;
   color: var(--muted);
   letter-spacing: 0.1em;
+}
+
+.made-with {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+.made-with .heart {
+  color: var(--accent);
 }
 
 /* ---------- underline sweep ---------- */

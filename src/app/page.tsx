@@ -57,7 +57,14 @@ export default async function Home() {
           <p>
             {site.before.map((item) => (
               <span key={item.name}>
-                <span className="u-past">{item.name}</span>
+                <a
+                  className="u-past"
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {item.name}
+                </a>
                 {item.after}
               </span>
             ))}
@@ -104,7 +111,7 @@ export default async function Home() {
                           src={image.src}
                           alt={image.alt}
                           fill
-                          sizes="(max-width: 560px) 100vw, 50vw"
+                          sizes="56px"
                           className="cell-media-img"
                         />
                       </div>
@@ -144,22 +151,28 @@ export default async function Home() {
         </Reveal>
       </section>
 
+      <Reveal className="cta">
+        <span className="q">Interested in working together?</span>
+        <a className="pill-solid" href={site.cal}>
+          contact →
+        </a>
+      </Reveal>
+
       <footer>
-        <Reveal className="cta">
-          <span className="q">Interested in working together?</span>
-          <a className="pill-solid" href={site.cal}>
-            contact →
-          </a>
-        </Reveal>
-        <div className="colophon">
-          © {new Date().getFullYear()} ADRIAN SANCHEZ ·{" "}
-          <a className="sweep" href={site.linkedin} rel="me">
-            LINKEDIN
-          </a>{" "}
-          ·{" "}
-          <a className="sweep" href={site.github} rel="me">
-            GITHUB
-          </a>
+        <div className="inner">
+          <div className="colophon">
+            © {new Date().getFullYear()} ADRIAN SANCHEZ ·{" "}
+            <a className="sweep" href={site.linkedin} rel="me">
+              LINKEDIN
+            </a>{" "}
+            ·{" "}
+            <a className="sweep" href={site.github} rel="me">
+              GITHUB
+            </a>
+          </div>
+          <div className="made-with">
+            Made with <span className="heart">♥</span> in Berlin
+          </div>
         </div>
       </footer>
     </main>

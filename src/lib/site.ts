@@ -12,9 +12,9 @@ export const site = {
   cal: "https://cal.eu/adriansanchez/30min",
   title: "Adrian Sanchez | Software Engineer",
   description:
-    "Software Engineer at One Call. 5+ years of experience building production software at startups. Based in Basel, Switzerland.",
+    "Software Engineer at One Call. 5+ years of experience building production software. Based in Basel, Switzerland.",
   intro:
-    "I build and ship production software end to end, covering backend, frontend, and infrastructure, for small teams working on real products.",
+    "I build and ship production software end to end, covering backend, frontend, and infrastructure, for teams shipping real products.",
   nowLead: "Software Engineer at ",
   nowCompany: "One Call",
   nowRest:
@@ -22,11 +22,13 @@ export const site = {
   before: [
     {
       name: "Innovandio",
+      url: "https://innovandio.com",
       after:
         ", as a senior engineer building and maintaining full-stack applications for enterprise clients, designing CI/CD pipelines, and leading client projects. Earlier, ",
     },
     {
       name: "Demodesk",
+      url: "https://demodesk.ai",
       after:
         ", starting as an engineering intern and growing into a full-stack engineer and team lead, managing a team of engineers and coordinating feature delivery across product and support. Working-student roles at Setting.io and Almondia before that, where I first cut my teeth on full-stack development.",
     },
