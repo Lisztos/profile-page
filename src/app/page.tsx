@@ -99,14 +99,7 @@ export default async function Home() {
                           : "cell-media"
                       }
                     >
-                      <div
-                        className="cell-media-inset"
-                        style={
-                          "scale" in image && image.scale
-                            ? { inset: `${(1 - image.scale) * 50}%` }
-                            : undefined
-                        }
-                      >
+                      <div className="cell-media-inset">
                         <Image
                           src={image.src}
                           alt={image.alt}
