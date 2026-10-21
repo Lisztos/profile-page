@@ -64,7 +64,6 @@ export const site = {
         src: "/images/projects/sublify-logo.png",
         alt: "Sublify logo",
         border: false,
-        scale: 0.7,
       },
       url: "https://github.com/Lisztos/Sublify",
     },

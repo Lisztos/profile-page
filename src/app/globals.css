@@ -425,14 +425,14 @@ html.js.ready .hero-fade {
 
 /* ---------- definition rows ---------- */
 .defs {
-  padding-top: 52px;
+  padding-top: 72px;
 }
 
 .def {
   display: grid;
   grid-template-columns: 130px 1fr;
   gap: 20px;
-  padding-top: 20px;
+  padding-top: 28px;
 }
 
 .def + .def {
@@ -472,7 +472,7 @@ html.js.ready .hero-fade {
 
 /* ---------- ruled sections ---------- */
 .ruled {
-  padding-top: 52px;
+  padding-top: 72px;
 }
 
 .ruled .inner {
@@ -510,14 +510,14 @@ html.js.ready .hero-fade {
 
 /* ---------- recently starred ---------- */
 .starred-intro {
-  margin: 12px 0 0;
+  margin: 18px 0 0;
   font-size: 17px;
   line-height: 1.5;
   color: var(--ink-soft);
 }
 
 .ledger {
-  margin-top: 16px;
+  margin-top: 28px;
   border-top: 1px solid var(--rule);
 }
 
@@ -527,7 +527,7 @@ html.js.ready .hero-fade {
   gap: 20px;
   align-items: baseline;
   border-bottom: 1px solid var(--rule);
-  padding: 14px 8px;
+  padding: 20px 8px;
   margin-inline: -8px;
   transition:
     background 0.2s,
