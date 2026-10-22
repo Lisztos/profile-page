@@ -10,9 +10,12 @@ export const site = {
   githubStars: "https://github.com/Lisztos?tab=stars",
   linkedin: "https://www.linkedin.com/in/adrian-isaias-sanchez/",
   cal: "https://cal.eu/adriansanchez/30min",
-  title: "Adrian Sanchez | Software Engineer",
+  email: "adrian@lisztostech.com",
+  addressLocality: "Basel",
+  addressCountry: "CH",
+  title: "Adrian Sanchez | Software Engineer at One Call",
   description:
-    "Software Engineer at One Call. 5+ years of experience building production software. Based in Basel, Switzerland.",
+    "Adrian Sanchez is a software engineer at One Call in Basel, Switzerland. He builds production software end to end, with 5+ years shipping real products.",
   intro:
     "I build and ship production software end to end, covering backend, frontend, and infrastructure, for teams shipping real products.",
   nowLead: "Software Engineer at ",

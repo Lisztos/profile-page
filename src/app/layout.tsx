@@ -7,6 +7,7 @@ import { GridLife } from "./components/GridLife";
 import { InkCursor } from "./components/InkCursor";
 import { Preloader } from "./components/Preloader";
 import { mono, serif } from "./fonts";
+import { jsonLd } from "@/lib/jsonld";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -14,7 +15,6 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: site.title,
   description: site.description,
-  alternates: { canonical: "/" },
   openGraph: {
     type: "profile",
     title: site.title,
@@ -26,24 +26,6 @@ export const metadata: Metadata = {
     title: site.title,
     description: site.description,
   },
-};
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: site.name,
-  jobTitle: site.role,
-  worksFor: {
-    "@type": "Organization",
-    name: site.nowCompany,
-  },
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Basel",
-    addressCountry: "CH",
-  },
-  url: site.url,
-  sameAs: [site.github, site.linkedin],
 };
 
 export default function RootLayout({
@@ -65,7 +47,7 @@ export default function RootLayout({
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd()) }}
         />
         <Preloader />
         <InkCursor />

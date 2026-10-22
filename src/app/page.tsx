@@ -1,11 +1,17 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { getStars } from "@/lib/github";
 import { site } from "@/lib/site";
 import { CommandHint } from "./components/CommandHint";
 import { Reveal } from "./components/Reveal";
+import { SiteFooter } from "./components/SiteFooter";
 import { StarredRepos } from "./components/StarredRepos";
 import { Ticker } from "./components/Ticker";
 import { TiltPortrait } from "./components/TiltPortrait";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default async function Home() {
   const stars = await getStars();
@@ -28,7 +34,7 @@ export default async function Home() {
           </span>
         </h1>
         <div className="titlebar hero-fade d2">
-          <span className="role">{site.role.toUpperCase()}</span>
+          <h2 className="role">{site.role}</h2>
           <div className="titlebar-actions">
             <CommandHint />
             <a className="pill" href={site.cal}>
@@ -155,23 +161,7 @@ export default async function Home() {
         </a>
       </Reveal>
 
-      <footer>
-        <div className="inner">
-          <div className="colophon">
-            © {new Date().getFullYear()} ADRIAN SANCHEZ ·{" "}
-            <a className="sweep" href={site.linkedin} rel="me">
-              LINKEDIN
-            </a>{" "}
-            ·{" "}
-            <a className="sweep" href={site.github} rel="me">
-              GITHUB
-            </a>
-          </div>
-          <div className="made-with">
-            Made with <span className="heart">♥</span> in Berlin
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }
