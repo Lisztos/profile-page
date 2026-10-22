@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { DotGrid } from "./components/DotGrid";
+import { GridLife } from "./components/GridLife";
 import { InkCursor } from "./components/InkCursor";
 import { Preloader } from "./components/Preloader";
 import { mono, serif } from "./fonts";
@@ -68,6 +69,7 @@ export default function RootLayout({
         <Preloader />
         <InkCursor />
         <DotGrid />
+        <GridLife />
         {children}
         <Analytics />
         <SpeedInsights />

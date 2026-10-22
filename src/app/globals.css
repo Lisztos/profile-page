@@ -9,7 +9,7 @@
   --wash: rgba(43, 76, 126, 0.08);
   --serif: var(--font-serif), Georgia, serif;
   --mono: var(--font-mono), ui-monospace, monospace;
-  /* z: 0 dots, 1 column, 50 sound (unused), 60 preloader, 70 cursor */
+  /* z: 0 dots/grid-life, 1 column, 50 sound (unused), 60 preloader, 70 cursor */
 }
 
 * {
@@ -199,6 +199,13 @@ html.js.cursor-on #cursor {
     transparent 100%
   );
   background-size: 18px 18px;
+}
+
+#grid-life {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
 }
 
 /* ---------- masthead ---------- */
@@ -824,6 +831,12 @@ html.js .fx.in {
 
 @media (prefers-reduced-transparency: reduce) {
   #dots {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce), (hover: none) {
+  #grid-life {
     display: none;
   }
 }
