@@ -89,3 +89,6 @@ export const site = {
     },
   ],
 } as const;
+
+/** Booking path passed to the Cal embed, without the leading slash. */
+export const calBookingPath = new URL(site.cal).pathname.replace(/^\//, "");

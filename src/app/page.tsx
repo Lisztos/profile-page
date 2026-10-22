@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { getStars } from "@/lib/github";
-import { site } from "@/lib/site";
+import { calBookingPath, site } from "@/lib/site";
 import { CommandHint } from "./components/CommandHint";
 import { Reveal } from "./components/Reveal";
 import { SiteFooter } from "./components/SiteFooter";
@@ -37,7 +37,12 @@ export default async function Home() {
           <h2 className="role">{site.role}</h2>
           <div className="titlebar-actions">
             <CommandHint />
-            <a className="pill" href={site.cal}>
+            <a
+              className="pill"
+              href={site.cal}
+              data-cal-link={calBookingPath}
+              aria-haspopup="dialog"
+            >
               contact
             </a>
           </div>
@@ -156,7 +161,12 @@ export default async function Home() {
 
       <Reveal className="cta">
         <span className="q">Interested in working together?</span>
-        <a className="pill-solid" href={site.cal}>
+        <a
+          className="pill-solid"
+          href={site.cal}
+          data-cal-link={calBookingPath}
+          aria-haspopup="dialog"
+        >
           contact →
         </a>
       </Reveal>
