@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getStars } from "@/lib/github";
 import { site } from "@/lib/site";
+import { CommandHint } from "./components/CommandHint";
 import { Reveal } from "./components/Reveal";
 import { StarredRepos } from "./components/StarredRepos";
 import { Ticker } from "./components/Ticker";
@@ -11,7 +12,7 @@ export default async function Home() {
 
   return (
     <main>
-      <header>
+      <header id="top">
         <div className="dateline hero-fade d1">
           <span className="meta">{site.location}</span>
           <span className="meta">5+ YEARS IN PRODUCTION ENGINEERING</span>
@@ -28,9 +29,12 @@ export default async function Home() {
         </h1>
         <div className="titlebar hero-fade d2">
           <span className="role">{site.role.toUpperCase()}</span>
-          <a className="pill" href={site.cal}>
-            contact
-          </a>
+          <div className="titlebar-actions">
+            <CommandHint />
+            <a className="pill" href={site.cal}>
+              contact
+            </a>
+          </div>
         </div>
         <div className="intro hero-fade d3">
           <TiltPortrait />
@@ -39,7 +43,7 @@ export default async function Home() {
         <Ticker />
       </header>
 
-      <section className="defs" aria-label="About">
+      <section className="defs" id="about" aria-label="About">
         <Reveal className="def">
           <span className="label" style={{ color: "var(--accent)" }}>
             NOW
@@ -80,7 +84,7 @@ export default async function Home() {
 
       <StarredRepos repos={stars} />
 
-      <section className="ruled">
+      <section className="ruled" id="projects">
         <Reveal className="inner">
           <h2>Projects</h2>
           <div className="projects">
