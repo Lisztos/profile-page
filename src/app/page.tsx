@@ -11,7 +11,7 @@ export default async function Home() {
 
   return (
     <main>
-      <header>
+      <header id="top">
         <div className="dateline hero-fade d1">
           <span className="meta">{site.location}</span>
           <span className="meta">5+ YEARS IN PRODUCTION ENGINEERING</span>
@@ -39,7 +39,7 @@ export default async function Home() {
         <Ticker />
       </header>
 
-      <section className="defs" aria-label="About">
+      <section className="defs" id="about" aria-label="About">
         <Reveal className="def">
           <span className="label" style={{ color: "var(--accent)" }}>
             NOW
@@ -80,7 +80,7 @@ export default async function Home() {
 
       <StarredRepos repos={stars} />
 
-      <section className="ruled">
+      <section className="ruled" id="projects">
         <Reveal className="inner">
           <h2>Projects</h2>
           <div className="projects">
