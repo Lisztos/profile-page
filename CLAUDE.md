@@ -4,7 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Personal portfolio website built with Next.js 16 (App Router), React 19, TypeScript, and Tailwind CSS. It showcases Adrian Sanchez's experience, skills, education, and starred GitHub repos, with i18n support for English and German.
+Adrian Sanchez's personal site/CV: a single-page, editorial-style portfolio built with Next.js 16
+(App Router), React 19, and TypeScript. No Tailwind, no UI framework, no i18n — hand-written CSS in
+one `globals.css`, English only, one page (`/`).
 
 ## Development Commands
 
@@ -22,92 +24,138 @@ npm start
 npm run lint
 ```
 
-## Architecture & Key Patterns
+No test suite exists.
 
-### App Structure (Next.js App Router)
+## Architecture
 
-- **Main entry**: `src/app/page.tsx` — client component with a **tabbed** layout: a full-height Intro card, then a sticky `TabNav` switching between Skills / Experience / Education / GitHub Stars. It is *not* a scroll-through one-pager.
-- **Layout**: `src/app/layout.tsx` — root layout with metadata, Header/Footer, gradient blobs, and the context provider stack
-- **Sections**: `src/app/sections/` — Intro, Skills, Experience, Education, GithubStars, Projects (Projects is not currently rendered)
-- **Components**: `src/app/components/` — Card, Header, Footer, LanguageSelector, SectionHeading, SectionDivider, ThemeSwitch, DuckAnimation
-- **API routes**: `src/app/api/github-stars/route.ts` — proxies `api.github.com/users/Lisztos/starred` (6 most recent), 24h revalidate. Uses `GITHUB_TOKEN` from env if set (optional; raises the rate limit), returns 503 on upstream failure.
+### Page structure
 
-### Data & Type System
+Everything renders from `src/app/page.tsx`, an async server component (it awaits `getStars()`
+directly, no client fetching). Top to bottom: hero header (name, role, contact pill, portrait,
+ticker), an "About" defs section (NOW / BEFORE / STACK), `StarredRepos`, a `Projects` grid, a CTA,
+and a footer. There are no routes, tabs, or sections elsewhere in `src/app/` besides this one page.
 
-- **Central data**: `src/lib/data.ts` — `links`, `experienceData`, `educationData`, `projectsData`, `skillsData`, `locationConfig`, `americasCountries`
-- **Type definitions**: `src/lib/types.ts` — `SectionName`, `ExperienceItem`, `EducationItem`, `TechItem`, `GitHubRepo`
-- Data exports use `as const` for type safety and literal types
+- **`src/app/layout.tsx`** — root layout. Sets metadata (OG/Twitter/JSON-LD Person schema), loads
+  the two fonts, and mounts four body-level overlays before `{children}`: `Preloader`, `InkCursor`,
+  `DotGrid`, `GridLife`.
+- **`src/app/components/`** — all client-side widgets (see below); no server components here besides
+  what's inlined in `page.tsx`.
+- **`src/lib/site.ts`** — the single source of content: name, role, location, bio copy, the
+  `before`/`now` work history, ticker items, and the `projects` array. Editing copy almost always
+  means editing this file, not a component.
+- **`src/lib/github.ts`** — `getStars()` (live GitHub starred-repos fetch, used by `StarredRepos`,
+  24h revalidate) and `getContributions()` + `contributionLevel()` (GitHub GraphQL contribution
+  calendar). **`getContributions` and its consumer, `CommitGraph.tsx`, are dead code** — defined but
+  never imported or rendered anywhere. Either wire `CommitGraph` into the page or delete both before
+  extending them.
 
-### Context Providers (React Context)
+### Components (`src/app/components/`)
 
-Nested in `src/app/layout.tsx`:
+- **`Preloader`** — full-screen loading animation on first load only (module-level `played` flag,
+  so it won't replay on client navigation within the session). Drives a 0–100 counter and progress
+  bar over 1400ms, then adds `.ready`/removes `.loading` on `<html>`. Skipped entirely under
+  `prefers-reduced-motion`.
+- **`InkCursor`** — custom cursor-follower `<div id="cursor">` that lags the real pointer (lerp
+  factor 0.45) and toggles a `.hot` class over links/buttons. Only runs on
+  `(hover: hover) and (pointer: fine)` with motion not reduced; otherwise it's inert and the native
+  cursor shows.
+- **`DotGrid`** — a single empty `<div id="dots">`; the dot texture itself is pure CSS
+  (`background-image: radial-gradient(...)` in `globals.css`), not canvas.
+- **`GridLife`** — canvas layer stacked on top of `DotGrid`. Runs a Game-of-Life-style simulation
+  on the same 18px grid: cells idly flicker/drift on their own, and moving the mouse lays a short
+  trail that grows and fades. Ink-colored, intentionally subtle. Disabled via CSS for
+  `prefers-reduced-motion` and `(hover: none)` (touch devices) — the `useEffect` itself also bails
+  out early on reduced motion so no rAF loop starts there either.
+- **`TiltPortrait`** — wraps the hero photo, tilts it a few degrees toward the pointer via
+  `pointermove` on `(hover: hover) and (pointer: fine)` only.
+- **`Reveal`** — scroll-reveal wrapper using a single shared native `IntersectionObserver` (not a
+  library) that adds `.in` the first time an element crosses 15% visible, then unobserves it.
+  Reduced-motion: marks everything `.in` immediately on mount instead of observing.
+- **`Ticker`** — infinite marquee of `site.tickerItems`, pure CSS `animation: tick` (see
+  `globals.css`), paused under reduced motion.
+- **`StarredRepos`** — renders the `StarredRepo[]` passed down from `page.tsx`; returns `null` if
+  the GitHub fetch came back empty (e.g. rate-limited), so the section silently disappears rather
+  than showing an error state.
+- **`CommitGraph`** — dead code, see above.
 
-1. **LocationProvider** (`src/lib/hooks/useLocationDisplay.tsx`) — one `ipapi.co/json/` call, shared via context. Drives region-specific display: `locationConfig.default` ("Berlin, Germany") vs `locationConfig.americas` ("Cuernavaca, Mexico"), and which CV path is used.
-2. **ThemeContextProvider** (`src/app/context/theme-context.tsx`) — dark/light theme; the ThemeSwitch UI is commented out in layout.tsx
-3. **LanguageContextProvider** (`src/app/context/language-context.tsx`) — `Language = "en" | "de"`, persisted to `localStorage`
-4. **ActiveSectionContextProvider** (`src/app/context/active-section-context.tsx`) — provider is mounted but no component currently consumes it (leftover from the pre-tabs scroll layout)
+### Data flow
 
-### Internationalization (i18n)
+There's no central `data.ts`/`types.ts` pair and no React Context providers at all — this is
+intentionally much flatter than a typical component-library site:
 
-- **Translation files**: `src/lib/translations/` — `en.ts` and `de.ts` are the live locales. `es.ts` still exists on disk but is **dead code**: it is not imported by `index.ts` and Spanish was removed from the `Language` type. Don't add keys to it; delete it rather than reviving it unless Spanish is being deliberately reinstated.
-- **Translation system**: `src/lib/translations/index.ts` provides:
-  - `getTranslation(key, language)` — nested lookup by dot notation (e.g. `"intro.title"`), falls back to English and warns on a missing key
-  - `formatMessage(message, variables)` — variable replacement
-  - `translateDate(dateString, language)` — localizes month names and "Present"
-- **Usage**: components call `useTranslation()` (`src/lib/hooks/useTranslation.ts`) → `t(key, variables?)`
-- **Language switching**: LanguageSelector (flag dropdown in Header, full-name select in Footer). There is **no `?lang=` query param** — switch locales through the selector when verifying.
+- Static copy lives in `site.ts` and is imported directly where needed.
+- The only dynamic data is GitHub stars, fetched server-side in `page.tsx` and passed down as
+  props.
+- No dark mode, no theme switching, no language switching — one palette, one language, defined by
+  CSS custom properties in `globals.css` (`--paper`, `--ink`, `--ink-soft`, `--accent`, etc.).
 
-### Path Aliases
+### Path Alias
 
-TypeScript path alias `@/*` maps to `./src/*` (configured in tsconfig.json)
+TypeScript path alias `@/*` maps to `./src/*` (tsconfig.json).
 
 ```typescript
-import { useTranslation } from "@/lib/hooks/useTranslation";
-import { experienceData } from "@/lib/data";
+import { site } from "@/lib/site";
+import { getStars } from "@/lib/github";
 ```
 
-### Styling Approach
+### Styling
 
-- **Tailwind CSS** with custom theme configuration in `tailwind.config.js`
-- **Custom animations**: `tilt`, plus `animate-gradient` on the background blobs
-- **HSL color system**: custom color tokens (background, foreground, card, primary, etc.) via CSS variables in `globals.css`
-- **Dark mode**: class-based (`darkMode: "class"`)
-- **Gradient backgrounds**: fixed-position blurred blobs in layout.tsx
+- **No Tailwind, no CSS framework** — everything is in `src/app/globals.css` (~840 lines), one
+  stylesheet, one `:root` palette, loaded via a plain `import "./globals.css"` in `layout.tsx`.
+- **No dark mode** — there's no `prefers-color-scheme` or theme-class handling anywhere in the CSS.
+- Fonts: `Source_Serif_4` (serif, body/headings) and `JetBrains_Mono` (mono, labels/meta text),
+  both loaded via `next/font/google` in `src/app/fonts.ts` and exposed as CSS variables
+  (`--font-serif`, `--font-mono`).
+- Z-index layering is documented inline at the top of `globals.css`: `0` dots/grid-life, `1`
+  column/content, `50` sound (unused), `60` preloader, `70` cursor.
+- One responsive breakpoint throughout: `@media (max-width: 560px)`. There's no tablet-specific
+  breakpoint.
+- Respects three media-feature families: `prefers-reduced-motion`, `prefers-reduced-transparency`
+  (hides `#dots`), and `(hover: none)` (hides `#grid-life` on touch).
 
 ### SEO & Metadata
 
-- **metadataBase**: `https://adrianisanchez.com`, set in layout.tsx so Open Graph/Twitter URLs resolve absolutely
-- **Open Graph / Twitter**: static tags in layout.tsx pointing at `/icon.png`. There is no `/api/og` route, no `sitemap.ts`, no JSON-LD, and no Schema.org microdata — don't assume they exist.
-- `public/robots.txt` is checked in
-
-### Animation & Interactivity
-
-- **Framer Motion**: used in Intro, Skills, Experience, GithubStars, Projects, SectionDivider
-- **Toaster**: react-hot-toast, mounted in layout.tsx
-- `react-intersection-observer` is still a dependency but is no longer imported anywhere
+- **metadataBase**: `https://adrianisanchez.com` (from `site.url`), set in `layout.tsx`.
+- **Open Graph / Twitter**: generated dynamically by `src/app/opengraph-image.tsx` via Next's
+  file-convention `ImageResponse` API (fetches Instrument Serif from Google's font repo at request
+  time) — there's no static `/icon.png` reference and no manual `images` array in `metadata`.
+- **JSON-LD**: a `Person` schema is inlined as a `<script type="application/ld+json">` in
+  `layout.tsx`, built from `site.ts` fields.
+- **`sitemap.ts`** and **`robots.ts`** both exist (file-convention, not static files in `public/`)
+  and both are wired up — `robots.ts` points its `sitemap` field at `/sitemap.xml` and disallows
+  `*.pdf`.
 
 ### Analytics
 
-- Vercel Analytics and Speed Insights, mounted in layout.tsx
+Vercel Analytics and Speed Insights, mounted in `layout.tsx`.
 
 ## Important Notes
 
-- **Easter egg**: duck animation appears when `?duck=true` is present
-- **Disabled in code**: ThemeSwitch (commented out in layout.tsx), the Projects section (not imported by page.tsx), and the Projects/GitHub Stars entries in the `links` array in data.ts
-- **Strict mode enabled**: `reactStrictMode: true` in `next.config.js`
-- **No test suite**: the project has no testing setup
-- **CVs**: `public/CV-adrian-en-ber.pdf` and `public/CV-adrian-en-mx.pdf` — both English, selected by detected region in `useLocationDisplay`. There is no Spanish CV, and the Download CV button was removed from the UI.
+- **No test suite.**
+- **Strict mode enabled**: `reactStrictMode: true` in `next.config.js`. That's the entire Next
+  config — no image domains, no redirects, no experimental flags.
+- **Dead code**: `getContributions`/`contributionLevel` in `src/lib/github.ts` and the
+  `CommitGraph` component are unused. `public/CV-adrian-en-ber.pdf`, `CV-adrian-en-mx.pdf`,
+  `public/images/duck.png`, and `public/images/projects/project1.png`/`project2.png` are also
+  unreferenced from `src/` — there is no CV download button and no duck easter egg in the current
+  code, despite the files still being on disk.
+- **`GITHUB_TOKEN`** env var is optional for `getStars()` (raises the GitHub rate limit) but
+  required for `getContributions()` (which early-returns `[]` without it) — moot while that
+  function is unused.
 
 ## Adding New Content
 
-1. **New experience/education**: add to `experienceData` or `educationData` in `src/lib/data.ts`
-2. **New/changed copy**: update **both** `en.ts` and `de.ts` with matching keys. **This is a hard rule for ANY copy change, not just new content** — a past session shipped an English edit and missed German. Before reporting a content change done: grep the changed key across both files, and check both locales in the browser via the language selector.
-3. **New tech stack icons**: add to `TechItem` in `src/lib/types.ts` and make sure the matching icon/logo exists
-4. **New tab/section**: create it in `src/app/sections/`, then add it to the `Tab` union and the `tabs` array in `src/app/page.tsx` (adding to `links` in data.ts only affects the Header nav)
+1. **Work history / bio copy**: edit `site.ts` (`now*` fields, `before` array, `intro`, `stack`).
+2. **New project**: add an entry to `site.projects` in `site.ts`. Entries are a union — `url`,
+   `description`, `image`, and `techStack` are all optional per item; `page.tsx` checks for each
+   with `"key" in item` before rendering it, and an item without a `url` renders as a plain `div`
+   instead of a link.
+3. **New page section**: add it directly in `src/app/page.tsx` — there's no sections directory or
+   registration array to update elsewhere.
 
 ## Image Assets
 
 - Company/education logos: `public/images/logos/`
-- Profile photo: `public/images/profile-photo.png` (a `.webp` version also exists)
+- Portrait (hero tilt photo): `public/images/portrait.jpg`
 - Project images: `public/images/projects/`
-- Duck easter egg: `public/images/duck.png`
+- `public/images/profile-photo.png` / `.webp` and the CV PDFs are legacy, unreferenced from code.
