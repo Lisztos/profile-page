@@ -169,6 +169,13 @@ export function CommandPalette() {
     if (open) inputRef.current?.focus();
   }, [open]);
 
+  // Lets the visible ⌘K hint badge open the palette without duplicating state.
+  useEffect(() => {
+    const onOpenRequest = () => setOpen(true);
+    window.addEventListener("cmdk:open", onOpenRequest);
+    return () => window.removeEventListener("cmdk:open", onOpenRequest);
+  }, []);
+
   if (!open) return null;
 
   let flatIndex = -1;

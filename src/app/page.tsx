@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getStars } from "@/lib/github";
 import { site } from "@/lib/site";
+import { CommandHint } from "./components/CommandHint";
 import { Reveal } from "./components/Reveal";
 import { StarredRepos } from "./components/StarredRepos";
 import { Ticker } from "./components/Ticker";
@@ -28,9 +29,12 @@ export default async function Home() {
         </h1>
         <div className="titlebar hero-fade d2">
           <span className="role">{site.role.toUpperCase()}</span>
-          <a className="pill" href={site.cal}>
-            contact
-          </a>
+          <div className="titlebar-actions">
+            <CommandHint />
+            <a className="pill" href={site.cal}>
+              contact
+            </a>
+          </div>
         </div>
         <div className="intro hero-fade d3">
           <TiltPortrait />

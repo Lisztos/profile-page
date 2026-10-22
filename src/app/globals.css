@@ -305,6 +305,40 @@ html.js.ready .hero-fade {
   color: var(--ink-soft);
 }
 
+.titlebar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hotkey-hint {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 5px;
+  padding: 6px 8px;
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    color 0.2s;
+}
+
+.hotkey-hint:hover,
+.hotkey-hint:focus-visible {
+  border-color: var(--ink);
+  color: var(--ink);
+  outline: none;
+}
+
+@media (hover: none) {
+  .hotkey-hint {
+    display: none;
+  }
+}
+
 .pill {
   font-family: var(--mono);
   font-size: 12px;
