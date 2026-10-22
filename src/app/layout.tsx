@@ -5,6 +5,7 @@ import { CommandPalette } from "./components/CommandPalette";
 import { DotGrid } from "./components/DotGrid";
 import { GridLife } from "./components/GridLife";
 import { InkCursor } from "./components/InkCursor";
+import { CalEmbed } from "./components/CalEmbed";
 import { Preloader } from "./components/Preloader";
 import { mono, serif } from "./fonts";
 import { site } from "@/lib/site";
@@ -57,6 +58,10 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${serif.variable} ${mono.variable}`}
     >
+      <head>
+        <link rel="preconnect" href="https://app.cal.eu" />
+        <link rel="dns-prefetch" href="https://app.cal.eu" />
+      </head>
       <body>
         <script
           dangerouslySetInnerHTML={{
@@ -71,6 +76,7 @@ export default function RootLayout({
         <InkCursor />
         <DotGrid />
         <GridLife />
+        <CalEmbed />
         <CommandPalette />
         {children}
         <Analytics />
