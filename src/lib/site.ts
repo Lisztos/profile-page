@@ -22,6 +22,40 @@ export const site = {
   nowCompany: "One Call",
   nowRest:
     ". I maintain and build features for a .NET Core platform in the Physical Medicine division, and help accelerate AI adoption across engineering.",
+  history: [
+    {
+      name: "One Call",
+      when: "Now",
+      role: "Software Engineer",
+      line: "A .NET Core platform in Physical Medicine, plus AI adoption across engineering. Production software people already use.",
+    },
+    {
+      name: "Innovandio",
+      url: "https://innovandio.com",
+      when: "Before",
+      role: "Senior Engineer",
+      line: "Full-stack applications for enterprise clients, CI/CD pipelines, and leading client projects.",
+    },
+    {
+      name: "Demodesk",
+      url: "https://demodesk.ai",
+      when: "Before",
+      role: "Intern to team lead",
+      line: "Grew from engineering intern to full-stack engineer and team lead, coordinating feature delivery across product and support.",
+    },
+    {
+      name: "Setting.io",
+      when: "Before",
+      role: "Working student",
+      line: "Full-stack development as a working student.",
+    },
+    {
+      name: "Almondia",
+      when: "Before",
+      role: "Working student",
+      line: "Where I first cut my teeth on full-stack development.",
+    },
+  ],
   before: [
     {
       name: "Innovandio",

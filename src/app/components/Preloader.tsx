@@ -1,12 +1,15 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { site } from "@/lib/site";
 
 let played = false;
 
 export function Preloader() {
-  const [visible, setVisible] = useState(!played);
+  const pathname = usePathname();
+  const onHome = pathname === "/";
+  const [visible, setVisible] = useState(() => !played && onHome);
   const countRef = useRef<HTMLSpanElement>(null);
   const barRef = useRef<HTMLDivElement>(null);
   const loaderRef = useRef<HTMLDivElement>(null);
@@ -14,9 +17,17 @@ export function Preloader() {
   useEffect(() => {
     const html = document.documentElement;
 
+    if (!onHome) {
+      html.classList.add("ready");
+      html.classList.remove("loading");
+      setVisible(false);
+      return;
+    }
+
     if (played) {
       html.classList.add("ready");
       html.classList.remove("loading");
+      setVisible(false);
       return;
     }
 
@@ -41,6 +52,7 @@ export function Preloader() {
     }
 
     html.classList.add("loading");
+    setVisible(true);
     const t0 = performance.now();
     const dur = 1400;
     let frame = 0;
@@ -64,7 +76,7 @@ export function Preloader() {
 
     frame = requestAnimationFrame(step);
     return () => cancelAnimationFrame(frame);
-  }, []);
+  }, [onHome]);
 
   if (!visible) return null;
 

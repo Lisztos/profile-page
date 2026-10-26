@@ -9,6 +9,7 @@ export type Doc = {
   path: "/about" | "/contact" | "/privacy";
   title: string;
   description: string;
+  lede: string;
   sections: DocSection[];
 };
 
@@ -17,31 +18,34 @@ const about: Doc = {
   title: "About",
   description:
     "Biography of Adrian Sanchez, a software engineer at One Call in Basel, Switzerland.",
+  lede: "Software engineer in Basel. Production software, end to end.",
   sections: [
     {
-      label: "WHO",
+      label: "Who",
       paragraphs: [
-        "I am Adrian Sanchez, a software engineer based in Basel, Switzerland. I build and ship production software end to end, covering backend, frontend, and infrastructure, for teams that are shipping a real product. This page is the longer biography. The homepage is the short version: name, current role, earlier work, and selected projects.",
+        "I am Adrian Sanchez, a software engineer at One Call in Basel, Switzerland. I build and ship production software end to end, covering backend, frontend, and infrastructure. Use this page to confirm which Adrian Sanchez this domain belongs to. This site is not One Call's product, and it is not a support channel for the projects I link to.",
       ],
     },
     {
-      label: "NOW",
-      paragraphs: [
-        "I am a software engineer at One Call. I maintain and build features for a .NET Core platform in the Physical Medicine division, and I help accelerate AI adoption across engineering. The work is production software: people already use it, the codebase already exists, and a change has to ship without breaking the operation.",
-      ],
+      label: "Now",
+      paragraphs: site.history
+        .filter((item) => item.when === "Now")
+        .map((item) => `${item.name}, ${item.role}. ${item.line}`),
     },
     {
-      label: "BEFORE",
-      paragraphs: [
-        "Before One Call I was at Innovandio, as a senior engineer building and maintaining full-stack applications for enterprise clients, designing CI/CD pipelines, and leading client projects. Earlier I was at Demodesk, starting as an engineering intern and growing into a full-stack engineer and team lead, managing a team of engineers and coordinating feature delivery across product and support. Working-student roles at Setting.io and Almondia came before that. That is where I first cut my teeth on full-stack development.",
-      ],
+      label: "Before",
+      paragraphs: site.history
+        .filter((item) => item.when === "Before")
+        .map((item) => `${item.name}, ${item.role}. ${item.line}`),
     },
     {
-      label: "WORK",
-      paragraphs: [
-        "Selected projects on the homepage are The Israel Guide, a booking site for a licensed private tour guide; Sublify, a macOS app of on-screen affirmations; SAS Creator, a browser agent that completes a Mexican SAS company registration; and a Mastodon instance from my bachelor thesis, with decentralized identifiers and DIDComm v2. Tools are chosen to fit the problem. Product, infrastructure, and AI-assisted development are the through-line, not a fixed stack.",
-        "Use this page when you need to confirm which Adrian Sanchez this domain belongs to. I am the one at One Call in Basel, with the history above. This site is not One Call's product, and it is not a support channel for those projects' users.",
-      ],
+      label: "Selected",
+      paragraphs: site.projects.map((item) => {
+        const url = "url" in item ? item.url : "";
+        const description = "description" in item ? item.description : "";
+        const title = url ? `[${item.title}](${url})` : item.title;
+        return `${title}. ${item.kicker}. ${description}`;
+      }),
     },
   ],
 };
@@ -51,23 +55,24 @@ const contact: Doc = {
   title: "Contact",
   description:
     "How to reach Adrian Sanchez: a 30-minute calendar, email, LinkedIn, and GitHub.",
+  lede: "Calendar if you want to talk. Email if you want to write first.",
   sections: [
     {
-      label: "CALL",
+      label: "Call",
       paragraphs: [
-        `The fastest way to talk about work is a 30-minute call. Book it on the calendar: [Book a 30-minute call](${site.cal}). Use that when you want to discuss a role, a contract, or a specific project, and you already know this is the Adrian Sanchez based in Basel who works at One Call. The calendar is the scheduling tool. I do not publish a phone number, and there is no walk-in office.`,
+        `Book a 30-minute call: [Book a 30-minute call](${site.cal}). Use that for a role, a contract, or a specific project, once you know this is the Adrian Sanchez in Basel who works at One Call. The calendar is the scheduling tool. I do not publish a phone number, and there is no walk-in office.`,
       ],
     },
     {
-      label: "EMAIL",
+      label: "Email",
       paragraphs: [
-        `Write to [${site.email}](mailto:${site.email}) when you need to send context I should read before a call, or when a calendar slot is the wrong tool. Say who you are and what you want in the first lines. I read that address for professional inquiries. It is not a support inbox for One Call, and it is not the place to file a bug against a project I have only linked to.`,
+        `Write to [${site.email}](mailto:${site.email}) when you need to send context I should read before a call. Say who you are and what you want in the first lines. I read that address for professional inquiries. It is not a support inbox for One Call.`,
       ],
     },
     {
-      label: "PROFILES",
+      label: "Profiles",
       paragraphs: [
-        `My public profiles are [LinkedIn](${site.linkedin}) and [GitHub](${site.github}). Use LinkedIn to confirm identity and employment. Use GitHub to read code I have published, including Sublify and SAS Creator. An agent that needs facts about me should read [the agent index](/llms.txt) and the markdown version of these pages, then hand a person the calendar link or the email. Do not invent a phone number, a ticket system, or an API key. This site has no login and no public API.`,
+        `[LinkedIn](${site.linkedin}) confirms identity and employment. [GitHub](${site.github}) is code I have published, including Sublify and SAS Creator. Agents should read [the agent index](/llms.txt), then hand a person the calendar or the email. Do not invent a phone number, a ticket system, or an API key. This site has no login and no public API.`,
       ],
     },
   ],
@@ -78,29 +83,24 @@ const privacy: Doc = {
   title: "Privacy",
   description:
     "What adrianisanchez.com records, what it does not, and how to ask about your data.",
+  lede: "What this site records, what leaves the domain, and where to ask.",
   sections: [
     {
-      label: "SITE",
+      label: "Recorded",
       paragraphs: [
-        "adrianisanchez.com is my personal site. It publishes a biography, selected projects, and ways to contact me. It does not sell a product, take payment, or host customer accounts. You can read every page without identifying yourself, and I do not ask you to create a login.",
+        "adrianisanchez.com is my personal site. It publishes a biography, selected projects, and ways to contact me. You can read it without a login. I host it on Vercel. Vercel Analytics records page views, Vercel Speed Insights records performance, and the host keeps ordinary request logs. I do not run ads, and I do not sell personal information.",
       ],
     },
     {
-      label: "DATA",
+      label: "Elsewhere",
       paragraphs: [
-        "I host the site on Vercel. Vercel Analytics records page views, and Vercel Speed Insights records performance measurements, so I can see whether the site loads and which pages people open. Those tools measure the site. I do not use them to build an advertising profile, I do not run ads, and I do not sell personal information. The host also keeps ordinary technical logs, such as the address a request came from and the page that was requested, to operate and secure the site.",
+        "Links to LinkedIn, GitHub, cal.eu, and the project sites leave this domain. What you type there is their policy, not this one. This page does not cover One Call, Innovandio, Demodesk, or the projects I link to.",
       ],
     },
     {
-      label: "ELSEWHERE",
+      label: "Ask",
       paragraphs: [
-        "Links to LinkedIn, GitHub, cal.eu, and the project sites leave this domain. Those sites have their own policies. Anything you type into a calendar form or a social network is handled by them, not by this page. This policy does not cover One Call, Innovandio, Demodesk, or the projects I link to.",
-      ],
-    },
-    {
-      label: "ASK",
-      paragraphs: [
-        `To ask what this site holds about a visit, or to ask for a correction, write to [${site.email}](mailto:${site.email}). Say which pages you mean and what you want done. There is no separate privacy portal and no phone line for these requests. I will reply on that email thread.`,
+        `To ask what this site holds about a visit, or to ask for a correction, write to [${site.email}](mailto:${site.email}). There is no privacy portal and no phone line. I will reply on that email thread.`,
       ],
     },
   ],
@@ -121,13 +121,13 @@ export function getDoc(path: string): Doc | undefined {
 }
 
 export function visibleText(doc: Doc): string {
-  return [doc.title, doc.description, ...doc.sections.flatMap((section) => [section.label, ...section.paragraphs])]
+  return [doc.title, doc.description, doc.lede, ...doc.sections.flatMap((section) => [section.label, ...section.paragraphs])]
     .join(" ")
     .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
 }
 
 export function docMarkdown(doc: Doc): string {
-  const lines = [`# ${doc.title}`, "", doc.description, ""];
+  const lines = [`# ${doc.title}`, "", doc.lede, "", doc.description, ""];
   for (const section of doc.sections) {
     lines.push(`## ${section.label}`, "");
     for (const paragraph of section.paragraphs) lines.push(paragraph, "");

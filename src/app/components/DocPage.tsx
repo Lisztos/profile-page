@@ -1,34 +1,31 @@
-import type { Doc } from "@/lib/agent-content";
+import type { ReactNode } from "react";
 import { site } from "@/lib/site";
-import { RichText } from "./RichText";
 import { SiteFooter } from "./SiteFooter";
 
-export function DocPage({ doc }: { doc: Doc }) {
+export function DocPage({
+  title,
+  lede,
+  children,
+}: {
+  title: string;
+  lede: string;
+  children: ReactNode;
+}) {
   return (
     <main className="doc">
-      <header>
-        <div className="dateline">
-          <a className="meta sweep" href="/">
-            {site.name.toUpperCase()}
-          </a>
-          <span className="meta">{site.location}</span>
-        </div>
-        <h1>{doc.title}</h1>
-      </header>
-      <section className="defs" aria-label={doc.title}>
-        {doc.sections.map((section) => (
-          <div className="def" key={section.label}>
-            <span className="label">{section.label}</span>
-            <div>
-              {section.paragraphs.map((paragraph, index) => (
-                <p key={`${section.label}-${index}`}>
-                  <RichText text={paragraph} />
-                </p>
-              ))}
-            </div>
+      <div className="doc-body">
+        <header>
+          <div className="dateline">
+            <a className="meta sweep" href="/">
+              {site.name.toUpperCase()}
+            </a>
+            <span className="meta">{site.location}</span>
           </div>
-        ))}
-      </section>
+          <h1>{title}</h1>
+          <p className="lede">{lede}</p>
+        </header>
+        {children}
+      </div>
       <SiteFooter />
     </main>
   );

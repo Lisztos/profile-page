@@ -3,7 +3,13 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 
-export function TiltPortrait() {
+export function TiltPortrait({
+  priority = true,
+  sizes = "190px",
+}: {
+  priority?: boolean;
+  sizes?: string;
+}) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -39,8 +45,8 @@ export function TiltPortrait() {
         src="/images/portrait.jpg"
         alt="Adrian Sanchez"
         fill
-        priority
-        sizes="190px"
+        priority={priority}
+        sizes={sizes}
       />
     </div>
   );

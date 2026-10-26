@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DocPage } from "../components/DocPage";
+import { RichText } from "../components/RichText";
 import { docs } from "@/lib/agent-content";
 import { site } from "@/lib/site";
 
@@ -12,5 +13,22 @@ export const metadata: Metadata = {
 };
 
 export default function PrivacyPage() {
-  return <DocPage doc={doc} />;
+  return (
+    <DocPage title={doc.title} lede={doc.lede}>
+      <section className="role-list" aria-label={doc.title}>
+        {doc.sections.map((section) => (
+          <article className="role-row" key={section.label}>
+            <div className="role-head">
+              <h2>{section.label}</h2>
+            </div>
+            {section.paragraphs.map((paragraph, index) => (
+              <p key={`${section.label}-${index}`}>
+                <RichText text={paragraph} />
+              </p>
+            ))}
+          </article>
+        ))}
+      </section>
+    </DocPage>
+  );
 }

@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <main className="doc">
+      <div className="doc-body">
       <header>
         <div className="dateline">
           <a className="meta sweep" href="/">
@@ -39,6 +40,7 @@ export default function NotFound() {
           </p>
         </div>
       </section>
+      </div>
       <SiteFooter />
     </main>
   );
