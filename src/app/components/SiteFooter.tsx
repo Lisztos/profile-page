@@ -18,6 +18,10 @@ export function SiteFooter() {
             <a className="sweep" href="/privacy">
               Privacy
             </a>
+            <span className="colophon-sep" aria-hidden="true">·</span>
+            <a className="sweep" href="/llms.txt">
+              llms.txt
+            </a>
           </nav>
         </div>
         <nav className="socials" aria-label="Social">

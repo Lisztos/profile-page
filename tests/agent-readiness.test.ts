@@ -118,6 +118,10 @@ describe("agent instructions", () => {
     assert.match(text, /When to use this:/);
     assert.match(text, /One Call/);
     assert.match(text, /The Israel Guide/);
+    assert.match(text, /Ruby on Rails/);
+    assert.match(text, /GEO/);
+    assert.match(text, /SEO/);
+    assert.match(text, /Terraform/);
     assert.match(text, /Accept: text\/markdown/);
     assert.match(text, /no public API/);
     assert.match(text, new RegExp(site.cal.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
@@ -157,6 +161,11 @@ describe("structured data", () => {
     assert.match(String(person?.description), /One Call/);
     assert.match(String(person?.description), /Basel/);
     assert.equal(person?.worksFor, "One Call");
+    assert.ok(Array.isArray(person?.knowsAbout));
+    assert.ok((person.knowsAbout as string[]).includes("Ruby on Rails"));
+    assert.ok((person.knowsAbout as string[]).includes("Generative Engine Optimization (GEO)"));
+    assert.ok((person.knowsAbout as string[]).includes("Search Engine Optimization (SEO)"));
+    assert.ok((person.knowsAbout as string[]).includes("Cloud Infrastructure"));
 
     assert.ok(organizations.length >= 1);
     for (const org of organizations) {

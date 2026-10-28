@@ -22,7 +22,6 @@ export default async function Home() {
       <header id="top">
         <div className="dateline hero-fade d1">
           <span className="meta">{site.location}</span>
-          <span className="meta">5+ YEARS IN PRODUCTION ENGINEERING</span>
         </div>
         <h1>
           <span className="mask">
