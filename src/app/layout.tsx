@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { CommandPalette } from "./components/CommandPalette";
-import { MobileNav } from "./components/MobileNav";
+import { SiteNav } from "./components/SiteNav";
 import { InkCursor } from "./components/InkCursor";
 import { CalEmbed } from "./components/CalEmbed";
 import { ScrollHomeTop } from "./components/ScrollHomeTop";
@@ -56,7 +56,7 @@ export default function RootLayout({
         <InkCursor />
         <CalEmbed />
         <CommandPalette />
-        <MobileNav />
+        <SiteNav />
         <ScrollHomeTop />
         {children}
         <Analytics />

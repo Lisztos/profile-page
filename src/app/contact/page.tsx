@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DocPage } from "../components/DocPage";
+import { ScrambleDocTitle } from "../components/ScrambleDocTitle";
 import { docs } from "@/lib/agent-content";
 import { calBookingPath, site } from "@/lib/site";
 
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <DocPage title={doc.title} lede={doc.lede}>
+    <DocPage title={<ScrambleDocTitle text={doc.title} />} lede={doc.lede}>
       <a className="doc-mail" href={`mailto:${site.email}`}>
         {site.email}
       </a>

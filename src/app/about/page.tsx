@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DocPage } from "../components/DocPage";
 import { RichText } from "../components/RichText";
+import { ScrambleDocTitle } from "../components/ScrambleDocTitle";
 import { docs } from "@/lib/agent-content";
 import { calBookingPath, site } from "@/lib/site";
 
@@ -16,7 +17,7 @@ export default function AboutPage() {
   const [intro, background] = doc.sections;
 
   return (
-    <DocPage title="Hi, I'm Adrian.">
+    <DocPage title={<ScrambleDocTitle text={"Hi,\nI'm Adrian."} />}>
       {intro ? (
         <section className="about-prose" aria-label="Introduction">
           {intro.paragraphs.map((paragraph, index) => (

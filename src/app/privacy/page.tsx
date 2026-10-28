@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DocPage } from "../components/DocPage";
 import { RichText } from "../components/RichText";
+import { ScrambleDocTitle } from "../components/ScrambleDocTitle";
 import { docs } from "@/lib/agent-content";
 import { site } from "@/lib/site";
 
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <DocPage title={doc.title} lede={doc.lede}>
+    <DocPage title={<ScrambleDocTitle text={doc.title} />} lede={doc.lede}>
       <section className="role-list" aria-label={doc.title}>
         {doc.sections.map((section) => (
           <article className="role-row" key={section.label}>

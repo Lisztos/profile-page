@@ -20,9 +20,6 @@ export default async function Home() {
   return (
     <main>
       <header id="top">
-        <div className="dateline hero-fade d1">
-          <span className="meta">{site.location}</span>
-        </div>
         <h1>
           <span className="mask">
             <span className="line">{site.givenName}</span>
@@ -34,7 +31,7 @@ export default async function Home() {
           </span>
         </h1>
         <div className="titlebar hero-fade d2">
-          <ScrambleRole text={site.role} />
+          <ScrambleRole text={site.role} location={site.location} />
           <div className="titlebar-actions">
             <CommandHint />
             <a

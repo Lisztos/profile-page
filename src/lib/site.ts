@@ -13,6 +13,15 @@ export const site = {
   email: "adrian@lisztostech.com",
   addressLocality: "Basel",
   addressCountry: "CH",
+  logos: {
+    mark: "/images/logo-as-clear.png",
+    markSquare: "/images/logo-as.png",
+    /** Cream square + clear monogram; baked into `src/app/icon.png` and `favicon.ico`. */
+    markFavicon: "/images/logo-as-clear.png",
+    logoOnDark: "/images/logo-as-light.png",
+    /** Header monogram: `accent` (matches *Sanchez*) or `ink` (near-black). */
+    tone: "accent" as "accent" | "ink",
+  },
   title: "Adrian Sanchez | Software Engineer at One Call",
   description:
     "Adrian Sanchez is a software engineer at One Call in Basel, Switzerland. He builds production software end to end, with 5+ years shipping real products.",
@@ -20,6 +29,7 @@ export const site = {
     "I build and ship production software end to end, covering backend, frontend, and infrastructure, for teams shipping real products.",
   nowLead: "Software Engineer at ",
   nowCompany: "One Call",
+  nowCompanyUrl: "https://onecallcm.com",
   nowRest:
     ". I maintain and build features for a .NET Core platform in the Physical Medicine division, and help accelerate AI adoption across engineering.",
   history: [
@@ -53,7 +63,7 @@ export const site = {
       name: "Almondia",
       when: "Before",
       role: "Working student",
-      line: "Where I first cut my teeth on full-stack development.",
+      line: "Where I took my first steps in full-stack development.",
     },
   ],
   before: [

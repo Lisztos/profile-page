@@ -12,12 +12,6 @@ export default function NotFound() {
     <main className="doc">
       <div className="doc-body">
       <header>
-        <div className="dateline">
-          <a className="meta sweep" href="/">
-            {site.name.toUpperCase()}
-          </a>
-          <span className="meta">404</span>
-        </div>
         <h1>Page not found</h1>
       </header>
       <section className="defs" aria-label="Page not found">
