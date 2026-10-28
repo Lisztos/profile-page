@@ -48,7 +48,6 @@ export function InkCursor() {
 
     const darkUnder = (x: number, y: number) => {
       if (inside(document.querySelector("footer"), x, y)) return true;
-      if (inside(document.querySelector(".ticker"), x, y)) return true;
 
       for (const node of document.elementsFromPoint(x, y)) {
         if (!(node instanceof Element)) continue;

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { getStars } from "@/lib/github";
 import { calBookingPath, site } from "@/lib/site";
 import { CommandHint } from "./components/CommandHint";
+import { ScrambleRole } from "./components/ScrambleRole";
 import { Reveal } from "./components/Reveal";
 import { SiteFooter } from "./components/SiteFooter";
 import { StarredRepos } from "./components/StarredRepos";
@@ -34,7 +35,7 @@ export default async function Home() {
           </span>
         </h1>
         <div className="titlebar hero-fade d2">
-          <h2 className="role">{site.role}</h2>
+          <ScrambleRole text={site.role} />
           <div className="titlebar-actions">
             <CommandHint />
             <a
@@ -160,14 +161,14 @@ export default async function Home() {
       </section>
 
       <Reveal className="cta">
-        <span className="q">Interested in working together?</span>
+        <span className="q">Reach me.</span>
         <a
           className="pill-solid"
           href={site.cal}
           data-cal-link={calBookingPath}
           aria-haspopup="dialog"
         >
-          contact →
+          book a call →
         </a>
       </Reveal>
 

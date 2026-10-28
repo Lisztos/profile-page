@@ -6,7 +6,7 @@ export function StarredRepos({ repos }: { repos: StarredRepo[] }) {
   if (repos.length === 0) return null;
 
   return (
-    <section className="ruled" id="starred">
+    <section className="ruled starred" id="starred">
       <Reveal className="inner">
         <div className="h2row">
           <h2>Recently starred</h2>

@@ -5,20 +5,20 @@ export function SiteFooter() {
     <footer>
       <div className="inner">
         <div className="colophon">
-          <div>© {new Date().getFullYear()} ADRIAN SANCHEZ</div>
-          <div>
+          <div className="colophon-copy">© {new Date().getFullYear()} Adrian Sanchez</div>
+          <nav className="colophon-links" aria-label="Footer">
             <a className="sweep" href="/about">
-              ABOUT
+              About
             </a>
-            {" · "}
+            <span className="colophon-sep" aria-hidden="true">·</span>
             <a className="sweep" href="/contact">
-              CONTACT
+              Contact
             </a>
-            {" · "}
+            <span className="colophon-sep" aria-hidden="true">·</span>
             <a className="sweep" href="/privacy">
-              PRIVACY
+              Privacy
             </a>
-          </div>
+          </nav>
         </div>
         <nav className="socials" aria-label="Social">
           <a href={site.linkedin} rel="me" aria-label="LinkedIn">

@@ -18,34 +18,25 @@ const about: Doc = {
   title: "About",
   description:
     "Biography of Adrian Sanchez, a software engineer at One Call in Basel, Switzerland.",
-  lede: "Software engineer in Basel. Production software, end to end.",
+  lede: "Hi, I'm Adrian. Software engineer in Basel, Switzerland.",
   sections: [
     {
-      label: "Who",
+      label: "Now",
       paragraphs: [
-        "I am Adrian Sanchez, a software engineer at One Call in Basel, Switzerland. I build and ship production software end to end, covering backend, frontend, and infrastructure. Use this page to confirm which Adrian Sanchez this domain belongs to. This site is not One Call's product, and it is not a support channel for the projects I link to.",
+        "I am Adrian Sanchez, a software engineer at One Call in Basel, Switzerland. I build and ship production software end to end, and help bring AI workflows into day-to-day engineering on a large healthcare platform.",
+        "Outside of work, I build things that solve real friction: [The Israel Guide](https://theisraelguide.co.il), a GEO-optimized booking product; [SAS Creator](https://github.com/Lisztos/sas-creator), a browser agent that automates company registration in Mexico; and [Sublify](https://github.com/Lisztos/Sublify), a native macOS app.",
       ],
     },
     {
-      label: "Now",
-      paragraphs: site.history
-        .filter((item) => item.when === "Now")
-        .map((item) => `${item.name}, ${item.role}. ${item.line}`),
-    },
-    {
-      label: "Before",
-      paragraphs: site.history
-        .filter((item) => item.when === "Before")
-        .map((item) => `${item.name}, ${item.role}. ${item.line}`),
-    },
-    {
-      label: "Selected",
-      paragraphs: site.projects.map((item) => {
-        const url = "url" in item ? item.url : "";
-        const description = "description" in item ? item.description : "";
-        const title = url ? `[${item.title}](${url})` : item.title;
-        return `${title}. ${item.kicker}. ${description}`;
-      }),
+      label: "Background",
+      paragraphs: [
+        "I grew up in a city near Mexico City and started playing the piano when I was seven. Franz Liszt quickly became my favorite composer, a lifelong obsession that eventually inspired the name Lisztos. After competing internationally and winning a national first prize, I decided to step away from the stage and look for what came next outside of Mexico. That search took me through the US and the UK before I landed in Germany to study Wirtschaftsinformatik (Business Information Systems) at TU Berlin.",
+        "In Berlin, I cut my teeth as a working-student engineer at [Almondia](https://almondia.com) and then at [Setting.io](https://setting.io), a proptech startup that showed me how much fun a fast, close-knit Berlin startup team could be.",
+        "A move to Munich brought me to [Demodesk](https://demodesk.ai), where I joined as an intern while writing my bachelor thesis on decentralized identity. After graduating with a 1.0, I stayed on full-time and grew into a full-stack engineer and team lead, coordinating delivery across product and support.",
+        "Later, a former colleague brought me over to [Innovandio](https://innovandio.com). Working across enterprise clients meant jumping into unfamiliar stacks quickly, designing CI/CD pipelines from scratch, and leaning into AI-assisted development early to ship faster.",
+        "After taking time off back in Mexico to reconnect with my roots, One Call reached out to bring me on board to help modernize their platform and accelerate AI adoption across engineering.",
+        "Today, I'm settled in Basel, enjoying the rhythm of Switzerland and a culture built around craft and precision.",
+      ],
     },
   ],
 };

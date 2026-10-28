@@ -67,7 +67,7 @@ export const site = {
       name: "Demodesk",
       url: "https://demodesk.ai",
       after:
-        ", starting as an engineering intern and growing into a full-stack engineer and team lead, managing a team of engineers and coordinating feature delivery across product and support. Working-student roles at Setting.io and Almondia before that, where I first cut my teeth on full-stack development.",
+        ", starting as an engineering intern and growing into a full-stack engineer and team lead, managing a team of engineers and coordinating feature delivery across product and support.",
     },
   ],
   stack:
@@ -110,6 +110,10 @@ export const site = {
       description:
         "An automated browser agent that completes Mexico's notoriously slow SAS company registration end to end, with auto-retry and Telegram notifications.",
       techStack: ["Python", "Playwright"],
+      image: {
+        src: "/images/projects/sas-creator.jpg",
+        alt: "SAS Creator logo",
+      },
       url: "https://github.com/Lisztos/sas-creator",
     },
     {

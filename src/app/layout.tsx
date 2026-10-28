@@ -2,11 +2,9 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { CommandPalette } from "./components/CommandPalette";
-import { DotGrid } from "./components/DotGrid";
-import { GridLife } from "./components/GridLife";
 import { InkCursor } from "./components/InkCursor";
 import { CalEmbed } from "./components/CalEmbed";
-import { Preloader } from "./components/Preloader";
+import { ScrollHomeTop } from "./components/ScrollHomeTop";
 import { mono, serif } from "./fonts";
 import { jsonLd } from "@/lib/jsonld";
 import { site } from "@/lib/site";
@@ -47,19 +45,17 @@ export default function RootLayout({
       <body>
         <script
           dangerouslySetInnerHTML={{
-            __html: `document.documentElement.classList.add('js');if(location.pathname==='/'&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('loading');else document.documentElement.classList.add('ready');`,
+            __html: `document.documentElement.classList.add('js');requestAnimationFrame(function(){document.documentElement.classList.add('ready')});`,
           }}
         />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd()) }}
         />
-        <Preloader />
         <InkCursor />
-        <DotGrid />
-        <GridLife />
         <CalEmbed />
         <CommandPalette />
+        <ScrollHomeTop />
         {children}
         <Analytics />
         <SpeedInsights />

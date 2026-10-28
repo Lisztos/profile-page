@@ -1,77 +1,60 @@
 import type { Metadata } from "next";
 import { DocPage } from "../components/DocPage";
-import { TiltPortrait } from "../components/TiltPortrait";
+import { RichText } from "../components/RichText";
 import { docs } from "@/lib/agent-content";
 import { calBookingPath, site } from "@/lib/site";
 
 const doc = docs.about;
 
 export const metadata: Metadata = {
-  title: `${doc.title} | ${site.name}`,
+  title: `About | ${site.name}`,
   description: doc.description,
   alternates: { canonical: doc.path },
 };
 
 export default function AboutPage() {
+  const [intro, background] = doc.sections;
+
   return (
-    <DocPage title={doc.title} lede={doc.lede}>
-      <figure className="doc-figure">
-        <TiltPortrait priority={false} sizes="220px" />
-      </figure>
+    <DocPage title="Hi, I'm Adrian.">
+      {intro ? (
+        <section className="about-prose" aria-label="Introduction">
+          {intro.paragraphs.map((paragraph, index) => (
+            <p key={`intro-${index}`}>
+              <RichText text={paragraph} />
+            </p>
+          ))}
+        </section>
+      ) : null}
 
-      <section className="role-list" aria-label="Work">
-        {site.history.map((item) => {
-          const name =
-            "url" in item && item.url ? (
-              <a className="sweep" href={item.url} target="_blank" rel="noopener noreferrer">
-                {item.name}
-              </a>
-            ) : (
-              item.name
+      {background ? (
+        <section className="about-prose about-section" aria-label={background.label}>
+          <h2>{background.label}</h2>
+          {background.paragraphs.map((paragraph, index) => {
+            const last = index === background.paragraphs.length - 1;
+            return (
+              <p key={`bg-${index}`}>
+                <RichText text={paragraph} />
+                {last ? (
+                  <span className="about-caret-inline" aria-hidden="true">
+                    <span className="role-caret" />
+                  </span>
+                ) : null}
+              </p>
             );
-          return (
-            <article className="role-row" key={item.name}>
-              <div className="role-head">
-                <h2>{name}</h2>
-                <span className="meta">{item.when}</span>
-              </div>
-              <p className="role-kicker">{item.role}</p>
-              <p>{item.line}</p>
-            </article>
-          );
-        })}
-      </section>
-
-      <section className="build-list" aria-label="Selected work">
-        <p className="section-kicker meta">Selected</p>
-        {site.projects.map((item, index) => {
-          const href = "url" in item ? item.url : undefined;
-          const title = href ? (
-            <a className="sweep" href={href} target="_blank" rel="noopener noreferrer">
-              {item.title}
-            </a>
-          ) : (
-            item.title
-          );
-          return (
-            <article className="build-row" key={item.title}>
-              <span className="meta n">{String(index + 1).padStart(2, "0")}</span>
-              <div>
-                <div className="build-head">
-                  <h2>{title}</h2>
-                  <span className="k">{item.kicker}</span>
-                </div>
-                {"description" in item ? <p>{item.description}</p> : null}
-              </div>
-            </article>
-          );
-        })}
-      </section>
+          })}
+        </section>
+      ) : null}
 
       <div className="cta">
-        <span className="q">A call, if you want one.</span>
-        <a className="pill-solid" href={site.cal} data-cal-link={calBookingPath} aria-haspopup="dialog">
-          book 30 minutes
+        <span className="q">Reach me.</span>
+        <a
+          className="pill-solid"
+          href={site.cal}
+          data-cal-link={calBookingPath}
+          aria-haspopup="dialog"
+        >
+          book a call →
         </a>
       </div>
     </DocPage>

@@ -8,7 +8,7 @@ export function DocPage({
   children,
 }: {
   title: string;
-  lede: string;
+  lede?: string;
   children: ReactNode;
 }) {
   return (
@@ -22,7 +22,7 @@ export function DocPage({
             <span className="meta">{site.location}</span>
           </div>
           <h1>{title}</h1>
-          <p className="lede">{lede}</p>
+          {lede ? <p className="lede">{lede}</p> : null}
         </header>
         {children}
       </div>
