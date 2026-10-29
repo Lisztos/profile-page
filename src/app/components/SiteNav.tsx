@@ -16,8 +16,7 @@ export function SiteNav() {
   const [mac, setMac] = useState(true);
   const pathname = usePathname();
   const sheetId = useId();
-  const openRef = useRef<HTMLButtonElement>(null);
-  const closeRef = useRef<HTMLButtonElement>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     setOpen(false);
@@ -35,7 +34,6 @@ export function SiteNav() {
     if (!open) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    closeRef.current?.focus();
     return () => {
       document.body.style.overflow = prev;
     };
@@ -46,7 +44,7 @@ export function SiteNav() {
     function onKeyDown(event: KeyboardEvent) {
       if (event.key !== "Escape") return;
       setOpen(false);
-      openRef.current?.focus();
+      toggleRef.current?.focus();
     }
     document.addEventListener("keydown", onKeyDown);
     return () => document.removeEventListener("keydown", onKeyDown);
@@ -64,6 +62,7 @@ export function SiteNav() {
         className="site-logo"
         href="/"
         aria-label={`${site.name} home`}
+        onClick={() => setOpen(false)}
         style={{ "--logo-mark-src": `url(${site.logos.mark})` } as CSSProperties}
       >
         <span className="site-mark-glyph" aria-hidden="true" />
@@ -90,15 +89,15 @@ export function SiteNav() {
 
       <div className="mobile-nav" data-open={open ? "" : undefined}>
         <button
-          ref={openRef}
+          ref={toggleRef}
           type="button"
           className="mobile-nav-open"
           aria-expanded={open}
           aria-controls={sheetId}
-          aria-label="Open menu"
-          onClick={() => setOpen(true)}
+          aria-label={open ? "Close menu" : "Open menu"}
+          onClick={() => setOpen((prev) => !prev)}
         >
-          <span className="mobile-nav-icon" aria-hidden="true">
+          <span className={open ? "mobile-nav-icon is-x" : "mobile-nav-icon"} aria-hidden="true">
             <span />
             <span />
           </span>
@@ -113,36 +112,13 @@ export function SiteNav() {
           aria-hidden={!open}
           inert={open ? undefined : true}
         >
-          <header className="mobile-nav-head mobile-nav-row" style={{ "--nav-i": 0 } as CSSProperties}>
-            <a
-              className="mobile-nav-brand"
-              href="/"
-              onClick={() => setOpen(false)}
-              style={{ "--logo-mark-src": `url(${site.logos.mark})` } as CSSProperties}
-            >
-              <span className="site-mark-glyph" aria-hidden="true" />
-            </a>
-            <button
-              ref={closeRef}
-              type="button"
-              className="mobile-nav-close"
-              aria-label="Close menu"
-              onClick={() => setOpen(false)}
-            >
-              <span className="mobile-nav-icon is-x" aria-hidden="true">
-                <span />
-                <span />
-              </span>
-            </button>
-          </header>
-
           <nav className="mobile-nav-links" aria-label="Site">
             <ul>
               {LINKS.map(({ href, label }, index) => (
                 <li
                   key={href}
                   className="mobile-nav-row"
-                  style={{ "--nav-i": index + 1 } as CSSProperties}
+                  style={{ "--nav-i": index } as CSSProperties}
                 >
                   <a
                     href={href}
@@ -160,7 +136,7 @@ export function SiteNav() {
 
           <div
             className="mobile-nav-foot mobile-nav-row"
-            style={{ "--nav-i": LINKS.length + 1 } as CSSProperties}
+            style={{ "--nav-i": LINKS.length } as CSSProperties}
           >
             <button type="button" className="mobile-nav-cmd" onClick={openCommandMenu}>
               <span className="mobile-nav-cmd-dot" aria-hidden="true" />

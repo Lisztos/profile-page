@@ -15,7 +15,7 @@
   --mono: var(--font-mono), ui-monospace, monospace;
   /* z: 1 column, 50 sound (unused), 75 site nav, 80 cmdk, 81 hamburger, 90 cursor */
   --column: 680px;
-  --site-chrome-top: 18px;
+  --site-chrome-top: 14px;
   --site-chrome-hit: 44px;
   --site-logo-size: 32px;
 }
@@ -140,11 +140,11 @@ html.js.cursor-on footer a:focus-visible {
 }
 
 /* ---------- masthead ---------- */
-header {
+main > header {
   padding-top: calc(var(--site-chrome-top) + var(--site-chrome-hit) + 16px);
 }
 
-.doc header {
+.doc-body > header {
   padding-top: calc(var(--site-chrome-top) + var(--site-chrome-hit) + 28px);
 }
 
@@ -1084,14 +1084,10 @@ html.js .fx.in {
   left: 0;
   right: 0;
   z-index: 74;
-  height: calc(var(--site-chrome-top) + var(--site-chrome-hit) + 12px);
+  height: calc(var(--site-chrome-top) * 2 + var(--site-chrome-hit));
   background: var(--paper);
   border-bottom: 1px solid var(--rule);
   pointer-events: none;
-}
-
-body:has(.mobile-nav[data-open]) .site-chrome-bar {
-  visibility: hidden;
 }
 
 .site-logo {
@@ -1127,11 +1123,6 @@ body:has(.mobile-nav[data-open]) .site-chrome-bar {
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
   mask-position: center;
-}
-
-body:has(.mobile-nav[data-open]) .site-logo {
-  opacity: 0;
-  pointer-events: none;
 }
 
 .site-nav-desktop {
@@ -1191,8 +1182,8 @@ body:has(.mobile-nav[data-open]) .site-logo {
   .mobile-nav-open {
     position: fixed;
     top: var(--site-chrome-top);
-    right: 20px;
-    z-index: 81;
+    right: calc(24px - (var(--site-chrome-hit) - 22px) / 2);
+    z-index: 75;
     width: var(--site-chrome-hit);
     height: var(--site-chrome-hit);
     display: grid;
@@ -1203,17 +1194,9 @@ body:has(.mobile-nav[data-open]) .site-logo {
     background: transparent;
     color: var(--ink);
     cursor: pointer;
-    opacity: 1;
-    transition: opacity 0.25s ease;
   }
 
-  .mobile-nav[data-open] .mobile-nav-open {
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .mobile-nav-open:focus-visible,
-  .mobile-nav-close:focus-visible {
+  .mobile-nav-open:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
   }
@@ -1244,26 +1227,26 @@ body:has(.mobile-nav[data-open]) .site-logo {
   }
 
   .mobile-nav-icon span:nth-child(2) {
-    top: 11px;
+    top: 10.5px;
   }
 
   .mobile-nav-icon.is-x span:nth-child(1) {
-    top: 6px;
+    top: 6.25px;
     transform: rotate(45deg);
   }
 
   .mobile-nav-icon.is-x span:nth-child(2) {
-    top: 6px;
+    top: 6.25px;
     transform: rotate(-45deg);
   }
 
   .mobile-nav-sheet {
     position: fixed;
     inset: 0;
-    z-index: 79;
+    z-index: 73;
     display: flex;
     flex-direction: column;
-    padding: 20px 24px 28px;
+    padding: calc(var(--site-chrome-top) * 2 + var(--site-chrome-hit)) 24px 28px;
     background: var(--paper);
     pointer-events: none;
     visibility: hidden;
@@ -1280,40 +1263,6 @@ body:has(.mobile-nav[data-open]) .site-logo {
     transition:
       clip-path 0.45s cubic-bezier(0.22, 1, 0.36, 1),
       visibility 0s;
-  }
-
-  .mobile-nav-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    padding-bottom: 18px;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .mobile-nav-brand {
-    display: block;
-    width: 32px;
-    height: 32px;
-  }
-
-  .mobile-nav-brand .site-mark-glyph {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-
-  .mobile-nav-close {
-    width: 44px;
-    height: 44px;
-    display: grid;
-    place-items: center;
-    margin: 0;
-    padding: 0;
-    border: none;
-    background: transparent;
-    color: var(--ink);
-    cursor: pointer;
   }
 
   .mobile-nav-links {
