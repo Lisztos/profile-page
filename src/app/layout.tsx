@@ -5,7 +5,6 @@ import { CommandPalette } from "./components/CommandPalette";
 import { SiteNav } from "./components/SiteNav";
 import { InkCursor } from "./components/InkCursor";
 import { CalEmbed } from "./components/CalEmbed";
-import { ScrollHomeTop } from "./components/ScrollHomeTop";
 import { mono, serif } from "./fonts";
 import { jsonLd } from "@/lib/jsonld";
 import { site } from "@/lib/site";
@@ -57,7 +56,6 @@ export default function RootLayout({
         <CalEmbed />
         <CommandPalette />
         <SiteNav />
-        <ScrollHomeTop />
         {children}
         <Analytics />
         <SpeedInsights />
