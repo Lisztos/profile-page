@@ -2,10 +2,11 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import portraitImg from "../../../public/images/portrait.jpg";
 
 export function TiltPortrait({
   priority = true,
-  sizes = "190px",
+  sizes = "(max-width: 560px) 220px, 190px",
 }: {
   priority?: boolean;
   sizes?: string;
@@ -42,10 +43,11 @@ export function TiltPortrait({
   return (
     <div className="portrait" ref={ref}>
       <Image
-        src="/images/portrait.jpg"
+        src={portraitImg}
         alt="Adrian Sanchez"
         fill
         priority={priority}
+        placeholder="blur"
         sizes={sizes}
       />
     </div>
