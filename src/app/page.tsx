@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { getStars } from "@/lib/github";
 import { calBookingPath, site } from "@/lib/site";
 import { CommandHint } from "./components/CommandHint";
@@ -51,94 +50,99 @@ export default async function Home() {
         <Ticker />
       </header>
 
-      <section className="defs" id="about" aria-label="About">
-        <Reveal className="def">
-          <span className="label" style={{ color: "var(--accent)" }}>
-            NOW
-          </span>
-          <p>
-            {site.nowLead}
-            <span className="u-now">{site.nowCompany}</span>
-            {site.nowRest}
-          </p>
-        </Reveal>
-        <Reveal className="def">
-          <span className="label" style={{ color: "var(--muted)" }}>
-            BEFORE
-          </span>
-          <p>
-            {site.before.map((item) => (
-              <span key={item.name}>
-                <a
-                  className="u-past"
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {item.name}
-                </a>
-                {item.after}
+      <section className="ruled defs" id="about" aria-label="Experience">
+        <Reveal className="inner">
+          <div className="h2row">
+            <h2>Experience</h2>
+            <span className="meta">NOW &amp; BEFORE</span>
+          </div>
+          <div className="defs-list">
+            <div className="def">
+              <span className="label" style={{ color: "var(--accent)" }}>
+                NOW
               </span>
-            ))}
-          </p>
-        </Reveal>
-        <Reveal className="def">
-          <span className="label" style={{ color: "var(--muted)" }}>
-            STACK
-          </span>
-          <p>{site.stack}</p>
+              <p>
+                {site.nowLead}
+                <span className="u-now">{site.nowCompany}</span>
+                {site.nowRest}
+              </p>
+            </div>
+            <div className="def">
+              <span className="label" style={{ color: "var(--muted)" }}>
+                BEFORE
+              </span>
+              <p>
+                {site.before.map((item) => (
+                  <span key={item.name}>
+                    <a
+                      className="u-past"
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {item.name}
+                    </a>
+                    {item.after}
+                  </span>
+                ))}
+              </p>
+            </div>
+            <div className="def">
+              <span className="label" style={{ color: "var(--muted)" }}>
+                STACK
+              </span>
+              <p>{site.stack}</p>
+            </div>
+          </div>
         </Reveal>
       </section>
 
-      <StarredRepos repos={stars} />
-
       <section className="ruled" id="projects">
         <Reveal className="inner">
-          <h2>Projects</h2>
+          <div className="h2row">
+            <h2>Projects</h2>
+            <span className="meta">SELECTED WORK</span>
+          </div>
           <div className="projects">
-            {site.projects.map((item) => {
+            {site.projects.map((item, index) => {
               const url = "url" in item ? item.url : undefined;
               const description = "description" in item ? item.description : undefined;
-              const image = "image" in item ? item.image : undefined;
               const techStack = "techStack" in item ? item.techStack : undefined;
+              const num = String(index + 1).padStart(2, "0");
               const content = (
                 <>
-                  {image ? (
-                    <div
-                      className={
-                        "border" in image && image.border === false
-                          ? "cell-media cell-media-noborder"
-                          : "cell-media"
-                      }
-                    >
-                      <div className="cell-media-inset">
-                        <Image
-                          src={image.src}
-                          alt={image.alt}
-                          fill
-                          sizes="56px"
-                          className="cell-media-img"
-                        />
-                      </div>
+                  <span className="project-num" aria-hidden="true">
+                    {num}
+                  </span>
+                  <div className="project-body">
+                    <div className="project-head">
+                      <span className="project-title">
+                        {item.title}
+                        {url ? (
+                          <span className="project-arrow" aria-hidden="true">
+                            ↗
+                          </span>
+                        ) : null}
+                      </span>
+                      <span className="project-kicker">{item.kicker}</span>
                     </div>
-                  ) : null}
-                  <div className="cell-body">
-                    <div className="t">{item.title}</div>
-                    {description ? <p className="d">{description}</p> : null}
-                    {techStack ? (
-                      <div className="stack">
-                        {techStack.map((tech) => (
-                          <span key={tech}>{tech}</span>
+                    {description ? <p className="project-desc">{description}</p> : null}
+                    {techStack && techStack.length > 0 ? (
+                      <div className="project-stack">
+                        {techStack.map((tech, i) => (
+                          <span key={tech}>
+                            {i > 0 ? <i aria-hidden="true"> · </i> : null}
+                            {tech}
+                          </span>
                         ))}
                       </div>
                     ) : null}
-                    <div className="k">{item.kicker}</div>
                   </div>
                 </>
               );
               return url ? (
                 <a
-                  className="cell"
+                  className="project-row"
                   key={item.title}
                   href={url}
                   target="_blank"
@@ -147,7 +151,7 @@ export default async function Home() {
                   {content}
                 </a>
               ) : (
-                <div className="cell" key={item.title}>
+                <div className="project-row" key={item.title}>
                   {content}
                 </div>
               );
@@ -155,6 +159,8 @@ export default async function Home() {
           </div>
         </Reveal>
       </section>
+
+      <StarredRepos repos={stars} />
 
       <Reveal className="cta">
         <span className="q">Reach me.</span>

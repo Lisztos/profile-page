@@ -1,4 +1,4 @@
-import type { StarredRepo } from "@/lib/github";
+import { formatStarCount, type StarredRepo } from "@/lib/github";
 import { site } from "@/lib/site";
 import { Reveal } from "./Reveal";
 
@@ -27,7 +27,9 @@ export function StarredRepos({ repos }: { repos: StarredRepo[] }) {
             >
               <span className="name">{repo.name}</span>
               <span className="desc">{repo.desc}</span>
-              {repo.topic ? <span className="tag">{repo.topic}</span> : <span />}
+              <span className="tag" aria-label={`${repo.stars} stars`}>
+                {formatStarCount(repo.stars)}
+              </span>
             </a>
           ))}
         </div>
