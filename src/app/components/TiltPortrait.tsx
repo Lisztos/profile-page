@@ -2,8 +2,15 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import portraitImg from "../../../public/images/portrait.jpg";
 
-export function TiltPortrait() {
+export function TiltPortrait({
+  priority = true,
+  sizes = "(max-width: 560px) 220px, 190px",
+}: {
+  priority?: boolean;
+  sizes?: string;
+}) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -36,11 +43,12 @@ export function TiltPortrait() {
   return (
     <div className="portrait" ref={ref}>
       <Image
-        src="/images/portrait.jpg"
+        src={portraitImg}
         alt="Adrian Sanchez"
         fill
-        priority
-        sizes="190px"
+        priority={priority}
+        placeholder="blur"
+        sizes={sizes}
       />
     </div>
   );

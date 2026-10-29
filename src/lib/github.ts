@@ -10,20 +10,28 @@ export type StarredRepo = {
   name: string;
   desc: string;
   url: string;
-  topic: string;
+  stars: number;
 };
 
 type GithubStarRaw = {
   full_name: string;
   description: string | null;
   html_url: string;
-  topics?: string[];
-  language?: string | null;
+  stargazers_count?: number;
 };
+
+export function formatStarCount(count: number): string {
+  if (count >= 1000) {
+    const k = count / 1000;
+    const formatted = k >= 10 ? Math.round(k).toString() : k.toFixed(1).replace(/\.0$/, "");
+    return `★ ${formatted}K`;
+  }
+  return `★ ${count}`;
+}
 
 export async function getStars(): Promise<StarredRepo[]> {
   const res = await fetch(
-    "https://api.github.com/users/Lisztos/starred?per_page=8&sort=created",
+    "https://api.github.com/users/Lisztos/starred?per_page=6&sort=created",
     {
       headers: GITHUB_HEADERS,
       next: { revalidate: 86400 },
@@ -37,7 +45,7 @@ export async function getStars(): Promise<StarredRepo[]> {
     name: r.full_name,
     desc: r.description ?? "",
     url: r.html_url,
-    topic: (r.topics?.[0] ?? r.language ?? "").toUpperCase(),
+    stars: r.stargazers_count ?? 0,
   }));
 }
 

@@ -10,15 +10,62 @@ export const site = {
   githubStars: "https://github.com/Lisztos?tab=stars",
   linkedin: "https://www.linkedin.com/in/adrian-isaias-sanchez/",
   cal: "https://cal.eu/adriansanchez/30min",
-  title: "Adrian Sanchez | Software Engineer",
+  email: "adrian@lisztostech.com",
+  addressLocality: "Basel",
+  addressCountry: "CH",
+  logos: {
+    mark: "/images/logo-as-clear.png",
+    markSquare: "/images/logo-as.png",
+    /** Cream square + clear monogram; baked into `src/app/icon.png` and `favicon.ico`. */
+    markFavicon: "/images/logo-as-clear.png",
+    logoOnDark: "/images/logo-as-light.png",
+    /** Header monogram: `accent` (matches *Sanchez*) or `ink` (near-black). */
+    tone: "accent" as "accent" | "ink",
+  },
+  title: "Adrian Sanchez | Software Engineer at One Call",
   description:
-    "Software Engineer at One Call. 5+ years of experience building production software. Based in Basel, Switzerland.",
+    "Adrian Sanchez is a software engineer at One Call in Basel, Switzerland. He builds production software end to end, with 5+ years shipping real products.",
   intro:
     "I build and ship production software end to end, covering backend, frontend, and infrastructure, for teams shipping real products.",
   nowLead: "Software Engineer at ",
   nowCompany: "One Call",
+  nowCompanyUrl: "https://onecallcm.com",
   nowRest:
     ". I maintain and build features for a .NET Core platform in the Physical Medicine division, and help accelerate AI adoption across engineering.",
+  history: [
+    {
+      name: "One Call",
+      when: "Now",
+      role: "Software Engineer",
+      line: "A .NET Core platform in Physical Medicine, plus AI adoption across engineering. Production software people already use.",
+    },
+    {
+      name: "Innovandio",
+      url: "https://innovandio.com",
+      when: "Before",
+      role: "Senior Engineer",
+      line: "Full-stack applications for enterprise clients, CI/CD pipelines, and leading client projects.",
+    },
+    {
+      name: "Demodesk",
+      url: "https://demodesk.ai",
+      when: "Before",
+      role: "Intern to team lead",
+      line: "Grew from engineering intern to full-stack engineer and team lead, coordinating feature delivery across product and support.",
+    },
+    {
+      name: "Setting.io",
+      when: "Before",
+      role: "Working student",
+      line: "Full-stack development as a working student.",
+    },
+    {
+      name: "Almondia",
+      when: "Before",
+      role: "Working student",
+      line: "Where I took my first steps in full-stack development.",
+    },
+  ],
   before: [
     {
       name: "Innovandio",
@@ -30,7 +77,7 @@ export const site = {
       name: "Demodesk",
       url: "https://demodesk.ai",
       after:
-        ", starting as an engineering intern and growing into a full-stack engineer and team lead, managing a team of engineers and coordinating feature delivery across product and support. Working-student roles at Setting.io and Almondia before that, where I first cut my teeth on full-stack development.",
+        ", starting as an engineering intern and growing into a full-stack engineer and team lead, managing a team of engineers and coordinating feature delivery across product and support.",
     },
   ],
   stack:
@@ -73,6 +120,10 @@ export const site = {
       description:
         "An automated browser agent that completes Mexico's notoriously slow SAS company registration end to end, with auto-retry and Telegram notifications.",
       techStack: ["Python", "Playwright"],
+      image: {
+        src: "/images/projects/sas-creator.jpg",
+        alt: "SAS Creator logo",
+      },
       url: "https://github.com/Lisztos/sas-creator",
     },
     {

@@ -22,6 +22,10 @@ const GROUP_TITLES: Record<Group, string> = {
 };
 
 function scrollToId(id: string) {
+  if (window.location.pathname !== "/") {
+    window.location.assign(`/#${id}`);
+    return;
+  }
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 

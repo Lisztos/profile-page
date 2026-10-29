@@ -6,11 +6,13 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "node --experimental-strip-types --test-isolation=none --import ./tests/register.mjs --test tests/*.test.ts"
   },
   "dependencies": {
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
+    "motion": "^14.7.1",
     "next": "16.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
