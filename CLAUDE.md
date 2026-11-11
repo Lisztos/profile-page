@@ -12,16 +12,16 @@ one `globals.css`, English only, one page (`/`).
 
 ```bash
 # Start development server with Turbopack (http://localhost:3000)
-npm run dev
+pnpm dev
 
 # Build for production
-npm run build
+pnpm build
 
 # Start production server
-npm start
+pnpm start
 
 # Run linter
-npm run lint
+pnpm lint
 ```
 
 No test suite exists.
