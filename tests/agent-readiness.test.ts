@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import { preferredDocumentType } from "../src/lib/accept.ts";
-import { docList, homeMarkdown, llmsTxt, notFoundMarkdown, visibleText } from "../src/lib/agent-content.ts";
+import { docList, homeMarkdown, llmsTxt, notFoundMarkdown, pageBodyText, visibleText } from "../src/lib/agent-content.ts";
 import { jsonLd } from "../src/lib/jsonld.ts";
 import { MARKDOWN_CONTENT_TYPE, VARY_ACCEPT, resolveRequest } from "../src/lib/negotiate.ts";
 import { site } from "../src/lib/site.ts";
@@ -144,6 +144,9 @@ describe("trust pages", () => {
       const text = visibleText(doc);
       assert.ok(text.length >= 500, `${doc.path} has ${text.length} characters`);
       assert.match(text, /Adrian Sanchez|I am Adrian|my personal site|Write to|Book a 30-minute/);
+      if (doc.path === "/contact") continue;
+      const body = pageBodyText(doc);
+      assert.ok(body.length >= 500, `${doc.path} body has ${body.length} characters`);
     }
   });
 });

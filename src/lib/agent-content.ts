@@ -49,15 +49,21 @@ const contact: Doc = {
   lede: "Calendar if you want to talk. Email if you want to write first.",
   sections: [
     {
+      label: "Who",
+      paragraphs: [
+        "This is the personal professional site of Adrian Sanchez (GitHub: Lisztos), a software engineer at One Call in Basel, Switzerland. Use it to confirm identity, read selected work, and start a conversation about a role, a contract, or a project. It is not One Call's customer-support site, not a product dashboard, and not a company storefront.",
+      ],
+    },
+    {
       label: "Call",
       paragraphs: [
-        `Book a 30-minute call: [Book a 30-minute call](${site.cal}). Use that for a role, a contract, or a specific project, once you know this is the Adrian Sanchez in Basel who works at One Call. The calendar is the scheduling tool. I do not publish a phone number, and there is no walk-in office.`,
+        `The calendar is at [Book a 30-minute call](${site.cal}). Use that once you know this is the Adrian Sanchez in Basel who works at One Call. I do not publish a phone number, there is no walk-in office, and I do not take unscheduled voice calls on this site.`,
       ],
     },
     {
       label: "Email",
       paragraphs: [
-        `Write to [${site.email}](mailto:${site.email}) when you need to send context I should read before a call. Say who you are and what you want in the first lines. I read that address for professional inquiries. It is not a support inbox for One Call.`,
+        `Write to [${site.email}](mailto:${site.email}) when you need to send context I should read before a call. Say who you are and what you want in the first lines. I read that address for professional inquiries. It is not a support inbox for One Call, and there is no ticket system here.`,
       ],
     },
     {
@@ -74,12 +80,18 @@ const privacy: Doc = {
   title: "Privacy",
   description:
     "What adrianisanchez.com records, what it does not, and how to ask about your data.",
-  lede: "What this site records, what leaves the domain, and where to ask.",
+  lede: "What this personal site records, what leaves the domain, and where to ask Adrian Sanchez.",
   sections: [
+    {
+      label: "Operator",
+      paragraphs: [
+        "adrianisanchez.com is the personal professional site of Adrian Sanchez, a software engineer based in Basel, Switzerland. It publishes a biography, selected projects, and ways to contact me. You can read it without creating an account. There is no shop, no mailing list signup, and no user login.",
+      ],
+    },
     {
       label: "Recorded",
       paragraphs: [
-        "adrianisanchez.com is my personal site. It publishes a biography, selected projects, and ways to contact me. You can read it without a login. I host it on Vercel. Vercel Analytics records page views, Vercel Speed Insights records performance, and the host keeps ordinary request logs. I do not run ads, and I do not sell personal information.",
+        "I host the site on Vercel. Vercel Analytics records page views, Vercel Speed Insights records performance, and the host keeps ordinary request logs (typically an IP address, user agent, timestamp, and the path requested). I do not run advertising networks, I do not sell personal information, and I do not use the site to build a marketing profile of visitors.",
       ],
     },
     {
@@ -112,9 +124,22 @@ export function getDoc(path: string): Doc | undefined {
 }
 
 export function visibleText(doc: Doc): string {
-  return [doc.title, doc.description, doc.lede, ...doc.sections.flatMap((section) => [section.label, ...section.paragraphs])]
-    .join(" ")
-    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
+  return stripLinks(
+    [doc.title, doc.description, doc.lede, ...doc.sections.flatMap((section) => [section.label, ...section.paragraphs])].join(
+      " ",
+    ),
+  );
+}
+
+/** Title, lede, and body copy that HTML pages actually render (excludes meta description). */
+export function pageBodyText(doc: Doc): string {
+  return stripLinks(
+    [doc.title, doc.lede, ...doc.sections.flatMap((section) => [section.label, ...section.paragraphs])].join(" "),
+  );
+}
+
+function stripLinks(text: string): string {
+  return text.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
 }
 
 export function docMarkdown(doc: Doc): string {
