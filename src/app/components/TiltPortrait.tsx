@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import portraitImg from "../../../public/images/portrait.jpg";
+import portraitImg from "../../../public/images/adrian-sanchez-portrait.jpg";
+import { site } from "@/lib/site";
 
 export function TiltPortrait({
   priority = true,
@@ -43,11 +44,12 @@ export function TiltPortrait({
   return (
     <div className="portrait" ref={ref}>
       <Image
-        src={portraitImg}
-        alt="Adrian Sanchez"
+        src={site.portrait.src}
+        alt={site.portrait.alt}
         fill
         priority={priority}
         placeholder="blur"
+        blurDataURL={portraitImg.blurDataURL}
         sizes={sizes}
       />
     </div>

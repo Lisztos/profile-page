@@ -9,7 +9,7 @@ import {
 export const MARKDOWN_CONTENT_TYPE = "text/markdown; charset=utf-8";
 export const VARY_ACCEPT = "Accept";
 
-const MACHINE_PATHS = new Set(["/robots.txt", "/sitemap.xml", "/llms.txt", "/opengraph-image"]);
+const MACHINE_PATHS = new Set(["/robots.txt", "/sitemap.xml", "/llms.txt"]);
 
 const ASSET_EXTENSION = /\.(?:png|jpe?g|gif|webp|svg|ico|pdf|woff2?|webmanifest|map)$/i;
 
@@ -75,7 +75,7 @@ function normalizePath(pathname: string): string {
 }
 
 function isMachinePath(pathname: string): boolean {
-  return MACHINE_PATHS.has(pathname) || pathname.startsWith("/opengraph-image");
+  return MACHINE_PATHS.has(pathname);
 }
 
 function isAssetPath(pathname: string): boolean {

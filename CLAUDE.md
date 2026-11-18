@@ -116,9 +116,10 @@ import { getStars } from "@/lib/github";
 ### SEO & Metadata
 
 - **metadataBase**: `https://adrianisanchez.com` (from `site.url`), set in `layout.tsx`.
-- **Open Graph / Twitter**: generated dynamically by `src/app/opengraph-image.tsx` via Next's
-  file-convention `ImageResponse` API (fetches Instrument Serif from Google's font repo at request
-  time) — there's no static `/icon.png` reference and no manual `images` array in `metadata`.
+- **Open Graph / Twitter**: `og:image` and `twitter:image` point at the permanent portrait
+ `https://adrianisanchez.com/images/adrian-sanchez-portrait.jpg` (set in `layout.tsx` from
+ `site.portrait`). The same file is the Person `image`, the homepage `primaryImageOfPage`, and
+ an image-sitemap entry on `/` and `/about`.
 - **JSON-LD**: a `Person` schema is inlined as a `<script type="application/ld+json">` in
   `layout.tsx`, built from `site.ts` fields.
 - **`sitemap.ts`** and **`robots.ts`** both exist (file-convention, not static files in `public/`)
@@ -156,6 +157,7 @@ Vercel Analytics and Speed Insights, mounted in `layout.tsx`.
 ## Image Assets
 
 - Company/education logos: `public/images/logos/`
-- Portrait (hero tilt photo): `public/images/portrait.jpg`
+- Portrait (hero, about page, Open Graph, Person schema): `public/images/adrian-sanchez-portrait.jpg`.
+ `public/images/portrait.jpg` is the same file kept at the old path.
 - Project images: `public/images/projects/`
 - `public/images/profile-photo.png` / `.webp` and the CV PDFs are legacy, unreferenced from code.

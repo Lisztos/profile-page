@@ -156,6 +156,14 @@ describe("structured data", () => {
     const organizations = graph.filter((node) => node["@type"] === "Organization");
 
     assert.ok(person);
+    const image = person?.image as Record<string, unknown>;
+    assert.equal(image["@type"], "ImageObject");
+    assert.equal(image.contentUrl, `${site.url}${site.portrait.src}`);
+    assert.equal(image.caption, site.portrait.alt);
+    const webpage = graph.find((node) => node["@type"] === "WebPage");
+    const primary = webpage?.primaryImageOfPage as Record<string, unknown>;
+    assert.equal(primary["@id"], image["@id"]);
+    assert.equal(primary.contentUrl, image.contentUrl);
     assert.equal(typeof person?.description, "string");
     assert.ok(String(person?.description).length > 20);
     assert.match(String(person?.description), /One Call/);

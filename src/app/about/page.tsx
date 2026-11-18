@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { DocPage } from "../components/DocPage";
 import { RichText } from "../components/RichText";
 import { ScrambleDocTitle } from "../components/ScrambleDocTitle";
+import { TiltPortrait } from "../components/TiltPortrait";
 import { docs } from "@/lib/agent-content";
 import { calBookingPath, site } from "@/lib/site";
 
@@ -18,6 +19,9 @@ export default function AboutPage() {
 
   return (
     <DocPage title={<ScrambleDocTitle text={"Hi,\nI'm Adrian."} />}>
+      <figure className="doc-figure">
+        <TiltPortrait priority={false} sizes="220px" />
+      </figure>
       {intro ? (
         <section className="about-prose" aria-label="Introduction">
           {intro.paragraphs.map((paragraph, index) => (

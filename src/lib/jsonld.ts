@@ -2,11 +2,33 @@ import { site } from "@/lib/site";
 
 const personId = `${site.url}/#person`;
 const organizationId = `${site.url}/#organization`;
+const portraitUrl = `${site.url}${site.portrait.src}`;
+
+const portrait = {
+  "@type": "ImageObject",
+  "@id": `${portraitUrl}#image`,
+  contentUrl: portraitUrl,
+  url: portraitUrl,
+  caption: site.portrait.alt,
+  width: site.portrait.width,
+  height: site.portrait.height,
+  encodingFormat: "image/jpeg",
+};
 
 export function jsonLd() {
   return {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${site.url}/#webpage`,
+        url: site.url,
+        name: site.title,
+        description: site.description,
+        inLanguage: "en",
+        primaryImageOfPage: portrait,
+        mainEntity: { "@id": personId },
+      },
       {
         "@type": "Person",
         "@id": personId,
@@ -15,6 +37,7 @@ export function jsonLd() {
         familyName: site.familyName,
         description: site.description,
         jobTitle: site.role,
+        image: portrait,
         worksFor: site.nowCompany,
         email: site.email,
         url: site.url,

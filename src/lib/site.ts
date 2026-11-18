@@ -13,6 +13,13 @@ export const site = {
   email: "adrian@lisztostech.com",
   addressLocality: "Basel",
   addressCountry: "CH",
+  /** Permanent portrait URL. Crawlers, Open Graph, and Person schema all use this file. */
+  portrait: {
+    src: "/images/adrian-sanchez-portrait.jpg",
+    width: 800,
+    height: 1202,
+    alt: "Adrian Sanchez, software engineer in Basel",
+  },
   logos: {
     mark: "/images/logo-as-clear.png",
     markSquare: "/images/logo-as.png",

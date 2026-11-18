@@ -10,6 +10,14 @@ import { jsonLd } from "@/lib/jsonld";
 import { site } from "@/lib/site";
 import "./globals.css";
 
+const portraitImage = {
+  url: site.portrait.src,
+  width: site.portrait.width,
+  height: site.portrait.height,
+  alt: site.portrait.alt,
+  type: "image/jpeg",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: site.title,
@@ -19,11 +27,13 @@ export const metadata: Metadata = {
     title: site.title,
     description: site.description,
     url: site.url,
+    images: [portraitImage],
   },
   twitter: {
     card: "summary_large_image",
     title: site.title,
     description: site.description,
+    images: [portraitImage],
   },
 };
 
